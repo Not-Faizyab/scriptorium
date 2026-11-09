@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="color-scheme" content="light dark" />
+  <meta name="color-scheme" content="dark light" />
   <meta name="description" content="Project Scriptorium: transcriptions of old books and manuscripts, each read beside its facsimile and released into the public domain under CC0 1.0." />
   <title>Project Scriptorium | Public-domain transcriptions of old books &amp; manuscripts</title>
+  <meta name="scriptorium-cover-fix" content="2026-11-09-multi-source-image">
   <script>
     /* Same theme key as the edition pages, so the light/dark choice follows readers across the site. */
     (function () {
       try {
         var t = JSON.parse(localStorage.getItem('nkp:theme'));
-        if (t !== 'light' && t !== 'dark') t = (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+        if (t !== 'light' && t !== 'dark') t = 'dark';
         document.documentElement.setAttribute('data-theme', t);
       } catch (e) {}
     })();
@@ -19,43 +20,11 @@
     window.__catalogueErrors = [];
     window.addEventListener('error', function (e) { window.__catalogueErrors.push({ message: e.message, line: e.lineno }); });
   </script>
-
-  <!--
-  ╔══════════════════════════════════════════════════════════════════════════════╗
-  ║  CATALOGUE: THE ONLY PART YOU NEED TO EDIT                                   ║
-  ║                                                                              ║
-  ║  Each { … } block below is one book or manuscript, and each becomes a card   ║
-  ║  on the homepage. To add a new work:                                         ║
-  ║    1. Put its edition page in its own folder next to this file, for example  ║
-  ║       /my-new-manuscript/index.html  (plus its corpus.json, if it has one).  ║
-  ║    2. Copy the TEMPLATE at the bottom of the list, paste it above the        ║
-  ║       closing  ];  line, and fill it in.                                     ║
-  ║    3. Save and reload. Search, filters, counts and sorting update on their   ║
-  ║       own.                                                                   ║
-  ║                                                                              ║
-  ║  Rules of thumb                                                              ║
-  ║    • Only "title" and "link" are required. Leave anything else as "" or      ║
-  ║      delete the line.                                                        ║
-  ║    • Wrap text in "double quotes". Apostrophes inside are fine.              ║
-  ║    • Put a comma after every closing  }  (a trailing comma is fine too).     ║
-  ║    • If you make a typo, the homepage shows a red notice with the line       ║
-  ║      number instead of a blank page.                                         ║
-  ║                                                                              ║
-  ║  "link" is where the card sends people:                                      ║
-  ║    "aminaddinhan1873/"    folder next to this file, so it opens              ║
-  ║                           yoursite.org/aminaddinhan1873/  (recommended: this ║
-  ║                           also works if the site sits in a sub-folder).      ║
-  ║    "/aminaddinhan1873/"   from the domain root. Also fine.                   ║
-  ║    "https://…"            any full web address.                              ║
-  ║  A missing trailing "/" is added for you, so the edition page can still find ║
-  ║  its corpus.json.                                                            ║
-  ╚══════════════════════════════════════════════════════════════════════════════╝
-  -->
   <script>
   const MANUSCRIPTS = [
 
     {
-      link:          "aminaddinhan1873/",
+      link:          "aminaddinhan1873/index.html",
       title:         "Mat̤laʿ al-ʿajāʾib",
       titleOriginal: "مطلع العجائب",
       titleLang:     "ur",
@@ -71,36 +40,11 @@
       catalogueUrl:  "https://digi.ub.uni-heidelberg.de/diglit/aminaddinhan1873",
       scans:         310,
       layers:        ["IIIF facsimile", "Diplomatic Urdu transcription", "Roman transliteration", "English digest", "Entity index"],
-      description:   "Line-by-line Urdu Nastaliq ground truth for the 1873 Naval Kishore lithograph, shown beside Heidelberg's IIIF facsimile, with a romanised transliteration for searching, an English scholarly digest for every scan and an index of named entities.",
+      description:   "A 1873 Urdu lithograph from Lucknow, presented with its original scans, a line-by-line transcription, Roman transliteration and English summaries.",
       status:        "",
       added:         "",
-      cover:         ""
+      cover:         "https://rekhta.pc.cdn.bitgravity.com/Images/EBooks/small_matla-ul-ajaeb-maloomat-ul-ittefaq-ebooks.jpg"
     },
-
-    /* ── TEMPLATE: copy everything between the two lines, paste it ABOVE this comment ──
-    {
-      link:          "folder-name/",                  // REQUIRED: where the card sends people
-      title:         "Romanised or English title",    // REQUIRED
-      titleOriginal: "",                              // title in the original script (shown on the card's title plate)
-      titleLang:     "",                              // "ur", "fa", "ar", "la", "en"… (sets the font and right-to-left direction)
-      author:        "",
-      year:          "",                              // "1873", "c. 1650", "17th century"… (used for date sorting)
-      place:         "",                              // place of production
-      publisher:     "",                              // press, printer or scribe
-      type:          "Manuscript",                    // "Manuscript", "Lithographed book", "Printed book"… (becomes a filter)
-      language:      "",                              // "Urdu", "Persian", "Arabic, Persian"… (becomes a filter)
-      script:        "",                              // "Nastaliq", "Naskh", "Latin"…
-      holding:       "",                              // library or archive that holds the original
-      shelfmark:     "",
-      catalogueUrl:  "",                              // link to the library's own record (optional)
-      scans:         0,                               // number of scans or pages (a number, no quotes)
-      layers:        ["Facsimile", "Transcription"],  // what the edition contains
-      description:   "",                              // two or three sentences
-      status:        "",                              // "" | "complete" | "in-progress" | "forthcoming" (forthcoming = shown but not clickable)
-      added:         "",                              // date added, as "YYYY-MM-DD": drives "Recently added" and a "New" badge for 45 days
-      cover:         ""                               // optional thumbnail image URL; without one, a typeset title plate is drawn
-    },
-    ── end of template ────────────────────────────────────────────────────────────── */
 
   ];
   </script>
@@ -691,7 +635,296 @@
       body { background: #fff; }
       .work, .card { box-shadow: none; break-inside: avoid; }
     }
-  </style>
+
+
+    /* ── Monochrome institutional theme (shared with the edition reader) ── */
+    :root {
+      --bg-app: #F3F4F5;
+      --bg-paper: #ECEEF0;
+      --bg-panel: #FFFFFF;
+      --bg-elev: #FFFFFF;
+      --bg-well: #EAECED;
+      --bg-hover: #F7F8F9;
+      --ink: #17191B;
+      --ink-muted: #454B51;
+      --ink-faint: #737A80;
+      --rule: #DDE0E3;
+      --rule-soft: #EAECED;
+      --rule-strong: #C9CDD1;
+      --accent: #17191B;
+      --accent-hover: #050607;
+      --accent-ink: #17191B;
+      --accent-pale: #E9EBED;
+      --accent-ring: rgba(23, 25, 27, .16);
+      --hit-bg: #E7E9EB;
+      --ok: #626970;
+      --warn: #737A80;
+      --canvas-bg: #070809;
+      --canvas-bar: #111315;
+      --canvas-rule: #292E33;
+      --canvas-ink: #F1F3F4;
+      --canvas-muted: #A0A6AC;
+      --folio: #E4DCCB;
+      --folio-ink: #202326;
+      --folio-faint: #666D73;
+      --folio-rule: rgba(32, 35, 38, .38);
+      --shadow-sm: 0 1px 3px rgba(15, 18, 20, .06);
+      --shadow-md: 0 8px 24px rgba(15, 18, 20, .08);
+      --shadow-lg: 0 20px 55px rgba(0, 0, 0, .18);
+      --font-serif: Arial, Helvetica, sans-serif;
+      --font-sans: Arial, Helvetica, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      color-scheme: light;
+    }
+
+    [data-theme="dark"] {
+      --bg-app: #090A0B;
+      --bg-paper: #111315;
+      --bg-panel: #111315;
+      --bg-elev: #15181B;
+      --bg-well: #0D0F11;
+      --bg-hover: #1D2125;
+      --ink: #F1F3F4;
+      --ink-muted: #C0C5CA;
+      --ink-faint: #8C939A;
+      --rule: #292E33;
+      --rule-soft: #202428;
+      --rule-strong: #3A4147;
+      --accent: #E6E9EC;
+      --accent-hover: #FFFFFF;
+      --accent-ink: #F0F2F4;
+      --accent-pale: #22272C;
+      --accent-ring: rgba(230, 233, 236, .2);
+      --hit-bg: #343A40;
+      --ok: #B1B7BD;
+      --warn: #8C939A;
+      --canvas-bg: #070809;
+      --canvas-bar: #111315;
+      --canvas-rule: #292E33;
+      --canvas-ink: #F1F3F4;
+      --canvas-muted: #A0A6AC;
+      --folio: #E4DCCB;
+      --folio-ink: #202326;
+      --folio-faint: #666D73;
+      --folio-rule: rgba(32, 35, 38, .38);
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, .32);
+      --shadow-md: 0 8px 24px rgba(0, 0, 0, .36);
+      --shadow-lg: 0 20px 55px rgba(0, 0, 0, .52);
+      color-scheme: dark;
+    }
+
+    /* No rounded UI surfaces anywhere: controls, cards, labels and overlays. */
+    *, *::before, *::after { border-radius: 0 !important; }
+
+    body { font-family: var(--font-sans); }
+    .brand-title, .hero h1, .stat b, .sec-title, .sec-sub,
+    .num, .folio-title, .work-title, .work-orig.is-latin,
+    .works.is-single .work-desc, .empty-state h3,
+    .info-grid .card-body .prose-lead, .foot-brand {
+      font-family: var(--font-sans) !important;
+      font-style: normal;
+    }
+
+    .btn-primary { color: var(--on-accent, #FFFFFF); }
+    [data-theme="dark"] .btn-primary { color: #090A0B; }
+    .inst-tag, .plate-badge.is-new { color: var(--on-accent, #FFFFFF); }
+    [data-theme="dark"] .inst-tag,
+    [data-theme="dark"] .plate-badge.is-new { color: #090A0B; }
+
+    .status-dot,
+    .status-pill.is-warn .status-dot,
+    .plate-badge .dot,
+    .plate-badge.is-complete .dot,
+    .plate-badge.is-progress .dot { background: #8C939A; box-shadow: none; }
+    .toast .i { color: #C0C5CA; }
+    .toast.is-error .i { color: #AEB4BA; }
+    ::selection { background: rgba(150, 158, 166, .3); }
+
+    /* Keep the archival leaf distinct from the interface, but remove ornamental flourish. */
+    .folio-rule::after { content: none; }
+    .hero h1 em { font-style: normal; }
+    .work-orig.is-latin, .folio-title.is-latin { font-style: normal; }
+    .folio { transform: none; }
+    .work.is-linked:hover { transform: none; }
+    .work.is-linked:hover .folio { transform: none; }
+    .toast { color: #F1F3F4; background: #171A1D; border-color: #363C42; }
+
+    @media print {
+      *, *::before, *::after { border-radius: 0 !important; }
+    }
+
+  
+
+    /* ── Focused catalogue layout ─────────────────────────────────────── */
+    :root {
+      --bg-app: #090A0B;
+      --bg-paper: #111315;
+      --bg-panel: #101214;
+      --bg-elev: #14171A;
+      --bg-well: #0D0F11;
+      --bg-hover: #1B1F23;
+      --ink: #F1F3F4;
+      --ink-muted: #BCC2C8;
+      --ink-faint: #858D95;
+      --rule: #292E33;
+      --rule-soft: #202428;
+      --rule-strong: #3A4147;
+      --accent: #E6E9EC;
+      --accent-hover: #FFFFFF;
+      --accent-ink: #F0F2F4;
+      --accent-pale: #22272C;
+      --accent-ring: rgba(230,233,236,.18);
+      --font-serif: Arial, Helvetica, sans-serif;
+      --font-sans: Arial, Helvetica, sans-serif;
+      color-scheme: dark;
+    }
+    html, body { background: var(--bg-app); color: var(--ink); }
+    .topbar {
+      height: 62px; padding: 0 max(24px, calc((100vw - 1120px) / 2));
+      background: #0D0F11; border-top: 0; border-bottom: 1px solid var(--rule);
+    }
+    .topbar-left { gap: 0; }
+    .brand { gap: 0; }
+    .brand-title { font: 600 17px/1.2 Arial, Helvetica, sans-serif; letter-spacing: .01em; }
+    .brand-sub { font: 12px/1.4 Arial, Helvetica, sans-serif; color: var(--ink-faint); margin-top: 3px; }
+    .topbar-right { gap: 0; }
+    .topbar-right .icon-btn { width: 36px; height: 36px; border: 1px solid var(--rule); color: var(--ink-muted); }
+    .hero { background: #090A0B; border-bottom: 1px solid var(--rule); }
+    .hero::before { display: none; }
+    .hero-inner { display: block; max-width: 1120px; padding: 48px 0 44px; }
+    .hero-copy { max-width: 760px; }
+    .hero .eyebrow { display: block; color: var(--ink-faint); font: 600 10px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .14em; }
+    .hero h1 { margin-top: 12px; font: 600 clamp(34px, 4.4vw, 48px)/1.08 Arial, Helvetica, sans-serif; letter-spacing: -.025em; }
+    .hero-lead { max-width: 680px; margin-top: 14px; padding: 0; border: 0; font: 400 17px/1.65 Arial, Helvetica, sans-serif; color: var(--ink-muted); }
+    .hero-meta { margin-top: 18px; color: var(--ink-faint); font: 12px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .hero-meta .sep { margin: 0 9px; color: #626A72; }
+    .hero-cta { margin-top: 22px; height: 42px; padding: 0 16px; background: #F1F3F4; border: 1px solid #F1F3F4; color: #090A0B !important; font: 600 13px/1 Arial, Helvetica, sans-serif; }
+    .hero-cta:hover { background: #FFFFFF; border-color: #FFFFFF; }
+    .section { padding: 34px 0 48px; }
+    .sec-head { margin-bottom: 14px; }
+    .card-title { color: var(--ink-faint); font: 600 10px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .13em; }
+    .sec-title { margin-top: 6px; font: 600 24px/1.2 Arial, Helvetica, sans-serif; letter-spacing: -.015em; }
+    .sec-sub { display: none; }
+    .toolbar { border: 0; background: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; }
+    .toolbar-row { padding: 0 0 10px; }
+    .single-work .toolbar, .single-work .result-bar { display: none !important; }
+    .tool-cluster { display: flex; }
+    .facets { display: flex; }
+    .search { max-width: 480px; }
+    .search input { border-color: var(--rule); background: #101214; }
+    .works { padding: 8px 0 0; gap: 14px; }
+    .works.is-single { max-width: 100%; margin: 0; }
+    .works.is-single .work {
+      display: flex; flex-direction: row; min-height: 380px;
+      background: #111315; border: 1px solid var(--rule); box-shadow: none;
+    }
+    .works.is-single .plate {
+      display: flex; align-items: center; justify-content: center;
+      width: 34%; max-width: 360px; min-height: 380px; height: auto;
+      padding: 28px; background: #08090A; border: 0; border-right: 1px solid var(--rule);
+    }
+    .works.is-single .folio.has-cover {
+      display: block; flex: 0 0 auto; width: 236px; max-width: 100%; height: 318px;
+      padding: 0; background: transparent; box-shadow: none; transform: none; overflow: hidden;
+    }
+    .works.is-single .folio.has-cover .cover-link { display: block; width: 100%; height: 100%; }
+    .works.is-single .folio.has-cover img { display: block; width: 100%; height: 100%; max-width: none; object-fit: contain; object-position: center; background: transparent; }
+    .cover-fallback { display: none; width: 100%; height: 100%; place-items: center; padding: 20px; color: var(--ink-muted); text-align: center; border: 1px solid var(--rule); font: 13px/1.5 Arial, Helvetica, sans-serif; }
+    .cover-fallback a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+    .folio.image-error .cover-fallback { display: grid; }
+    .folio.image-error .cover-link { display: none; }
+    .works.is-single .work-main { min-width: 0; flex: 1 1 auto; display: flex; flex-direction: column; }
+    .works.is-single .work-body { padding: 36px 40px 26px; gap: 0; }
+    .work-kicker { color: var(--ink-faint); font: 600 10px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .12em; text-transform: uppercase; }
+    .works.is-single .work-title { margin-top: 14px; font: 600 32px/1.16 Arial, Helvetica, sans-serif; letter-spacing: -.02em; }
+    .work-link { color: var(--ink); }
+    .work-link:hover { color: #FFFFFF; }
+    .works.is-single .work-orig { margin-top: 8px; color: var(--ink-muted); font: 600 21px/1.9 var(--font-urdu); }
+    .works.is-single .work-author { margin-top: 17px; color: var(--ink); font: 500 14px/1.5 Arial, Helvetica, sans-serif; }
+    .works.is-single .work-imprint { margin-top: 5px; color: var(--ink-faint); font: 12px/1.6 ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .works.is-single .work-desc { display: block; max-width: 62ch; margin-top: 24px; color: var(--ink-muted); font: 400 14px/1.75 Arial, Helvetica, sans-serif; }
+    .work-source { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 20px; color: var(--ink-faint); font: 11px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .source-link { position: relative; z-index: 2; color: var(--ink-muted); text-decoration: underline; text-underline-offset: 3px; }
+    .source-link:hover { color: #FFFFFF; }
+    .works.is-single .work-foot { min-height: 58px; padding: 0 40px; border-top: 1px solid var(--rule); background: #0E1012; }
+    .open-cta { color: #F1F3F4; font: 600 12px/1 Arial, Helvetica, sans-serif; letter-spacing: .015em; }
+    .work-actions, .open-path, .list-badges, .plate-flag, .plate-badges, .layers { display: none !important; }
+    .works:not(.is-single) .work { border: 1px solid var(--rule); border-radius: 0; box-shadow: none; }
+    .works:not(.is-single) .plate { height: 160px; }
+    .works:not(.is-single) .work-title { font: 600 19px/1.25 Arial, Helvetica, sans-serif; }
+    .works:not(.is-single) .work-desc { -webkit-line-clamp: 3; }
+    .about-section { padding: 0 0 34px; }
+    .about-disclosure { border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+    .about-disclosure > summary { cursor: pointer; padding: 16px 0; color: var(--ink-muted); font: 500 13px/1.4 Arial, Helvetica, sans-serif; list-style: none; }
+    .about-disclosure > summary::-webkit-details-marker { display: none; }
+    .about-disclosure > summary::after { content: '+'; float: right; color: var(--ink-faint); font-size: 17px; }
+    .about-disclosure[open] > summary::after { content: '−'; }
+    .about-copy { max-width: 760px; padding: 0 0 20px; color: var(--ink-muted); font: 13px/1.7 Arial, Helvetica, sans-serif; }
+    .about-copy p + p { margin-top: 10px; }
+    .about-copy a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+    .citation-row { display: flex; align-items: center; gap: 10px; margin-top: 14px; padding: 10px 12px; border: 1px solid var(--rule); color: var(--ink-faint); font: 11px/1.6 ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .citation-row .icon-btn { margin-left: auto; flex-shrink: 0; }
+    .site-foot { margin-top: 0; background: #0D0F11; border-top: 1px solid var(--rule); }
+    .foot-inner { align-items: center; padding: 16px 0; }
+    .foot-copy { margin: 0; color: var(--ink-faint); font: 11px/1.5 Arial, Helvetica, sans-serif; }
+    .foot-meta { display: flex; align-items: center; gap: 16px; justify-items: initial; text-align: right; }
+    .foot-meta a { color: var(--ink-muted); text-decoration: none; }
+    .empty-state { border: 1px solid var(--rule); background: #111315; }
+    .empty-state h3 { font: 600 18px Arial, Helvetica, sans-serif; }
+    .notice { border: 1px solid var(--rule); background: #15181B; color: var(--ink-muted); }
+    .btn, .icon-btn, .select, .search input, .segmented, .chip-toggle, .count, .tag, .status-pill, .toast, .ledger, .card, .work { border-radius: 0 !important; }
+    @media (max-width: 899px) {
+      .topbar { padding: 0 18px; }
+      .hero-inner { padding: 38px 0 34px; }
+      .works.is-single .work { flex-direction: column; }
+      .works.is-single .plate { width: 100%; max-width: none; min-height: 280px; height: 280px; border-right: 0; border-bottom: 1px solid var(--rule); }
+      .works.is-single .folio.has-cover { width: 176px; height: 236px; max-width: 100%; }
+      .works.is-single .work-body { padding: 26px 24px 22px; }
+      .works.is-single .work-foot { padding: 0 24px; }
+    }
+    @media (max-width: 620px) {
+      .topbar { padding: 0 14px; }
+      .brand-sub { display: none; }
+      .hero-inner { padding: 34px 0 30px; }
+      .hero h1 { font-size: 36px; }
+      .hero-lead { font-size: 15px; }
+      .section { padding: 28px 0 36px; }
+      .works.is-single .work-title { font-size: 27px; }
+      .works.is-single .work-body { padding: 22px 18px 20px; }
+      .works.is-single .work-foot { padding: 0 18px; }
+      .foot-inner { align-items: flex-start; }
+      .foot-meta { flex-wrap: wrap; text-align: left; }
+    }
+
+
+    [data-theme="light"] {
+      --bg-app: #F4F5F6;
+      --bg-paper: #ECEFF1;
+      --bg-panel: #FFFFFF;
+      --bg-elev: #FFFFFF;
+      --bg-well: #EDF0F2;
+      --bg-hover: #E8ECEF;
+      --ink: #171A1D;
+      --ink-muted: #4B535A;
+      --ink-faint: #737C84;
+      --rule: #D9DEE2;
+      --rule-soft: #E8ECEF;
+      --rule-strong: #C4CBD1;
+      --accent: #171A1D;
+      --accent-hover: #050607;
+      --accent-ink: #171A1D;
+      --accent-pale: #E8ECEF;
+      --accent-ring: rgba(23,26,29,.16);
+      color-scheme: light;
+    }
+    [data-theme="light"] .topbar,
+    [data-theme="light"] .site-foot { background: var(--bg-panel); }
+    [data-theme="light"] .hero { background: var(--bg-app); }
+    [data-theme="light"] .works.is-single .work { background: var(--bg-panel); }
+    [data-theme="light"] .works.is-single .work-foot { background: var(--bg-paper); }
+    [data-theme="light"] .notice { background: var(--bg-paper); }
+
+</style>
 </head>
 <body>
   <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
@@ -718,69 +951,36 @@
   <header class="topbar">
     <div class="topbar-left">
       <a class="brand" href="#top" aria-label="Project Scriptorium: back to top">
-        <span class="inst-tag brand-tag" title="All transcriptions are dedicated to the public domain (CC0 1.0 Universal)">CC0 1.0</span>
         <span class="brand-text">
           <span class="brand-title">Project Scriptorium</span>
-          <span class="brand-sub">Transcribed books &amp; manuscripts<span class="sep">·</span>Facsimile beside text<span class="sep">·</span>Public domain</span>
+          <span class="brand-sub">Public-domain editions of historical books and manuscripts</span>
         </span>
       </a>
     </div>
     <div class="topbar-right">
-      <a class="status-pill" id="corpusPill" href="#catalogue" title="Go to the catalogue">
-        <span class="status-dot" aria-hidden="true"></span><span id="corpusPillText">Catalogue</span>
-      </a>
-      <a class="btn btn-ghost hide-sm" href="#about">About</a>
-      <a class="btn btn-ghost hide-sm" href="#licence">Licence</a>
-      <span class="tb-divider hide-sm" aria-hidden="true"></span>
-      <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch to dark theme" title="Toggle light / dark theme  T"><svg class="i"><use href="#i-moon"/></svg></button>
-      <a class="btn btn-primary" href="#catalogue" title="Jump to the catalogue" aria-label="Browse the archive">
-        <span class="tb-btn-label">Browse the archive</span><svg class="i i-sm"><use href="#i-arrow-down"/></svg>
-      </a>
+      <span class="sr-only" id="corpusPill"><span id="corpusPillText">Catalogue</span></span>
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch theme" title="Toggle light / dark theme"><svg class="i"><use href="#i-moon"/></svg></button>
     </div>
   </header>
 
   <main id="top">
     <section class="hero" aria-labelledby="heroTitle">
       <div class="wrap hero-inner">
-        <div>
-          <div class="eyebrow">
-            <span class="type-badge">Digital editions</span>
-            <span>Old books &amp; manuscripts</span><span class="sep">·</span><span>CC0 1.0 Universal</span>
-          </div>
+        <div class="hero-copy">
+          <p class="eyebrow">PUBLIC-DOMAIN DIGITAL EDITIONS</p>
           <h1 id="heroTitle">Project Scriptorium</h1>
-          <p class="hero-lead">Old books and manuscripts, transcribed line by line and read beside their facsimiles. Every transcription here is dedicated to the public domain, so you can read it, search it, copy it, republish it or use it as training data without asking.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary btn-lg" href="#catalogue"><svg class="i"><use href="#i-book"/></svg>Browse the catalogue</a>
-            <a class="btn btn-lg" href="#licence">How you may reuse the texts</a>
-          </div>
+          <p class="hero-lead">Historical books and manuscripts, transcribed and presented beside their original digitised pages. Free to read, search and reuse.</p>
+          <p class="hero-meta"><span id="statWorks">—</span> <span id="statWorksLabel">editions available</span><span class="sep">·</span><span id="statScans">—</span> scans<span class="sep">·</span>CC0 1.0</p>
+          <a class="btn btn-primary btn-lg hero-cta" href="#catalogue">Explore the edition <svg class="i i-sm"><use href="#i-arrow-right"/></svg></a>
         </div>
-
-        <aside class="ledger" aria-labelledby="ledgerTitle">
-          <header class="card-head">
-            <h2 class="card-title" id="ledgerTitle"><span class="num">§</span>The archive at a glance</h2>
-          </header>
-          <div class="ledger-body">
-            <div class="stat-grid" id="statGrid">
-              <div class="stat"><b id="statWorks">—</b><span id="statWorksLabel">Editions online</span></div>
-              <div class="stat"><b id="statScans">—</b><span>Scans</span></div>
-              <div class="stat"><b id="statLangs">—</b><span id="statLangsLabel">Languages</span></div>
-              <div class="stat"><b id="statSpan">—</b><span id="statSpanLabel">Dates of origin</span></div>
-            </div>
-            <div class="ledger-licence">
-              <span class="cc0-mark" aria-hidden="true">CC0</span>
-              <p><strong>No rights reserved.</strong> Transcriptions are released under <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener license">CC0 1.0 Universal</a>. Credit is welcome but never required.</p>
-            </div>
-          </div>
-        </aside>
       </div>
     </section>
 
     <section class="section" id="catalogue" aria-labelledby="catalogueTitle">
       <div class="wrap sec-head">
         <div>
-          <p class="card-title"><span class="num">I</span>Catalogue</p>
-          <h2 class="sec-title" id="catalogueTitle">Books &amp; manuscripts</h2>
-          <p class="sec-sub">Choose a work to open its edition: the facsimile, the transcription and every other layer, page by page.</p>
+          <p class="card-title">THE COLLECTION</p>
+          <h2 class="sec-title" id="catalogueTitle">Available edition</h2>
         </div>
       </div>
 
@@ -837,60 +1037,24 @@
       </div>
     </section>
 
-    <section class="section" id="about" aria-labelledby="aboutTitle">
-      <div class="wrap sec-head">
-        <div>
-          <p class="card-title"><span class="num">II</span>About the project</p>
-          <h2 class="sec-title" id="aboutTitle">Reading, reuse &amp; citation</h2>
-        </div>
-      </div>
-      <div class="wrap info-grid">
-        <article class="card" aria-labelledby="editionsTitle">
-          <header class="card-head"><h3 class="card-title" id="editionsTitle">What an edition offers</h3></header>
-          <div class="card-body">
-            <p class="prose-lead">Each work opens in its own reading room, with the scanned page on one side and the transcribed text on the other.</p>
-            <ul class="checks">
-              <li><svg class="i i-sm"><use href="#i-check"/></svg><span>Zoomable facsimile, streamed from the library that holds the original</span></li>
-              <li><svg class="i i-sm"><use href="#i-check"/></svg><span>Diplomatic, line-by-line transcription in the original script</span></li>
-              <li><svg class="i i-sm"><use href="#i-check"/></svg><span>Transliteration, English digest and entity index, where available</span></li>
-              <li><svg class="i i-sm"><use href="#i-check"/></svg><span>Full-text search, plain-text &amp; JSON export, and citable page links</span></li>
-            </ul>
+    <section class="about-section" id="about" aria-labelledby="aboutTitle">
+      <div class="wrap">
+        <details class="about-disclosure">
+          <summary id="aboutTitle">About the project, reuse and citation</summary>
+          <div class="about-copy">
+            <p>Each edition pairs the original digitised pages with a searchable transcription. Depending on the work, it may also include transliteration, an English digest and an entity index.</p>
+            <p id="licence"><strong>Licence.</strong> Transcriptions, transliterations, digests and indexes are dedicated to the public domain under <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener license">CC0 1.0 Universal</a>. Facsimile images remain subject to the terms of their holding institutions; check the library record before reusing an image.</p>
+            <div class="citation-row"><span id="citeText">Project Scriptorium: public-domain transcriptions of books and manuscripts.</span><button class="icon-btn sm" id="copyCiteBtn" type="button" aria-label="Copy citation" title="Copy citation"><svg class="i i-sm"><use href="#i-copy"/></svg></button></div>
           </div>
-        </article>
-
-        <article class="card" id="licence" aria-labelledby="licenceTitle">
-          <header class="card-head"><h3 class="card-title" id="licenceTitle">Licence: CC0 1.0</h3><span class="card-meta">No rights reserved</span></header>
-          <div class="card-body">
-            <p class="prose-lead">The transcriptions, transliterations, digests and indexes on this site are dedicated to the public domain.</p>
-            <p>To the extent possible under law, Project Scriptorium has waived all copyright and related or neighbouring rights to them under <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener license">CC0 1.0 Universal</a>. You may copy, modify, distribute and use them, including commercially, without asking permission.</p>
-            <p><strong>Please note:</strong> the facsimile images are shown directly from their holding institutions and stay under those institutions' own terms. Check each library's record before you reuse an image.</p>
-          </div>
-        </article>
-
-        <article class="card" aria-labelledby="citeTitle">
-          <header class="card-head"><h3 class="card-title" id="citeTitle">Citing a work</h3><span class="card-meta">Optional</span></header>
-          <div class="card-body">
-            <p>Attribution isn't required, but it helps other readers find the source. Each edition can copy a full citation for any page. For the archive as a whole:</p>
-            <div class="cite-box"><span id="citeText">Project Scriptorium: public-domain transcriptions of books and manuscripts.</span>
-              <button class="icon-btn sm" id="copyCiteBtn" type="button" aria-label="Copy citation" title="Copy citation"><svg class="i i-sm"><use href="#i-copy"/></svg></button>
-            </div>
-          </div>
-        </article>
+        </details>
       </div>
     </section>
   </main>
 
   <footer class="site-foot">
     <div class="wrap foot-inner">
-      <div>
-        <p class="foot-brand">Project Scriptorium</p>
-        <p class="foot-copy">Transcriptions dedicated to the public domain under <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener license">CC0 1.0 Universal</a>. Facsimile images belong to, and are served by, their holding institutions.</p>
-      </div>
-      <div class="foot-meta">
-        <span id="footUpdated"></span>
-        <span>Shortcuts: <kbd>/</kbd> search <kbd>T</kbd> theme <kbd>Esc</kbd> clear</span>
-        <a href="#top">Back to top ↑</a>
-      </div>
+      <p class="foot-copy">Project Scriptorium · Transcriptions released under CC0 1.0 Universal.</p>
+      <div class="foot-meta"><span id="footUpdated"></span><a href="#top">Back to top ↑</a></div>
     </div>
   </footer>
 
@@ -1095,69 +1259,70 @@
     };
     if (!SORTS.includes(state.sort)) state.sort = 'catalogue';
 
+    /* Retry an archival cover through an image proxy, then the original repository URL. */
+    window.retryCoverImage = function (img) {
+      let sources = [];
+      try { sources = JSON.parse(img.dataset.fallbacks || '[]'); } catch (e) {}
+      const next = Number(img.dataset.fallbackIndex || 0);
+      if (next < sources.length) {
+        img.dataset.fallbackIndex = String(next + 1);
+        img.src = sources[next];
+        return;
+      }
+      img.hidden = true;
+      const folio = img.closest('.folio');
+      if (folio) folio.classList.add('image-error');
+    };
+
     /* ── Rendering ─────────────────────────────────────────────────────────── */
     function plateHTML(w) {
-      const flag = w.shelfmark || w.year;
-      const badges = [];
-      if (w.isNew) badges.push('<span class="plate-badge is-new">New</span>');
-      if (w.status) badges.push(`<span class="plate-badge ${w.status.cls}"><span class="dot"></span>${esc(w.status.label)}</span>`);
       let folio;
       if (w.cover) {
-        folio = `<div class="folio has-cover"><img src="${esc(w.cover)}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.parentNode.classList.remove('has-cover');this.remove()"></div>`;
+        const direct = w.cover;
+        const encoded = encodeURIComponent(direct);
+        const proxied = `https://wsrv.nl/?url=${encoded}&w=480&h=680&fit=contain&output=jpg`;
+        const alternateProxy = `https://images.weserv.nl/?url=${encodeURIComponent(direct)}&w=480&h=680&fit=contain&output=jpg`;
+        const fallbacks = [alternateProxy, direct];
+        folio = `<div class="folio has-cover">
+          <a class="cover-link" href="${esc(direct)}" target="_blank" rel="noopener" aria-label="Open the archival cover image">
+            <img src="${esc(proxied)}" data-fallbacks="${esc(JSON.stringify(fallbacks))}" data-fallback-index="0" alt="Archival cover scan of ${esc(w.title)}, 1873 edition" loading="eager" decoding="async" fetchpriority="high" referrerpolicy="no-referrer" onerror="window.retryCoverImage(this)">
+          </a>
+          <span class="cover-fallback"><a href="${esc(direct)}" target="_blank" rel="noopener">Open archival cover image ↗</a></span>
+        </div>`;
       } else {
         const t = w.titleOriginal || w.title;
         const sc = scriptOf(t, w.titleOriginal ? w.titleLang : 'en', w.titleOriginal ? w.script : '');
         const langAttr = w.titleOriginal && w.titleLang ? ` lang="${esc(w.titleLang)}"` : '';
-        folio = `<div class="folio"><div class="folio-frame">
-            <span class="folio-title ${sc.cls}"${langAttr}${sc.rtl ? ' dir="rtl"' : ''}>${esc(t)}</span>
-            <span class="folio-rule"></span>
-            <span class="folio-year">${esc(w.year || w.place || w.type || '')}</span>
-          </div></div>`;
+        folio = `<div class="folio"><div class="folio-frame"><span class="folio-title ${sc.cls}"${langAttr}${sc.rtl ? ' dir="rtl"' : ''}>${esc(t)}</span></div></div>`;
       }
-      return `<div class="plate" aria-hidden="true">${folio}
-          ${flag ? `<span class="plate-flag">${esc(flag)}</span>` : ''}
-          ${badges.length ? `<span class="plate-badges">${badges.join('')}</span>` : ''}
-        </div>`;
+      return `<div class="plate">${folio}</div>`;
     }
 
     function cardHTML(w, n) {
       const tid = `w-${w.slug}-title`;
-      const eyebrowBits = [...new Set([w.language, w.script].filter(Boolean))].map(esc).join(' · ');
-      const eyebrow = (w.type || eyebrowBits) ? `<div class="eyebrow">${w.type ? `<span class="type-badge">${esc(w.type)}</span>` : ''}${eyebrowBits ? `<span>${eyebrowBits}</span>` : ''}</div>` : '';
-      const where = [w.place, w.publisher].filter(Boolean).join(': ');
-      const imprint = [where, w.year].filter(Boolean).join(', ');
+      const typeLine = [w.type, w.language].filter(Boolean).join(' · ');
+      const imprint = [w.place, w.year, w.publisher].filter(Boolean).join(' · ');
       const orig = w.titleOriginal ? (() => {
         const sc = scriptOf(w.titleOriginal, w.titleLang, w.script);
-        return `<p class="work-orig ${sc.cls}"${w.titleLang ? ` lang="${esc(w.titleLang)}"` : ''}${sc.rtl ? ' dir="rtl" style="text-align:left"' : ''}>${esc(w.titleOriginal)}</p>`;
+        return `<p class="work-orig ${sc.cls}"${w.titleLang ? ` lang="${esc(w.titleLang)}"` : ''}${sc.rtl ? ' dir="rtl"' : ''}>${esc(w.titleOriginal)}</p>`;
       })() : '';
-      const holding = [w.holding, w.shelfmark].filter(Boolean).map(esc).join('<span class="sep">·</span>');
-      const titleInner = w.forthcoming
-        ? esc(w.title)
-        : `<a class="work-link" href="${esc(w.href)}">${esc(w.title)}</a>`;
-      const listBadges = [w.isNew ? '<span class="list-badge is-new">New</span>' : '', w.status ? `<span class="list-badge">${esc(w.status.label)}</span>` : ''].join('');
-      const actions = [];
-      if (!w.forthcoming) actions.push(`<button class="icon-btn sm" type="button" data-copy="${esc(absUrl(w.href))}" aria-label="Copy link to ${esc(w.title)}" title="Copy link">${icon('link', 'i-sm')}</button>`);
-      if (w.catalogueUrl) actions.push(`<a class="icon-btn sm" href="${esc(w.catalogueUrl)}" target="_blank" rel="noopener" aria-label="Library record for ${esc(w.title)} (opens in a new tab)" title="Holding library's record">${icon('external', 'i-sm')}</a>`);
-      const meta = [w.scans ? plural(w.scans, 'scan') : ''].filter(Boolean).join(' · ');
+      const titleInner = w.forthcoming ? esc(w.title) : `<a class="work-link" href="${esc(w.href)}">${esc(w.title)}</a>`;
+      const meta = w.scans ? `${plural(w.scans, 'scan')}` : '';
+      const sourceLink = w.catalogueUrl ? `<a class="source-link" href="${esc(w.catalogueUrl)}" target="_blank" rel="noopener">Heidelberg University Library record ↗</a>` : '';
       return `<li class="work ${w.forthcoming ? 'is-forthcoming' : 'is-linked'}" id="w-${esc(w.slug)}" aria-labelledby="${tid}" style="animation-delay:${Math.min(n, 12) * 40}ms">
         ${plateHTML(w)}
         <div class="work-main">
           <div class="work-body">
-            ${eyebrow}
+            ${typeLine ? `<p class="work-kicker">${esc(typeLine)}</p>` : ''}
             <h3 class="work-title" id="${tid}">${titleInner}</h3>
             ${orig}
             ${w.author ? `<p class="work-author">${esc(w.author)}</p>` : ''}
             ${imprint ? `<p class="work-imprint">${esc(imprint)}</p>` : ''}
             ${w.description ? `<p class="work-desc">${esc(w.description)}</p>` : ''}
-            ${w.layers.length ? `<ul class="layers" aria-label="Layers in this edition">${w.layers.map(l => `<li>${esc(l)}</li>`).join('')}</ul>` : ''}
-            ${(holding || meta) ? `<p class="work-holding" title="${esc([w.holding, w.shelfmark].filter(Boolean).join(' · '))}">${holding}${holding && meta ? '<span class="sep">·</span>' : ''}${esc(meta)}</p>` : ''}
+            ${(sourceLink || meta) ? `<p class="work-source">${sourceLink}${sourceLink && meta ? '<span class="sep">·</span>' : ''}${esc(meta)}</p>` : ''}
           </div>
           <div class="work-foot">
-            ${listBadges ? `<span class="list-badges">${listBadges}</span>` : ''}
-            ${w.forthcoming
-              ? `<span class="open-cta">In preparation</span>`
-              : `<span class="open-cta" aria-hidden="true">Open edition ${icon('arrow-right', 'i-sm')}</span><span class="open-path" aria-hidden="true">${esc(shownPath(w.href))}</span>`}
-            ${actions.length ? `<span class="work-actions">${actions.join('')}</span>` : ''}
+            ${w.forthcoming ? `<span class="open-cta">In preparation</span>` : `<span class="open-cta">Open edition ${icon('arrow-right', 'i-sm')}</span>`}
           </div>
         </div>
       </li>`;
@@ -1209,6 +1374,7 @@
       const terms = fold(state.q).split(' ').filter(Boolean);
       const shown = sorted(works.filter(w => matches(w, terms)));
       const filtered = terms.length || FACETS.some(f => state.filters[f.key]);
+      document.body.classList.toggle('single-work', works.length <= 1);
 
       el.list.classList.toggle('is-list', state.view === 'list');
       el.list.classList.toggle('is-single', state.view === 'grid' && shown.length === 1);
@@ -1249,18 +1415,10 @@
       const online = works.filter(w => !w.forthcoming);
       const soon = works.length - online.length;
       $('#statWorks').textContent = online.length.toLocaleString('en');
-      $('#statWorksLabel').textContent = online.length === 1 ? 'Edition online' : 'Editions online';
-      if (soon) $('#statWorksLabel').textContent += ` · ${soon} soon`;
-      const scans = works.reduce((s, w) => s + w.scans, 0);
+      $('#statWorksLabel').textContent = online.length === 1 ? 'edition available' : 'editions available';
+      if (soon) $('#statWorksLabel').textContent += ` · ${soon} in preparation`;
+      const scans = works.reduce((sum, w) => sum + w.scans, 0);
       $('#statScans').textContent = scans ? scans.toLocaleString('en') : '—';
-      const langs = [...new Set(works.flatMap(w => w.languages))];
-      $('#statLangs').textContent = langs.length ? (langs.length === 1 ? langs[0] : langs.length) : '—';
-      $('#statLangsLabel').textContent = langs.length === 1 ? 'Language' : 'Languages';
-      $('#statLangs').title = langs.join(', ');
-      const years = works.map(w => w.yearNum).filter(y => y != null);
-      const lo = Math.min(...years), hi = Math.max(...years);
-      $('#statSpan').textContent = years.length ? (lo === hi ? String(lo) : `${lo}–${hi}`) : '—';
-      $('#statSpanLabel').textContent = years.length && lo === hi ? 'Date of origin' : 'Dates of origin';
       el.pillText.textContent = fatal ? 'Catalogue error' : `${plural(online.length, 'edition')} online`;
       el.pill.classList.toggle('is-warn', !!fatal || (isLocal && warnings.length > 0));
 
@@ -1383,7 +1541,7 @@
     });
 
     /* ── Go ────────────────────────────────────────────────────────────────── */
-    applyTheme(document.documentElement.getAttribute('data-theme') || 'light', false);
+    applyTheme(document.documentElement.getAttribute('data-theme') || 'dark', false);
     renderFacets();
     renderStats();
     renderNotices();
