@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="description" content="Project Scriptorium: transcriptions of old books and manuscripts, each read beside its facsimile and released into the public domain under CC0 1.0." />
+  <title>Project Scriptorium | Public-domain transcriptions of old books &amp; manuscripts</title>
+  <script>
+    /* Same theme key as the edition pages, so the light/dark choice follows readers across the site. */
+    (function () {
+      try {
+        var t = JSON.parse(localStorage.getItem('nkp:theme'));
+        if (t !== 'light' && t !== 'dark') t = (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+    /* Records any typo in the catalogue below (e.g. a missing comma) so the page can show where it is. */
+    window.__catalogueErrors = [];
+    window.addEventListener('error', function (e) { window.__catalogueErrors.push({ message: e.message, line: e.lineno }); });
+  </script>
+
+  <!--
+  ╔══════════════════════════════════════════════════════════════════════════════╗
+  ║  CATALOGUE: THE ONLY PART YOU NEED TO EDIT                                   ║
+  ║                                                                              ║
+  ║  Each { … } block below is one book or manuscript, and each becomes a card   ║
+  ║  on the homepage. To add a new work:                                         ║
+  ║    1. Put its edition page in its own folder next to this file, for example  ║
+  ║       /my-new-manuscript/index.html  (plus its corpus.json, if it has one).  ║
+  ║    2. Copy the TEMPLATE at the bottom of the list, paste it above the        ║
+  ║       closing  ];  line, and fill it in.                                     ║
+  ║    3. Save and reload. Search, filters, counts and sorting update on their   ║
+  ║       own.                                                                   ║
+  ║                                                                              ║
+  ║  Rules of thumb                                                              ║
+  ║    • Only "title" and "link" are required. Leave anything else as "" or      ║
+  ║      delete the line.                                                        ║
+  ║    • Wrap text in "double quotes". Apostrophes inside are fine.              ║
+  ║    • Put a comma after every closing  }  (a trailing comma is fine too).     ║
+  ║    • If you make a typo, the homepage shows a red notice with the line       ║
+  ║      number instead of a blank page.                                         ║
+  ║                                                                              ║
+  ║  "link" is where the card sends people:                                      ║
+  ║    "aminaddinhan1873/"    folder next to this file, so it opens              ║
+  ║                           yoursite.org/aminaddinhan1873/  (recommended: this ║
+  ║                           also works if the site sits in a sub-folder).      ║
+  ║    "/aminaddinhan1873/"   from the domain root. Also fine.                   ║
+  ║    "https://…"            any full web address.                              ║
+  ║  A missing trailing "/" is added for you, so the edition page can still find ║
+  ║  its corpus.json.                                                            ║
+  ╚══════════════════════════════════════════════════════════════════════════════╝
+  -->
+  <script>
+  const MANUSCRIPTS = [
+
+    {
+      link:          "aminaddinhan1873/",
+      title:         "Mat̤laʿ al-ʿajāʾib",
+      titleOriginal: "مطلع العجائب",
+      titleLang:     "ur",
+      author:        "Amīn al-Dīn Khān",
+      year:          "1873",
+      place:         "Lucknow",
+      publisher:     "Munshi Naval Kishore Press",
+      type:          "Lithographed book",
+      language:      "Urdu",
+      script:        "Nastaliq",
+      holding:       "Universitätsbibliothek Heidelberg",
+      shelfmark:     "aminaddinhan1873",
+      catalogueUrl:  "https://digi.ub.uni-heidelberg.de/diglit/aminaddinhan1873",
+      scans:         310,
+      layers:        ["IIIF facsimile", "Diplomatic Urdu transcription", "Roman transliteration", "English digest", "Entity index"],
+      description:   "Line-by-line Urdu Nastaliq ground truth for the 1873 Naval Kishore lithograph, shown beside Heidelberg's IIIF facsimile, with a romanised transliteration for searching, an English scholarly digest for every scan and an index of named entities.",
+      status:        "",
+      added:         "",
+      cover:         ""
+    },
+
+    /* ── TEMPLATE: copy everything between the two lines, paste it ABOVE this comment ──
+    {
+      link:          "folder-name/",                  // REQUIRED: where the card sends people
+      title:         "Romanised or English title",    // REQUIRED
+      titleOriginal: "",                              // title in the original script (shown on the card's title plate)
+      titleLang:     "",                              // "ur", "fa", "ar", "la", "en"… (sets the font and right-to-left direction)
+      author:        "",
+      year:          "",                              // "1873", "c. 1650", "17th century"… (used for date sorting)
+      place:         "",                              // place of production
+      publisher:     "",                              // press, printer or scribe
+      type:          "Manuscript",                    // "Manuscript", "Lithographed book", "Printed book"… (becomes a filter)
+      language:      "",                              // "Urdu", "Persian", "Arabic, Persian"… (becomes a filter)
+      script:        "",                              // "Nastaliq", "Naskh", "Latin"…
+      holding:       "",                              // library or archive that holds the original
+      shelfmark:     "",
+      catalogueUrl:  "",                              // link to the library's own record (optional)
+      scans:         0,                               // number of scans or pages (a number, no quotes)
+      layers:        ["Facsimile", "Transcription"],  // what the edition contains
+      description:   "",                              // two or three sentences
+      status:        "",                              // "" | "complete" | "in-progress" | "forthcoming" (forthcoming = shown but not clickable)
+      added:         "",                              // date added, as "YYYY-MM-DD": drives "Recently added" and a "New" badge for 45 days
+      cover:         ""                               // optional thumbnail image URL; without one, a typeset title plate is drawn
+    },
+    ── end of template ────────────────────────────────────────────────────────────── */
+
+  ];
+  </script>
+  <!-- ═══════════════════════  END OF CATALOGUE  ═══════════════════════ -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Noto+Naskh+Arabic:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-app: #EFEBE3;
+      --bg-paper: #F5F2EB;
+      --bg-panel: #FAF8F4;
+      --bg-elev: #FFFFFF;
+      --bg-well: #EAE5DA;
+      --bg-hover: #F2EEE6;
+      --ink: #181615;
+      --ink-muted: #524D46;
+      --ink-faint: #6E675D;
+      --rule: #DCD6CA;
+      --rule-soft: #ECE7DE;
+      --rule-strong: #C3BBAD;
+      --accent: #8A1C14;
+      --accent-hover: #6B140E;
+      --accent-ink: #8A1C14;
+      --accent-pale: #F7E9E7;
+      --accent-ring: rgba(138, 28, 20, .28);
+      --hit-bg: #FCF1C7;
+      --ok: #2E7D45;
+      --warn: #B7791F;
+
+      --canvas-bg: #141312;
+      --canvas-bar: #1D1B1A;
+      --canvas-rule: #33302D;
+      --canvas-ink: #ECE6DD;
+      --canvas-muted: #A9A196;
+      --folio: #F1EADB;
+      --folio-ink: #2A231B;
+      --folio-faint: #7A6B57;
+      --folio-rule: rgba(122, 96, 62, .5);
+
+      --shadow-sm: 0 1px 2px rgba(24, 22, 21, .07), 0 1px 1px rgba(24, 22, 21, .04);
+      --shadow-md: 0 8px 24px rgba(24, 22, 21, .12), 0 2px 6px rgba(24, 22, 21, .06);
+      --shadow-lg: 0 28px 70px rgba(24, 22, 21, .28), 0 8px 22px rgba(24, 22, 21, .14);
+
+      --radius-sm: 4px;
+      --radius: 6px;
+      --radius-lg: 10px;
+
+      --font-serif: 'EB Garamond', 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+      --font-sans: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      --font-urdu: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', 'Alvi Nastaleeq', 'Urdu Typesetting', 'Noto Naskh Arabic', serif;
+      --font-naskh: 'Noto Naskh Arabic', 'Amiri', 'Scheherazade New', 'Traditional Arabic', serif;
+
+      --topbar-h: 58px;
+      --wrap: 1240px;
+      --ease: cubic-bezier(.2, .7, .2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-app: #0F0E0D;
+      --bg-paper: #191716;
+      --bg-panel: #1C1A19;
+      --bg-elev: #232120;
+      --bg-well: #141312;
+      --bg-hover: #2A2726;
+      --ink: #EEE8DF;
+      --ink-muted: #BDB4A8;
+      --ink-faint: #958C80;
+      --rule: #36322F;
+      --rule-soft: #2C2927;
+      --rule-strong: #4A4541;
+      --accent: #A3271D;
+      --accent-hover: #BD3428;
+      --accent-ink: #F08C80;
+      --accent-pale: #3A1F1C;
+      --accent-ring: rgba(240, 140, 128, .3);
+      --hit-bg: #4A3F17;
+      --canvas-bg: #0B0A0A;
+      --canvas-bar: #161413;
+      --folio: #E4DCCB;
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, .4);
+      --shadow-md: 0 8px 24px rgba(0, 0, 0, .45);
+      --shadow-lg: 0 28px 70px rgba(0, 0, 0, .6);
+      color-scheme: dark;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: calc(var(--topbar-h) + 72px); }
+    body {
+      margin: 0; min-height: 100vh; min-height: 100dvh;
+      display: flex; flex-direction: column;
+      background: var(--bg-app); color: var(--ink);
+      font: 14px/1.5 var(--font-sans);
+      -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+    }
+    h1, h2, h3, p, ol, ul, dl, dd, figure { margin: 0; padding: 0; }
+    button, input, select { font: inherit; color: inherit; }
+    button { cursor: pointer; }
+    a { color: inherit; }
+    [hidden] { display: none !important; }
+    code, kbd { font-family: var(--font-mono); }
+    :focus { outline: none; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: var(--radius-sm); }
+    ::selection { background: rgba(138, 28, 20, .18); }
+    .sr-only { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+    .i { width: 16px; height: 16px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; vertical-align: middle; }
+    .i-sm { width: 14px; height: 14px; }
+    .i-lg { width: 22px; height: 22px; }
+
+    .skip-link { position: fixed; left: 12px; top: -60px; z-index: 200; background: var(--accent); color: #fff; padding: 8px 14px; border-radius: var(--radius); font-weight: 600; text-decoration: none; transition: top .15s; }
+    .skip-link:focus { top: 10px; }
+
+    kbd {
+      display: inline-block; min-width: 20px; padding: 1px 5px;
+      font-size: 11px; line-height: 16px; text-align: center;
+      color: var(--ink-muted); background: var(--bg-paper);
+      border: 1px solid var(--rule-strong); border-bottom-width: 2px; border-radius: 4px;
+    }
+
+    .wrap { width: min(var(--wrap), calc(100% - 48px)); margin-inline: auto; }
+
+    /* ── Buttons (shared with the edition pages) ─────────────────────── */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+      height: 32px; padding: 0 12px;
+      font: 500 12.5px/1 var(--font-sans);
+      color: var(--ink); background: var(--bg-elev);
+      border: 1px solid var(--rule-strong); border-radius: var(--radius);
+      text-decoration: none; white-space: nowrap;
+      transition: background .12s, border-color .12s, color .12s, box-shadow .12s;
+    }
+    .btn:hover { background: var(--bg-hover); border-color: var(--ink-faint); }
+    .btn:active { transform: translateY(1px); }
+    .btn-primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .btn-primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); color: #fff; }
+    .btn-ghost { background: transparent; border-color: transparent; color: var(--ink-muted); }
+    .btn-ghost:hover { background: var(--bg-hover); border-color: var(--rule); color: var(--ink); }
+    .btn-lg { height: 40px; padding: 0 16px; font-size: 13.5px; }
+
+    .icon-btn {
+      display: inline-grid; place-items: center;
+      width: 32px; height: 32px; padding: 0;
+      color: var(--ink-muted); background: transparent;
+      border: 1px solid transparent; border-radius: var(--radius);
+      text-decoration: none;
+      transition: background .12s, color .12s, border-color .12s;
+    }
+    .icon-btn:hover { color: var(--ink); background: var(--bg-hover); border-color: var(--rule); }
+    .icon-btn.sm { width: 28px; height: 28px; }
+
+    .inst-tag {
+      flex-shrink: 0;
+      font: 600 10px/1 var(--font-mono); letter-spacing: .1em; text-transform: uppercase;
+      color: #fff; background: var(--accent);
+      padding: 5px 7px; border-radius: 3px; text-decoration: none;
+    }
+    .count {
+      display: inline-block; min-width: 20px; padding: 2px 6px;
+      font: 500 10.5px/1.2 var(--font-mono); letter-spacing: 0; text-transform: none;
+      color: var(--ink-muted); background: var(--bg-well);
+      border-radius: 999px; text-align: center;
+    }
+    [aria-pressed="true"] > .count { background: var(--accent-pale); color: var(--accent-ink); }
+
+    /* ── Top bar ─────────────────────────────────────────────────────── */
+    .topbar {
+      position: sticky; top: 0; z-index: 30;
+      height: var(--topbar-h); flex-shrink: 0;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      padding: 0 14px 0 16px;
+      background: var(--bg-panel);
+      border-top: 3px solid var(--accent);
+      border-bottom: 1px solid var(--rule);
+    }
+    .topbar-left { display: flex; align-items: center; gap: 12px; min-width: 0; }
+    .topbar-right { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+    .brand { display: flex; align-items: center; gap: 12px; min-width: 0; text-decoration: none; }
+    .brand-text { min-width: 0; }
+    .brand-title { display: block; font: 600 21px/1.15 var(--font-serif); letter-spacing: -.005em; white-space: nowrap; }
+    .brand-sub { display: block; font: 11.5px/1.3 var(--font-sans); color: var(--ink-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 2px; }
+    .sep { color: var(--rule-strong); margin: 0 5px; }
+    .status-pill {
+      display: inline-flex; align-items: center; gap: 7px;
+      height: 28px; padding: 0 11px; margin-right: 4px;
+      font: 500 11.5px/1 var(--font-mono); color: var(--ink-muted);
+      background: var(--bg-paper); border: 1px solid var(--rule); border-radius: 999px;
+      white-space: nowrap; text-decoration: none;
+    }
+    .status-pill:hover { border-color: var(--rule-strong); color: var(--ink); }
+    .status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 3px rgba(46, 125, 69, .18); }
+    .status-pill.is-warn .status-dot { background: var(--warn); box-shadow: 0 0 0 3px rgba(183, 121, 31, .2); }
+    .tb-divider { width: 1px; height: 22px; background: var(--rule); margin: 0 4px; }
+
+    /* ── Hero ────────────────────────────────────────────────────────── */
+    .hero { background: var(--bg-paper); border-bottom: 1px solid var(--rule); position: relative; overflow: hidden; }
+    .hero::before {
+      /* faint ruling, like a pricked and ruled manuscript leaf */
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background-image: repeating-linear-gradient(to bottom, transparent 0 33px, var(--rule-soft) 33px 34px);
+      -webkit-mask-image: linear-gradient(100deg, transparent 0%, #000 55%, transparent 100%);
+      mask-image: linear-gradient(100deg, transparent 0%, #000 55%, transparent 100%);
+      opacity: .9;
+    }
+    .hero-inner {
+      position: relative;
+      display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(300px, .85fr);
+      gap: 56px; align-items: center;
+      padding: 56px 0 52px;
+    }
+    .eyebrow {
+      display: flex; align-items: center; flex-wrap: wrap; gap: 8px;
+      font: 500 10.5px/1.2 var(--font-mono); letter-spacing: .08em; text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .type-badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 3px 7px; border-radius: 3px;
+      color: var(--accent-ink); background: var(--accent-pale);
+    }
+    .hero h1 { font: 600 clamp(40px, 5.2vw, 62px)/1.02 var(--font-serif); letter-spacing: -.018em; margin-top: 16px; }
+    .hero h1 em { font-style: italic; font-weight: 400; color: var(--ink-muted); }
+    .hero-lead {
+      margin-top: 18px; max-width: 62ch;
+      font: 400 20px/1.58 var(--font-serif); color: var(--ink);
+      padding-left: 16px; border-left: 3px solid var(--accent);
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px; }
+
+    .ledger {
+      background: var(--bg-elev); border: 1px solid var(--rule); border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md); overflow: hidden;
+    }
+    .ledger-body { padding: 14px 16px 16px; }
+    .stat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    .stat { padding: 10px 12px; border: 1px solid var(--rule); border-radius: var(--radius); background: var(--bg-paper); min-width: 0; }
+    .stat b { display: block; font: 600 26px/1.1 var(--font-serif); font-variant-numeric: lining-nums tabular-nums; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .stat span { display: block; font: 10.5px var(--font-mono); color: var(--ink-muted); text-transform: uppercase; letter-spacing: .06em; }
+    .ledger-licence {
+      display: flex; gap: 12px; align-items: flex-start;
+      margin-top: 12px; padding: 12px; border-radius: var(--radius);
+      background: var(--accent-pale); color: var(--ink);
+      font-size: 12.5px; line-height: 1.5;
+    }
+    .cc0-mark {
+      flex-shrink: 0; display: grid; place-items: center;
+      width: 40px; height: 40px; border-radius: 50%;
+      border: 2px solid var(--accent-ink); color: var(--accent-ink);
+      font: 700 12px/1 var(--font-mono); letter-spacing: -.02em;
+    }
+    .ledger-licence a { color: var(--accent-ink); font-weight: 500; }
+
+    /* ── Section heads & cards (as in the edition pages) ─────────────── */
+    .section { padding: 40px 0 8px; }
+    .sec-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 16px; }
+    .card-title {
+      display: flex; align-items: center; gap: 9px;
+      font: 600 11px/1.2 var(--font-mono); letter-spacing: .08em; text-transform: uppercase;
+      color: var(--accent-ink);
+    }
+    .num {
+      display: inline-grid; place-items: center; width: 22px; height: 22px; flex-shrink: 0;
+      font: 600 13px/1 var(--font-serif); letter-spacing: 0; color: var(--accent-ink);
+      border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent); border-radius: 50%;
+    }
+    .sec-title { font: 600 32px/1.12 var(--font-serif); letter-spacing: -.01em; margin-top: 8px; }
+    .sec-sub { font: 400 17px/1.5 var(--font-serif); color: var(--ink-muted); margin-top: 4px; max-width: 70ch; }
+
+    .card { background: var(--bg-elev); border: 1px solid var(--rule); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); }
+    .card-head {
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+      padding: 9px 12px 9px 16px; min-height: 44px;
+      background: var(--bg-paper); border-bottom: 1px solid var(--rule);
+    }
+    .card-meta { margin-left: auto; font: 11px var(--font-mono); color: var(--ink-muted); }
+    .card-body { padding: 14px 16px 16px; }
+
+    /* ── Catalogue toolbar ───────────────────────────────────────────── */
+    .toolbar {
+      position: sticky; top: var(--topbar-h); z-index: 20;
+      background: color-mix(in srgb, var(--bg-app) 90%, transparent);
+      -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+      border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+    }
+    .toolbar-row { display: flex; align-items: center; gap: 8px 10px; flex-wrap: wrap; padding: 10px 0; }
+    .search { position: relative; flex: 1 1 340px; max-width: 560px; }
+    .search > .i { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); color: var(--ink-faint); pointer-events: none; }
+    .search input {
+      width: 100%; height: 38px; padding: 0 40px 0 35px;
+      font: 14px var(--font-sans); color: var(--ink);
+      background: var(--bg-elev);
+      border: 1px solid var(--rule-strong); border-radius: var(--radius);
+      transition: border-color .12s, box-shadow .12s;
+    }
+    .search input::placeholder { color: var(--ink-faint); }
+    .search input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-ring); outline: none; }
+    .search input::-webkit-search-cancel-button { -webkit-appearance: none; display: none; }
+    .search-kbd { position: absolute; right: 9px; top: 50%; transform: translateY(-50%); pointer-events: none; }
+    .search-clear { position: absolute; right: 5px; top: 50%; transform: translateY(-50%); }
+
+    .tool-cluster { display: flex; align-items: center; gap: 8px; margin-left: auto; }
+    .select {
+      position: relative; display: inline-flex; align-items: center;
+      height: 32px; border: 1px solid var(--rule-strong); border-radius: var(--radius);
+      background: var(--bg-elev); color: var(--ink);
+    }
+    .select:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-ring); }
+    .select-label { padding: 0 0 0 10px; font: 500 10.5px var(--font-mono); text-transform: uppercase; letter-spacing: .07em; color: var(--ink-faint); pointer-events: none; }
+    .select select {
+      -webkit-appearance: none; appearance: none; border: 0; background: transparent;
+      height: 30px; padding: 0 28px 0 8px; font: 500 12.5px var(--font-sans); cursor: pointer;
+    }
+    .select select:focus { outline: none; }
+    .select option { background: var(--bg-elev); color: var(--ink); }
+    .select > .i { position: absolute; right: 8px; pointer-events: none; color: var(--ink-muted); }
+    .segmented { display: inline-flex; padding: 2px; gap: 2px; background: var(--bg-well); border: 1px solid var(--rule); border-radius: var(--radius); }
+    .segmented button {
+      display: inline-flex; align-items: center; gap: 6px;
+      height: 26px; padding: 0 9px; border: 0; border-radius: 4px; background: transparent;
+      font: 500 12px/1 var(--font-sans); color: var(--ink-muted);
+    }
+    .segmented button:hover { color: var(--ink); }
+    .segmented button[aria-pressed="true"] { background: var(--bg-elev); color: var(--ink); box-shadow: var(--shadow-sm); font-weight: 600; }
+
+    .facets { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 18px; padding: 0 0 10px; }
+    .facet { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+    .facet-label { font: 500 10.5px var(--font-mono); text-transform: uppercase; letter-spacing: .07em; color: var(--ink-faint); margin-right: 4px; }
+    .chip-toggle {
+      display: inline-flex; align-items: center; gap: 6px;
+      flex-shrink: 0; height: 26px; padding: 0 5px 0 10px;
+      font: 500 12px/1 var(--font-sans); color: var(--ink-muted);
+      background: transparent; border: 1px solid var(--rule); border-radius: 999px;
+      transition: all .12s;
+    }
+    .chip-toggle:hover { border-color: var(--rule-strong); color: var(--ink); }
+    .chip-toggle[aria-pressed="true"] { color: var(--accent-ink); background: var(--accent-pale); border-color: color-mix(in srgb, var(--accent) 35%, transparent); }
+    .chip-toggle .count { padding: 2px 5px; min-width: 18px; }
+
+    .result-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 0 0; font: 11.5px/1.3 var(--font-mono); color: var(--ink-muted); }
+    .result-bar strong { color: var(--ink); font-weight: 600; }
+    .link-btn { border: 0; background: none; padding: 0; color: var(--accent-ink); font: 500 12px var(--font-sans); text-decoration: underline; text-underline-offset: 2px; text-decoration-thickness: 1px; }
+    .link-btn:hover { text-decoration-thickness: 2px; }
+
+    /* ── Work cards ──────────────────────────────────────────────────── */
+    .works { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 18px; padding: 14px 0 4px; }
+    .work {
+      position: relative; display: flex; flex-direction: column; min-width: 0;
+      background: var(--bg-elev); border: 1px solid var(--rule); border-radius: var(--radius-lg);
+      overflow: hidden; box-shadow: var(--shadow-sm);
+      transition: transform .2s var(--ease), box-shadow .2s var(--ease), border-color .2s;
+      animation: rise .35s var(--ease) both;
+    }
+    @keyframes rise { from { opacity: 0; transform: translateY(6px); } }
+    .work.is-linked:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); border-color: var(--rule-strong); }
+    .work:has(.work-link:focus-visible) { outline: 2px solid var(--accent); outline-offset: 3px; }
+    .work-link { text-decoration: none; }
+    .work-link::after { content: ''; position: absolute; inset: 0; z-index: 1; }
+    .work-link:focus-visible { outline: none; }
+    .work-link:hover { color: var(--accent-ink); }
+
+    /* the dark stage + folio echo the facsimile viewer of each edition */
+    .plate {
+      position: relative; flex-shrink: 0; height: 212px;
+      display: grid; place-items: center; overflow: hidden;
+      background: radial-gradient(ellipse at center, #24211F 0%, var(--canvas-bg) 72%);
+      border-bottom: 1px solid var(--canvas-rule);
+    }
+    .folio {
+      position: relative; width: 132px; height: 174px; padding: 7px;
+      background: linear-gradient(160deg, color-mix(in srgb, var(--folio) 100%, #fff 10%) 0%, var(--folio) 55%, color-mix(in srgb, var(--folio) 88%, #8a6a3c) 100%);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, .62), 0 0 0 1px rgba(255, 255, 255, .05);
+      transform: rotate(-1.4deg);
+      transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+    }
+    .work.is-linked:hover .folio { transform: rotate(0deg) translateY(-3px) scale(1.02); box-shadow: 0 22px 50px rgba(0, 0, 0, .7), 0 0 0 1px rgba(255, 255, 255, .06); }
+    .folio-frame {
+      height: 100%; border: 3px double var(--folio-rule);
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 7px;
+      padding: 8px 6px; text-align: center; overflow: hidden;
+    }
+    .folio-title { color: var(--folio-ink); font: 600 15px/1.25 var(--font-serif); display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; overflow-wrap: anywhere; }
+    .folio-title.is-latin { font-style: italic; font-weight: 500; }
+    .folio-title.is-urdu { font: 600 17px/2.05 var(--font-urdu); -webkit-line-clamp: 3; }
+    .folio-title.is-naskh { font: 600 17px/1.6 var(--font-naskh); }
+    .folio-rule { width: 44%; height: 0; border-top: 1px solid var(--folio-rule); position: relative; }
+    .folio-rule::after { content: '❦'; position: absolute; left: 50%; top: -8px; transform: translateX(-50%); padding: 0 4px; background: var(--folio); color: var(--folio-faint); font: 10px/1 var(--font-serif); }
+    .folio-year { font: 600 9px/1 var(--font-mono); letter-spacing: .14em; color: var(--folio-faint); text-transform: uppercase; }
+    .folio.has-cover { padding: 0; }
+    .folio.has-cover img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .plate-flag {
+      position: absolute; left: 12px; top: 12px;
+      padding: 4px 9px; border-radius: 4px;
+      font: 600 11px var(--font-mono); letter-spacing: .04em; color: var(--canvas-ink);
+      background: rgba(20, 19, 18, .72); border: 1px solid var(--canvas-rule);
+    }
+    .plate-badges { position: absolute; right: 12px; top: 12px; display: flex; gap: 6px; }
+    .plate-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 4px 9px; border-radius: 999px;
+      font: 600 10.5px var(--font-mono); letter-spacing: .04em; color: var(--canvas-ink);
+      background: rgba(20, 19, 18, .72); border: 1px solid var(--canvas-rule);
+    }
+    .plate-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--canvas-muted); }
+    .plate-badge.is-complete .dot { background: #5FBF7B; }
+    .plate-badge.is-progress .dot { background: #E3A645; }
+    .plate-badge.is-new { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+    .work-body { flex: 1; display: flex; flex-direction: column; gap: 6px; padding: 16px 18px 14px; min-width: 0; }
+    .work-title { font: 600 24px/1.15 var(--font-serif); letter-spacing: -.008em; margin-top: 4px; overflow-wrap: anywhere; }
+    .work-orig { font: 600 16px/1.9 var(--font-urdu); color: var(--ink-muted); }
+    .work-orig.is-naskh { font: 600 17px/1.5 var(--font-naskh); }
+    .work-orig.is-latin { font: italic 400 16px/1.35 var(--font-serif); }
+    .work-author { font: 500 14px/1.4 var(--font-sans); color: var(--ink); }
+    .work-imprint { font: 11.5px/1.45 var(--font-mono); color: var(--ink-muted); }
+    .work-desc { margin-top: 4px; font-size: 13.5px; line-height: 1.6; color: var(--ink-muted); display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+    .layers { list-style: none; display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+    .layers li {
+      padding: 2px 7px; border-radius: 3px;
+      font: 500 10.5px/1.5 var(--font-mono); letter-spacing: .02em;
+      color: var(--ink-muted); background: var(--bg-paper); border: 1px solid var(--rule);
+    }
+    .work-holding { margin-top: auto; padding-top: 10px; font: 11px/1.4 var(--font-mono); color: var(--ink-faint); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+    .work-foot {
+      display: flex; align-items: center; gap: 8px;
+      padding: 8px 10px 8px 18px; min-height: 46px;
+      background: var(--bg-paper); border-top: 1px solid var(--rule);
+    }
+    .open-cta { display: inline-flex; align-items: center; gap: 7px; font: 600 12.5px var(--font-sans); color: var(--accent-ink); white-space: nowrap; }
+    .open-cta .i { transition: transform .2s var(--ease); }
+    .work.is-linked:hover .open-cta .i { transform: translateX(3px); }
+    .open-path { min-width: 0; font: 11px var(--font-mono); color: var(--ink-faint); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .work-actions { position: relative; z-index: 2; display: flex; gap: 2px; margin-left: auto; flex-shrink: 0; }
+    .work.is-forthcoming .plate { filter: saturate(.4); }
+    .work.is-forthcoming .folio { opacity: .55; }
+    .work.is-forthcoming .open-cta { color: var(--ink-faint); }
+
+    /* one visible work: a wide "featured" card instead of a lonely tile */
+    .works.is-single { grid-template-columns: minmax(0, 1fr); }
+    .works.is-single .work { flex-direction: row; }
+    .works.is-single .plate { width: 40%; max-width: 460px; height: auto; min-height: 330px; border-bottom: 0; border-right: 1px solid var(--canvas-rule); }
+    .works.is-single .folio { width: 172px; height: 228px; padding: 9px; }
+    .works.is-single .folio-title.is-urdu { font-size: 22px; }
+    .works.is-single .folio-title { font-size: 19px; }
+    .works.is-single .folio-year { font-size: 10px; }
+    .works.is-single .work-main { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; }
+    .works.is-single .work-body { padding: 24px 28px 18px; }
+    .works.is-single .work-title { font-size: 34px; }
+    .works.is-single .work-orig { font-size: 19px; }
+    .works.is-single .work-desc { font: 400 17.5px/1.6 var(--font-serif); color: var(--ink); -webkit-line-clamp: 6; max-width: 70ch; }
+    .works.is-single .work-foot { padding-left: 28px; }
+    .work-main { display: flex; flex-direction: column; flex: 1; min-width: 0; }
+
+    /* list view */
+    .works.is-list { grid-template-columns: minmax(0, 1fr); gap: 0; padding: 0; margin-top: 14px; background: var(--bg-elev); border: 1px solid var(--rule); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); }
+    .works.is-list .work { flex-direction: row; border: 0; border-bottom: 1px solid var(--rule-soft); border-radius: 0; box-shadow: none; overflow: visible; }
+    .works.is-list .work:last-child { border-bottom: 0; }
+    .works.is-list .work.is-linked:hover { transform: none; box-shadow: none; background: var(--bg-hover); }
+    .works.is-list .work:has(.work-link:focus-visible) { outline-offset: -2px; }
+    .works.is-list .plate { width: 96px; height: auto; min-height: 118px; border-bottom: 0; border-right: 1px solid var(--canvas-rule); }
+    .works.is-list .folio { width: 56px; height: 76px; padding: 3px; }
+    .works.is-list .folio-frame { border-width: 2px; padding: 3px; gap: 3px; }
+    .works.is-list .folio-title { font-size: 9px; -webkit-line-clamp: 3; }
+    .works.is-list .folio-title.is-urdu { font-size: 10px; line-height: 1.9; -webkit-line-clamp: 2; }
+    .works.is-list .folio-rule, .works.is-list .folio-year, .works.is-list .plate-flag, .works.is-list .plate-badges, .works.is-list .layers { display: none; }
+    .works.is-list .work-main { flex-direction: row; align-items: center; }
+    .works.is-list .work-body { padding: 12px 18px; gap: 3px; }
+    .works.is-list .work-title { font-size: 20px; margin-top: 2px; }
+    .works.is-list .work-orig { display: none; }
+    .works.is-list .work-desc { -webkit-line-clamp: 1; margin-top: 2px; font-size: 13px; }
+    .works.is-list .work-holding { padding-top: 2px; }
+    .works.is-list .work-foot { flex-direction: row; flex-wrap: wrap; align-items: center; align-content: center; justify-content: flex-end; gap: 4px 6px; width: 240px; flex-shrink: 0; align-self: stretch; background: transparent; border-top: 0; border-left: 1px solid var(--rule-soft); padding: 10px 12px 10px 14px; }
+    .works.is-list .work-actions { margin-left: 0; order: 2; }
+    .works.is-list .open-cta { order: 1; }
+    .works.is-list .open-path { order: 3; flex-basis: 100%; text-align: right; padding-right: 4px; }
+    .works.is-list .list-badges { order: 0; flex-basis: 100%; justify-content: flex-end; }
+    .list-badges { display: none; }
+    .works.is-list .list-badges { display: inline-flex; gap: 6px; }
+    .list-badge { padding: 1px 7px; border-radius: 999px; font: 600 10px/1.6 var(--font-mono); color: var(--ink-muted); background: var(--bg-well); }
+    .list-badge.is-new { background: var(--accent); color: #fff; }
+
+    .empty-state { padding: 48px 22px; text-align: center; color: var(--ink-muted); border: 1px dashed var(--rule-strong); border-radius: var(--radius-lg); margin-top: 14px; background: var(--bg-panel); }
+    .empty-state .i-lg { color: var(--ink-faint); margin-bottom: 8px; }
+    .empty-state h3 { font: 600 20px var(--font-serif); color: var(--ink); margin-bottom: 6px; }
+    .empty-state p { font-size: 13.5px; margin-bottom: 14px; }
+
+    .notice {
+      display: flex; gap: 10px; align-items: flex-start;
+      margin-top: 14px; padding: 12px 14px; border-radius: var(--radius);
+      font-size: 13px; line-height: 1.55; color: var(--ink);
+      background: color-mix(in srgb, var(--warn) 12%, transparent);
+      border: 1px solid color-mix(in srgb, var(--warn) 35%, transparent);
+    }
+    .notice .i { color: var(--warn); margin-top: 2px; }
+    .notice.is-error { background: var(--accent-pale); border-color: color-mix(in srgb, var(--accent) 35%, transparent); }
+    .notice.is-error .i { color: var(--accent-ink); }
+    .notice strong { display: block; margin-bottom: 2px; }
+    .notice ul { margin: 4px 0 0 18px; }
+    .notice code { font-size: 12px; padding: 1px 5px; border-radius: 4px; background: var(--bg-elev); }
+
+    /* ── About / licence / citing ────────────────────────────────────── */
+    .info-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+    .info-grid .card-body p { font-size: 13.5px; line-height: 1.65; color: var(--ink-muted); }
+    .info-grid .card-body p + p { margin-top: 10px; }
+    .info-grid .card-body .prose-lead { font: 400 17px/1.55 var(--font-serif); color: var(--ink); }
+    .info-grid a { color: var(--accent-ink); }
+    .checks { list-style: none; display: grid; gap: 7px; margin-top: 12px; font-size: 13px; color: var(--ink); }
+    .checks li { display: flex; gap: 8px; align-items: flex-start; }
+    .checks .i { color: var(--ok); margin-top: 2px; }
+    .cite-box {
+      position: relative; margin-top: 12px; padding: 12px 44px 12px 14px;
+      font: 12.5px/1.6 var(--font-mono); color: var(--ink);
+      background: var(--bg-paper); border: 1px solid var(--rule); border-radius: var(--radius);
+      overflow-wrap: anywhere;
+    }
+    .cite-box .icon-btn { position: absolute; right: 6px; top: 6px; }
+
+    /* ── Footer ──────────────────────────────────────────────────────── */
+    .site-foot { margin-top: 48px; background: var(--bg-panel); border-top: 1px solid var(--rule); }
+    .foot-inner { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; flex-wrap: wrap; padding: 26px 0 30px; }
+    .foot-brand { font: 600 19px var(--font-serif); }
+    .foot-copy { max-width: 70ch; margin-top: 6px; font-size: 12.5px; line-height: 1.6; color: var(--ink-muted); }
+    .foot-copy a { color: var(--accent-ink); }
+    .foot-meta { display: grid; gap: 6px; justify-items: end; font: 11px var(--font-mono); color: var(--ink-faint); text-align: right; }
+    .foot-meta a { color: var(--ink-muted); }
+
+    /* ── Toasts ──────────────────────────────────────────────────────── */
+    .toasts { position: fixed; left: 50%; bottom: 18px; z-index: 100; display: flex; flex-direction: column; align-items: center; gap: 8px; transform: translateX(-50%); pointer-events: none; }
+    .toast {
+      display: inline-flex; align-items: center; gap: 10px;
+      max-width: min(480px, calc(100vw - 32px)); padding: 10px 14px; border-radius: var(--radius-lg);
+      font-size: 13px; color: #F5F0E8; background: #232120; box-shadow: var(--shadow-md); border: 1px solid #3A3633;
+      opacity: 0; transform: translateY(8px); transition: opacity .2s, transform .2s var(--ease);
+    }
+    .toast.show { opacity: 1; transform: none; }
+    .toast .i { color: #7FD69A; }
+    .toast.is-error .i { color: #F0A79F; }
+
+    /* ── Responsive ──────────────────────────────────────────────────── */
+    @media (max-width: 1100px) {
+      .info-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+      .info-grid > :last-child { grid-column: 1 / -1; }
+    }
+    @media (max-width: 980px) {
+      .hero-inner { grid-template-columns: minmax(0, 1fr); gap: 32px; padding: 40px 0 36px; }
+      .ledger { max-width: 560px; }
+      .stat-grid { grid-template-columns: repeat(4, 1fr); }
+      .brand-sub { display: none; }
+    }
+    @media (max-width: 899px) {
+      :root { --topbar-h: 54px; }
+      .hide-sm { display: none !important; }
+      .toolbar { position: static; }
+      .works.is-single .work { flex-direction: column; }
+      .works.is-single .plate { width: 100%; max-width: none; min-height: 270px; border-right: 0; border-bottom: 1px solid var(--canvas-rule); }
+      .works.is-single .folio { width: 150px; height: 198px; }
+      .works.is-single .work-title { font-size: 28px; }
+      .works.is-single .work-body { padding: 18px 18px 14px; }
+      .works.is-single .work-foot { padding-left: 18px; }
+      .works.is-list .work-main { flex-direction: column; align-items: stretch; }
+      .works.is-list .work-foot { width: auto; flex-direction: row; align-items: center; border-left: 0; padding: 0 12px 10px 18px; }
+      .works.is-list .work-actions { margin-left: auto; }
+      .works.is-list .open-path { display: none; }
+      .info-grid { grid-template-columns: minmax(0, 1fr); }
+      .foot-meta { justify-items: start; text-align: left; }
+    }
+    @media (max-width: 620px) {
+      .wrap { width: calc(100% - 28px); }
+      .topbar { padding: 0 8px 0 10px; gap: 8px; }
+      .inst-tag.brand-tag, .status-pill, .tb-btn-label { display: none; }
+      .brand-title { font-size: 19px; }
+      .hero h1 { font-size: 40px; }
+      .hero-lead { font-size: 18px; }
+      .hero .eyebrow .sep { display: none; }
+      .stat-grid { grid-template-columns: repeat(2, 1fr); }
+      .tool-cluster { margin-left: 0; width: 100%; justify-content: space-between; }
+      .segmented .seg-label { display: none; }
+      .sec-title { font-size: 27px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+    }
+    @media print {
+      .topbar, .toolbar, .hero-actions, .work-actions, .toasts { display: none !important; }
+      body { background: #fff; }
+      .work, .card { box-shadow: none; break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></symbol>
+    <symbol id="i-chev-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2.5 12h2M19.5 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h8"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9L1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.6h.01"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="1.2"/><rect x="13" y="4" width="7" height="7" rx="1.2"/><rect x="4" y="13" width="7" height="7" rx="1.2"/><rect x="13" y="13" width="7" height="7" rx="1.2"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24"><path d="M9 6h12M9 12h12M9 18h12M4 6h.01M4 12h.01M4 18h.01"/></symbol>
+  </svg>
+
+  <a class="skip-link" href="#catalogue">Skip to the catalogue</a>
+
+  <header class="topbar">
+    <div class="topbar-left">
+      <a class="brand" href="#top" aria-label="Project Scriptorium: back to top">
+        <span class="inst-tag brand-tag" title="All transcriptions are dedicated to the public domain (CC0 1.0 Universal)">CC0 1.0</span>
+        <span class="brand-text">
+          <span class="brand-title">Project Scriptorium</span>
+          <span class="brand-sub">Transcribed books &amp; manuscripts<span class="sep">·</span>Facsimile beside text<span class="sep">·</span>Public domain</span>
+        </span>
+      </a>
+    </div>
+    <div class="topbar-right">
+      <a class="status-pill" id="corpusPill" href="#catalogue" title="Go to the catalogue">
+        <span class="status-dot" aria-hidden="true"></span><span id="corpusPillText">Catalogue</span>
+      </a>
+      <a class="btn btn-ghost hide-sm" href="#about">About</a>
+      <a class="btn btn-ghost hide-sm" href="#licence">Licence</a>
+      <span class="tb-divider hide-sm" aria-hidden="true"></span>
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch to dark theme" title="Toggle light / dark theme  T"><svg class="i"><use href="#i-moon"/></svg></button>
+      <a class="btn btn-primary" href="#catalogue" title="Jump to the catalogue" aria-label="Browse the archive">
+        <span class="tb-btn-label">Browse the archive</span><svg class="i i-sm"><use href="#i-arrow-down"/></svg>
+      </a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="wrap hero-inner">
+        <div>
+          <div class="eyebrow">
+            <span class="type-badge">Digital editions</span>
+            <span>Old books &amp; manuscripts</span><span class="sep">·</span><span>CC0 1.0 Universal</span>
+          </div>
+          <h1 id="heroTitle">Project Scriptorium</h1>
+          <p class="hero-lead">Old books and manuscripts, transcribed line by line and read beside their facsimiles. Every transcription here is dedicated to the public domain, so you can read it, search it, copy it, republish it or use it as training data without asking.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary btn-lg" href="#catalogue"><svg class="i"><use href="#i-book"/></svg>Browse the catalogue</a>
+            <a class="btn btn-lg" href="#licence">How you may reuse the texts</a>
+          </div>
+        </div>
+
+        <aside class="ledger" aria-labelledby="ledgerTitle">
+          <header class="card-head">
+            <h2 class="card-title" id="ledgerTitle"><span class="num">§</span>The archive at a glance</h2>
+          </header>
+          <div class="ledger-body">
+            <div class="stat-grid" id="statGrid">
+              <div class="stat"><b id="statWorks">—</b><span id="statWorksLabel">Editions online</span></div>
+              <div class="stat"><b id="statScans">—</b><span>Scans</span></div>
+              <div class="stat"><b id="statLangs">—</b><span id="statLangsLabel">Languages</span></div>
+              <div class="stat"><b id="statSpan">—</b><span id="statSpanLabel">Dates of origin</span></div>
+            </div>
+            <div class="ledger-licence">
+              <span class="cc0-mark" aria-hidden="true">CC0</span>
+              <p><strong>No rights reserved.</strong> Transcriptions are released under <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener license">CC0 1.0 Universal</a>. Credit is welcome but never required.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="catalogue" aria-labelledby="catalogueTitle">
+      <div class="wrap sec-head">
+        <div>
+          <p class="card-title"><span class="num">I</span>Catalogue</p>
+          <h2 class="sec-title" id="catalogueTitle">Books &amp; manuscripts</h2>
+          <p class="sec-sub">Choose a work to open its edition: the facsimile, the transcription and every other layer, page by page.</p>
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <div class="wrap">
+          <div class="toolbar-row">
+            <label class="search">
+              <span class="sr-only">Search the catalogue</span>
+              <svg class="i"><use href="#i-search"/></svg>
+              <input id="searchInput" type="search" placeholder="Search titles, authors, places, shelfmarks…" autocomplete="off" spellcheck="false" aria-describedby="searchHelp" />
+              <kbd class="search-kbd" id="searchKbd" aria-hidden="true">/</kbd>
+              <button class="icon-btn sm search-clear" id="searchClear" type="button" aria-label="Clear search" title="Clear search  Esc" hidden><svg class="i i-sm"><use href="#i-x"/></svg></button>
+            </label>
+            <span id="searchHelp" class="sr-only">Diacritics and accents are ignored, and Urdu, Persian and Arabic letter variants are matched. Every word you type must appear.</span>
+            <div class="tool-cluster">
+              <label class="select">
+                <span class="select-label">Sort</span>
+                <select id="sortSelect" aria-label="Sort the catalogue">
+                  <option value="catalogue">Catalogue order</option>
+                  <option value="added">Recently added</option>
+                  <option value="title">Title A–Z</option>
+                  <option value="author">Author A–Z</option>
+                  <option value="date-asc">Oldest first</option>
+                  <option value="date-desc">Newest first</option>
+                </select>
+                <svg class="i i-sm"><use href="#i-chev-down"/></svg>
+              </label>
+              <div class="segmented" role="group" aria-label="Layout">
+                <button type="button" data-view="grid" aria-pressed="true" title="Cards"><svg class="i i-sm"><use href="#i-grid"/></svg><span class="seg-label">Cards</span></button>
+                <button type="button" data-view="list" aria-pressed="false" title="Compact list"><svg class="i i-sm"><use href="#i-list"/></svg><span class="seg-label">List</span></button>
+              </div>
+            </div>
+          </div>
+          <div class="facets" id="facets" hidden></div>
+        </div>
+      </div>
+
+      <div class="wrap">
+        <div id="catalogueNotice"></div>
+        <div class="result-bar">
+          <span id="resultCount" aria-live="polite">Loading catalogue…</span>
+          <button class="link-btn" id="resetBtn" type="button" hidden>Reset search &amp; filters</button>
+        </div>
+        <ol class="works" id="works" aria-label="Works in the archive"></ol>
+        <div class="empty-state" id="emptyState" hidden>
+          <svg class="i i-lg"><use href="#i-search"/></svg>
+          <h3>No works match</h3>
+          <p id="emptyText">Try fewer words, or clear the filters.</p>
+          <button class="btn" id="emptyReset" type="button">Reset search &amp; filters</button>
+        </div>
+        <noscript>
+          <div class="notice"><svg class="i"><use href="#i-alert"/></svg><div><strong>JavaScript is switched off.</strong>The catalogue is drawn by a small script on this page. Please enable JavaScript to browse the archive.</div></div>
+        </noscript>
+      </div>
+    </section>
+
+    <section class="section" id="about" aria-labelledby="aboutTitle">
+      <div class="wrap sec-head">
+        <div>
+          <p class="card-title"><span class="num">II</span>About the project</p>
+          <h2 class="sec-title" id="aboutTitle">Reading, reuse &amp; citation</h2>
+        </div>
+      </div>
+      <div class="wrap info-grid">
+        <article class="card" aria-labelledby="editionsTitle">
+          <header class="card-head"><h3 class="card-title" id="editionsTitle">What an edition offers</h3></header>
+          <div class="card-body">
+            <p class="prose-lead">Each work opens in its own reading room, with the scanned page on one side and the transcribed text on the other.</p>
+            <ul class="checks">
+              <li><svg class="i i-sm"><use href="#i-check"/></svg><span>Zoomable facsimile, streamed from the library that holds the original</span></li>
+              <li><svg class="i i-sm"><use href="#i-check"/></svg><span>Diplomatic, line-by-line transcription in the original script</span></li>
+              <li><svg class="i i-sm"><use href="#i-check"/></svg><span>Transliteration, English digest and entity index, where available</span></li>
+              <li><svg class="i i-sm"><use href="#i-check"/></svg><span>Full-text search, plain-text &amp; JSON export, and citable page links</span></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card" id="licence" aria-labelledby="licenceTitle">
+          <header class="card-head"><h3 class="card-title" id="licenceTitle">Licence: CC0 1.0</h3><span class="card-meta">No rights reserved</span></header>
+          <div class="card-body">
+            <p class="prose-lead">The transcriptions, transliterations, digests and indexes on this site are dedicated to the public domain.</p>
+            <p>To the extent possible under law, Project Scriptorium has waived all copyright and related or neighbouring rights to them under <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener license">CC0 1.0 Universal</a>. You may copy, modify, distribute and use them, including commercially, without asking permission.</p>
+            <p><strong>Please note:</strong> the facsimile images are shown directly from their holding institutions and stay under those institutions' own terms. Check each library's record before you reuse an image.</p>
+          </div>
+        </article>
+
+        <article class="card" aria-labelledby="citeTitle">
+          <header class="card-head"><h3 class="card-title" id="citeTitle">Citing a work</h3><span class="card-meta">Optional</span></header>
+          <div class="card-body">
+            <p>Attribution isn't required, but it helps other readers find the source. Each edition can copy a full citation for any page. For the archive as a whole:</p>
+            <div class="cite-box"><span id="citeText">Project Scriptorium: public-domain transcriptions of books and manuscripts.</span>
+              <button class="icon-btn sm" id="copyCiteBtn" type="button" aria-label="Copy citation" title="Copy citation"><svg class="i i-sm"><use href="#i-copy"/></svg></button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap foot-inner">
+      <div>
+        <p class="foot-brand">Project Scriptorium</p>
+        <p class="foot-copy">Transcriptions dedicated to the public domain under <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener license">CC0 1.0 Universal</a>. Facsimile images belong to, and are served by, their holding institutions.</p>
+      </div>
+      <div class="foot-meta">
+        <span id="footUpdated"></span>
+        <span>Shortcuts: <kbd>/</kbd> search <kbd>T</kbd> theme <kbd>Esc</kbd> clear</span>
+        <a href="#top">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toasts" id="toasts" role="status" aria-live="polite"></div>
+
+  <!-- Catalogue engine. You shouldn't need to edit below this line: works are added in the CATALOGUE block at the top. -->
+  <script>
+  (() => {
+    'use strict';
+
+    const NEW_FOR_DAYS = 45;          // how long the "New" badge shows after the "added" date
+    const LICENCE_URL = 'https://creativecommons.org/publicdomain/zero/1.0/';
+
+    const $ = (s, r = document) => r.querySelector(s);
+    const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+    const esc = s => String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+    const icon = (name, cls = '') => `<svg class="i ${cls}" aria-hidden="true"><use href="#i-${name}"/></svg>`;
+    const plural = (n, one, many) => `${n.toLocaleString('en')} ${n === 1 ? one : (many || one + 's')}`;
+    const debounce = (fn, ms) => { let t; return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), ms); }; };
+    const store = {
+      get(k, d) { try { const v = localStorage.getItem('scriptorium:' + k); return v === null ? d : JSON.parse(v); } catch (e) { return d; } },
+      set(k, v) { try { localStorage.setItem('scriptorium:' + k, JSON.stringify(v)); } catch (e) { /* storage unavailable */ } }
+    };
+    const isLocal = location.protocol === 'file:' || /^(localhost|127\.0\.0\.1|\[::1\]|0\.0\.0\.0)$/.test(location.hostname);
+
+    /* ── Diacritic- and script-variant-insensitive folding (same rules as the edition search) ── */
+    const CHAR_MAP = {
+      '\u064A': '\u06CC', '\u0649': '\u06CC', '\u0643': '\u06A9',
+      '\u0647': '\u06C1', '\u0629': '\u06C1', '\u06C0': '\u06C1', '\u06D5': '\u06C1', '\u0671': '\u0627',
+      '\u0622': '\u0627', '\u0623': '\u0627', '\u0625': '\u0627',
+      '\u02BF': '', '\u02BE': '', '\u02BB': '', '\u02BC': '', '\u2019': '', '\u2018': '', "'": '', '`': '', '\u00B4': '',
+      '\u0131': 'i', '\u00DF': 'ss', '\u00E6': 'ae', '\u0153': 'oe', '\u0111': 'd', '\u0142': 'l', '\u00F8': 'o', '\u0127': 'h'
+    };
+    for (let d = 0; d < 10; d++) {
+      CHAR_MAP[String.fromCharCode(0x0660 + d)] = String(d);
+      CHAR_MAP[String.fromCharCode(0x06F0 + d)] = String(d);
+    }
+    const STRIP_RE = /[\u0300-\u036F\u1AB0-\u1AFF\u1DC0-\u1DFF\u20D0-\u20FF\uFE20-\uFE2F\u0610-\u061A\u064B-\u065F\u0670\u06D6-\u06ED\u0640\u200B-\u200F\u00AD]/g;
+    const foldCache = new Map();
+    function foldChar(ch) {
+      let r = foldCache.get(ch);
+      if (r !== undefined) return r;
+      const mapped = Object.prototype.hasOwnProperty.call(CHAR_MAP, ch) ? CHAR_MAP[ch] : ch;
+      r = mapped ? mapped.normalize('NFD').toLowerCase().replace(STRIP_RE, '') : '';
+      foldCache.set(ch, r);
+      return r;
+    }
+    function fold(s) {
+      let out = '';
+      for (const ch of String(s == null ? '' : s).normalize('NFC')) out += foldChar(ch);
+      return out.replace(/[\s\-‐‑–—_.,;:·()\[\]{}"“”«»!?/\\]+/g, ' ').trim();
+    }
+
+    /* ── Script detection for original-language titles ─────────────────────── */
+    const RTL_RE = /[\u0590-\u05FF\u0600-\u06FF\u0700-\u074F\u0750-\u077F\u08A0-\u08FF\uFB1D-\uFDFF\uFE70-\uFEFF]/;
+    const ARABIC_RE = /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]/;
+    const LANG_GUESS = { urdu: 'ur', persian: 'fa', farsi: 'fa', arabic: 'ar', pashto: 'ps', sindhi: 'sd', kashmiri: 'ks', ottoman: 'ota', turkish: 'tr', hebrew: 'he', latin: 'la', greek: 'el', english: 'en', german: 'de', french: 'fr', italian: 'it', spanish: 'es', hindi: 'hi', sanskrit: 'sa', bengali: 'bn' };
+    function guessLang(language) {
+      const first = String(language || '').toLowerCase().split(/[,;/]/)[0].trim();
+      return LANG_GUESS[first] || '';
+    }
+    function scriptOf(text, lang, script) {
+      const rtl = RTL_RE.test(text);
+      let cls = 'is-latin';
+      if (ARABIC_RE.test(text)) cls = (/^(ur|ks)\b/i.test(lang) || /nasta/i.test(script) || (!lang && !script)) ? 'is-urdu' : 'is-naskh';
+      else if (rtl) cls = 'is-naskh';
+      return { rtl, cls };
+    }
+
+    /* ── Dates ─────────────────────────────────────────────────────────────── */
+    function yearOf(v) {
+      const s = String(v || '');
+      let m = s.match(/(\d{1,2})(?:st|nd|rd|th)\s*(?:c\b|cent)/i);
+      if (m) return (parseInt(m[1], 10) - 1) * 100 + 50;
+      m = s.match(/\d{3,4}/);
+      return m ? parseInt(m[0], 10) : null;
+    }
+    function dateOf(v) {
+      const m = String(v || '').match(/^(\d{4})-(\d{1,2})(?:-(\d{1,2}))?/);
+      if (!m) return null;
+      const d = new Date(Date.UTC(+m[1], +m[2] - 1, +(m[3] || 1)));
+      return isNaN(d) ? null : d;
+    }
+    const fmtDate = d => d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+
+    /* ── Links ─────────────────────────────────────────────────────────────── */
+    // "folder" or "/folder" → "folder/" so the edition page's relative corpus.json still resolves.
+    function tidyLink(href) {
+      if (!href) return '';
+      if (/^([a-z][a-z0-9+.-]*:|\/\/|#)/i.test(href)) return href;          // full URL, mailto:, #anchor
+      const m = href.match(/^([^?#]*)(.*)$/);
+      let path = m[1];
+      const last = path.split('/').pop();
+      if (path && !path.endsWith('/') && !/\.[a-z0-9]{1,5}$/i.test(last)) path += '/';
+      return path + m[2];
+    }
+    function absUrl(href) { try { return new URL(href, location.href).href; } catch (e) { return href; } }
+    function shownPath(href) {
+      if (/^[a-z][a-z0-9+.-]*:|^\/\//i.test(href)) {
+        try { const u = new URL(href, location.href); return u.origin === location.origin && /^https?:$/.test(location.protocol) ? u.pathname : u.host + u.pathname; } catch (e) { return href; }
+      }
+      if (/^https?:$/.test(location.protocol)) { try { return new URL(href, location.href).pathname; } catch (e) { /* fall through */ } }
+      return href.startsWith('/') ? href : '/' + href.replace(/^\.\//, '');
+    }
+    const slugify = s => fold(s).replace(/[^a-z0-9\u0600-\u06FF]+/g, '-').replace(/^-+|-+$/g, '') || 'work';
+
+    /* ── Read & validate the catalogue ─────────────────────────────────────── */
+    const warnings = [];
+    let fatal = null;
+    let raw = null;
+    try { raw = (typeof MANUSCRIPTS !== 'undefined') ? MANUSCRIPTS : null; } catch (e) { raw = null; }
+    if (!Array.isArray(raw)) {
+      const err = (window.__catalogueErrors || [])[0];
+      fatal = err
+        ? `The catalogue list has a typo near line ${err.line} of index.html (${err.message}). Usually it's a missing comma between two { … } blocks, or a missing quote.`
+        : 'The MANUSCRIPTS list at the top of index.html could not be found or is not a list in [ … ].';
+      raw = [];
+    }
+
+    const str = v => (v == null ? '' : String(v)).trim();
+    const STATUS = {
+      'complete': { label: 'Complete', cls: 'is-complete' }, 'completed': { label: 'Complete', cls: 'is-complete' }, 'published': { label: 'Complete', cls: 'is-complete' },
+      'in-progress': { label: 'In progress', cls: 'is-progress' }, 'ongoing': { label: 'In progress', cls: 'is-progress' }, 'draft': { label: 'In progress', cls: 'is-progress' },
+      'forthcoming': { label: 'Forthcoming', cls: 'is-forthcoming' }, 'planned': { label: 'Forthcoming', cls: 'is-forthcoming' }
+    };
+    const today = new Date();
+    const seenLinks = new Map();
+    const seenSlugs = new Set();
+
+    const works = raw.map((m, i) => {
+      if (!m || typeof m !== 'object') { warnings.push(`Entry ${i + 1} is not a { … } block and was skipped.`); return null; }
+      const title = str(m.title);
+      if (!title) { warnings.push(`Entry ${i + 1} has no "title" and was skipped.`); return null; }
+      const statusKey = str(m.status).toLowerCase().replace(/[\s_]+/g, '-');
+      const status = STATUS[statusKey] || null;
+      if (statusKey && !status) warnings.push(`"${title}": status "${m.status}" isn't recognised (use complete, in-progress or forthcoming).`);
+      const rawLink = str(m.link || m.href || m.url || m.path);
+      const forthcoming = (status && status.cls === 'is-forthcoming') || !rawLink;
+      if (!rawLink && !(status && status.cls === 'is-forthcoming')) warnings.push(`"${title}" has no "link", so it is shown as forthcoming (not clickable).`);
+      const href = rawLink ? tidyLink(rawLink) : '';
+      if (href) {
+        if (seenLinks.has(href)) warnings.push(`"${title}" uses the same link as "${seenLinks.get(href)}" (${href}).`);
+        seenLinks.set(href, title);
+      }
+      const titleOriginal = str(m.titleOriginal);
+      const language = str(m.language);
+      const script = str(m.script);
+      const titleLang = str(m.titleLang) || guessLang(language);
+      const layers = Array.isArray(m.layers) ? m.layers.map(str).filter(Boolean) : str(m.layers).split(/[,;]/).map(str).filter(Boolean);
+      const subjects = Array.isArray(m.subjects) ? m.subjects.map(str).filter(Boolean) : str(m.subjects).split(/[,;]/).map(str).filter(Boolean);
+      const year = str(m.year || m.date);
+      const added = dateOf(m.added);
+      if (str(m.added) && !added) warnings.push(`"${title}": "added" should look like "2025-03-14".`);
+      const scansNum = Number(String(m.scans == null ? '' : m.scans).replace(/[^\d.]/g, ''));
+      let slug = slugify(rawLink.replace(/^https?:\/\/[^/]+/i, '').split(/[?#]/)[0].split('/').filter(Boolean).pop() || title);
+      while (seenSlugs.has(slug)) slug += '-' + (i + 1);
+      seenSlugs.add(slug);
+      const w = {
+        index: i, slug, title, titleOriginal, titleLang, href, forthcoming, status,
+        author: str(m.author), year, yearNum: yearOf(year),
+        place: str(m.place), publisher: str(m.publisher),
+        type: str(m.type), language, script,
+        languages: language.split(/[,;/]/).map(str).filter(Boolean),
+        holding: str(m.holding), shelfmark: str(m.shelfmark), catalogueUrl: str(m.catalogueUrl),
+        scans: scansNum > 0 ? Math.round(scansNum) : 0,
+        layers, subjects, description: str(m.description), cover: str(m.cover),
+        added, isNew: !!added && (today - added) / 864e5 <= NEW_FOR_DAYS && today >= added
+      };
+      w.hay = fold([w.title, w.titleOriginal, w.author, w.year, w.place, w.publisher, w.type, w.language, w.script,
+        w.holding, w.shelfmark, w.description, w.layers.join(' '), w.subjects.join(' '), rawLink].join(' \u0001 '));
+      w.sortTitle = fold(w.title).replace(/^(al|el|the|le|la|der|die|das)\s+/, '');
+      w.sortAuthor = fold(w.author).replace(/^(al|el)\s+/, '') || '\uffff';
+      return w;
+    }).filter(Boolean);
+
+    warnings.forEach(m => console.warn('[Scriptorium catalogue]', m));
+
+    /* ── Elements & state ──────────────────────────────────────────────────── */
+    const el = {
+      list: $('#works'), empty: $('#emptyState'), emptyText: $('#emptyText'), emptyReset: $('#emptyReset'),
+      count: $('#resultCount'), reset: $('#resetBtn'), notice: $('#catalogueNotice'),
+      search: $('#searchInput'), searchClear: $('#searchClear'), searchKbd: $('#searchKbd'),
+      sort: $('#sortSelect'), facets: $('#facets'),
+      pill: $('#corpusPill'), pillText: $('#corpusPillText'),
+      themeBtn: $('#themeBtn'), toasts: $('#toasts'),
+      citeText: $('#citeText'), copyCite: $('#copyCiteBtn'), footUpdated: $('#footUpdated')
+    };
+    const FACETS = [
+      { key: 'language', label: 'Language', values: w => w.languages },
+      { key: 'type', label: 'Form', values: w => (w.type ? [w.type] : []) },
+      { key: 'status', label: 'Status', values: w => (w.status ? [w.status.label] : []) }
+    ];
+    const SORTS = ['catalogue', 'added', 'title', 'author', 'date-asc', 'date-desc'];
+    const params = new URLSearchParams(location.search);
+    const state = {
+      q: params.get('q') || '',
+      filters: Object.fromEntries(FACETS.map(f => [f.key, params.get(f.key) || ''])),
+      sort: SORTS.includes(params.get('sort')) ? params.get('sort') : store.get('sort', 'catalogue'),
+      view: ['grid', 'list'].includes(params.get('view')) ? params.get('view') : store.get('view', 'grid')
+    };
+    if (!SORTS.includes(state.sort)) state.sort = 'catalogue';
+
+    /* ── Rendering ─────────────────────────────────────────────────────────── */
+    function plateHTML(w) {
+      const flag = w.shelfmark || w.year;
+      const badges = [];
+      if (w.isNew) badges.push('<span class="plate-badge is-new">New</span>');
+      if (w.status) badges.push(`<span class="plate-badge ${w.status.cls}"><span class="dot"></span>${esc(w.status.label)}</span>`);
+      let folio;
+      if (w.cover) {
+        folio = `<div class="folio has-cover"><img src="${esc(w.cover)}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.parentNode.classList.remove('has-cover');this.remove()"></div>`;
+      } else {
+        const t = w.titleOriginal || w.title;
+        const sc = scriptOf(t, w.titleOriginal ? w.titleLang : 'en', w.titleOriginal ? w.script : '');
+        const langAttr = w.titleOriginal && w.titleLang ? ` lang="${esc(w.titleLang)}"` : '';
+        folio = `<div class="folio"><div class="folio-frame">
+            <span class="folio-title ${sc.cls}"${langAttr}${sc.rtl ? ' dir="rtl"' : ''}>${esc(t)}</span>
+            <span class="folio-rule"></span>
+            <span class="folio-year">${esc(w.year || w.place || w.type || '')}</span>
+          </div></div>`;
+      }
+      return `<div class="plate" aria-hidden="true">${folio}
+          ${flag ? `<span class="plate-flag">${esc(flag)}</span>` : ''}
+          ${badges.length ? `<span class="plate-badges">${badges.join('')}</span>` : ''}
+        </div>`;
+    }
+
+    function cardHTML(w, n) {
+      const tid = `w-${w.slug}-title`;
+      const eyebrowBits = [...new Set([w.language, w.script].filter(Boolean))].map(esc).join(' · ');
+      const eyebrow = (w.type || eyebrowBits) ? `<div class="eyebrow">${w.type ? `<span class="type-badge">${esc(w.type)}</span>` : ''}${eyebrowBits ? `<span>${eyebrowBits}</span>` : ''}</div>` : '';
+      const where = [w.place, w.publisher].filter(Boolean).join(': ');
+      const imprint = [where, w.year].filter(Boolean).join(', ');
+      const orig = w.titleOriginal ? (() => {
+        const sc = scriptOf(w.titleOriginal, w.titleLang, w.script);
+        return `<p class="work-orig ${sc.cls}"${w.titleLang ? ` lang="${esc(w.titleLang)}"` : ''}${sc.rtl ? ' dir="rtl" style="text-align:left"' : ''}>${esc(w.titleOriginal)}</p>`;
+      })() : '';
+      const holding = [w.holding, w.shelfmark].filter(Boolean).map(esc).join('<span class="sep">·</span>');
+      const titleInner = w.forthcoming
+        ? esc(w.title)
+        : `<a class="work-link" href="${esc(w.href)}">${esc(w.title)}</a>`;
+      const listBadges = [w.isNew ? '<span class="list-badge is-new">New</span>' : '', w.status ? `<span class="list-badge">${esc(w.status.label)}</span>` : ''].join('');
+      const actions = [];
+      if (!w.forthcoming) actions.push(`<button class="icon-btn sm" type="button" data-copy="${esc(absUrl(w.href))}" aria-label="Copy link to ${esc(w.title)}" title="Copy link">${icon('link', 'i-sm')}</button>`);
+      if (w.catalogueUrl) actions.push(`<a class="icon-btn sm" href="${esc(w.catalogueUrl)}" target="_blank" rel="noopener" aria-label="Library record for ${esc(w.title)} (opens in a new tab)" title="Holding library's record">${icon('external', 'i-sm')}</a>`);
+      const meta = [w.scans ? plural(w.scans, 'scan') : ''].filter(Boolean).join(' · ');
+      return `<li class="work ${w.forthcoming ? 'is-forthcoming' : 'is-linked'}" id="w-${esc(w.slug)}" aria-labelledby="${tid}" style="animation-delay:${Math.min(n, 12) * 40}ms">
+        ${plateHTML(w)}
+        <div class="work-main">
+          <div class="work-body">
+            ${eyebrow}
+            <h3 class="work-title" id="${tid}">${titleInner}</h3>
+            ${orig}
+            ${w.author ? `<p class="work-author">${esc(w.author)}</p>` : ''}
+            ${imprint ? `<p class="work-imprint">${esc(imprint)}</p>` : ''}
+            ${w.description ? `<p class="work-desc">${esc(w.description)}</p>` : ''}
+            ${w.layers.length ? `<ul class="layers" aria-label="Layers in this edition">${w.layers.map(l => `<li>${esc(l)}</li>`).join('')}</ul>` : ''}
+            ${(holding || meta) ? `<p class="work-holding" title="${esc([w.holding, w.shelfmark].filter(Boolean).join(' · '))}">${holding}${holding && meta ? '<span class="sep">·</span>' : ''}${esc(meta)}</p>` : ''}
+          </div>
+          <div class="work-foot">
+            ${listBadges ? `<span class="list-badges">${listBadges}</span>` : ''}
+            ${w.forthcoming
+              ? `<span class="open-cta">In preparation</span>`
+              : `<span class="open-cta" aria-hidden="true">Open edition ${icon('arrow-right', 'i-sm')}</span><span class="open-path" aria-hidden="true">${esc(shownPath(w.href))}</span>`}
+            ${actions.length ? `<span class="work-actions">${actions.join('')}</span>` : ''}
+          </div>
+        </div>
+      </li>`;
+    }
+
+    function facetCounts(pool) {
+      return FACETS.map(f => {
+        const counts = new Map();
+        pool.forEach(w => f.values(w).forEach(v => counts.set(v, (counts.get(v) || 0) + 1)));
+        return { f, counts };
+      });
+    }
+
+    function renderFacets() {
+      const groups = facetCounts(works).filter(g => g.counts.size >= 2);
+      // Drop stale filters (e.g. a value removed from the catalogue).
+      FACETS.forEach(f => { if (state.filters[f.key] && !works.some(w => f.values(w).includes(state.filters[f.key]))) state.filters[f.key] = ''; });
+      el.facets.hidden = !groups.length;
+      el.facets.innerHTML = groups.map(({ f, counts }) => {
+        const vals = [...counts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+        const cur = state.filters[f.key];
+        return `<div class="facet" role="group" aria-label="${esc(f.label)}">
+          <span class="facet-label">${esc(f.label)}</span>
+          <button class="chip-toggle" type="button" data-facet="${f.key}" data-value="" aria-pressed="${!cur}">All</button>
+          ${vals.map(([v, c]) => `<button class="chip-toggle" type="button" data-facet="${f.key}" data-value="${esc(v)}" aria-pressed="${cur === v}">${esc(v)} <span class="count">${c}</span></button>`).join('')}
+        </div>`;
+      }).join('');
+    }
+
+    function matches(w, terms) {
+      if (terms.length && !terms.every(t => w.hay.includes(t))) return false;
+      return FACETS.every(f => !state.filters[f.key] || f.values(w).includes(state.filters[f.key]));
+    }
+
+    const cmp = (a, b) => (a < b ? -1 : a > b ? 1 : 0);
+    function sorted(list) {
+      const by = {
+        'catalogue': (a, b) => a.index - b.index,
+        'added': (a, b) => ((b.added ? +b.added : 0) - (a.added ? +a.added : 0)) || (b.index - a.index),
+        'title': (a, b) => a.sortTitle.localeCompare(b.sortTitle, 'en') || a.index - b.index,
+        'author': (a, b) => a.sortAuthor.localeCompare(b.sortAuthor, 'en') || a.sortTitle.localeCompare(b.sortTitle, 'en'),
+        'date-asc': (a, b) => cmp(a.yearNum ?? Infinity, b.yearNum ?? Infinity) || a.index - b.index,
+        'date-desc': (a, b) => cmp(b.yearNum ?? -Infinity, a.yearNum ?? -Infinity) || a.index - b.index
+      }[state.sort];
+      return list.slice().sort(by);
+    }
+
+    function render() {
+      const terms = fold(state.q).split(' ').filter(Boolean);
+      const shown = sorted(works.filter(w => matches(w, terms)));
+      const filtered = terms.length || FACETS.some(f => state.filters[f.key]);
+
+      el.list.classList.toggle('is-list', state.view === 'list');
+      el.list.classList.toggle('is-single', state.view === 'grid' && shown.length === 1);
+      el.list.innerHTML = shown.map(cardHTML).join('');
+      el.list.hidden = !shown.length;
+
+      el.empty.hidden = !!shown.length || !works.length;
+      if (!shown.length && works.length) {
+        el.emptyText.innerHTML = terms.length
+          ? `Nothing in the catalogue matches “${esc(state.q.trim())}”${filtered && FACETS.some(f => state.filters[f.key]) ? ' with the current filters' : ''}. Try fewer or different words.`
+          : 'No works match the current filters.';
+      }
+
+      const total = works.length;
+      if (!total) el.count.textContent = fatal ? 'Catalogue unavailable' : 'No works listed yet';
+      else if (filtered) el.count.innerHTML = `<strong>${shown.length.toLocaleString('en')}</strong> of ${plural(total, 'work')}${terms.length ? ` matching “${esc(state.q.trim())}”` : ''}`;
+      else el.count.innerHTML = `<strong>${plural(total, 'work')}</strong> in the archive`;
+      el.reset.hidden = !filtered;
+
+      $$('.chip-toggle', el.facets).forEach(b => b.setAttribute('aria-pressed', String((state.filters[b.dataset.facet] || '') === b.dataset.value)));
+      $$('[data-view]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.view === state.view)));
+      el.sort.value = state.sort;
+      el.searchClear.hidden = !state.q;
+      el.searchKbd.hidden = !!state.q;
+      syncUrl();
+    }
+
+    function syncUrl() {
+      const p = new URLSearchParams();
+      if (state.q.trim()) p.set('q', state.q.trim());
+      FACETS.forEach(f => { if (state.filters[f.key]) p.set(f.key, state.filters[f.key]); });
+      const qs = p.toString();
+      const url = location.pathname + (qs ? '?' + qs : '') + location.hash;
+      try { history.replaceState(null, '', url); } catch (e) { /* file:// in some browsers */ }
+    }
+
+    function renderStats() {
+      const online = works.filter(w => !w.forthcoming);
+      const soon = works.length - online.length;
+      $('#statWorks').textContent = online.length.toLocaleString('en');
+      $('#statWorksLabel').textContent = online.length === 1 ? 'Edition online' : 'Editions online';
+      if (soon) $('#statWorksLabel').textContent += ` · ${soon} soon`;
+      const scans = works.reduce((s, w) => s + w.scans, 0);
+      $('#statScans').textContent = scans ? scans.toLocaleString('en') : '—';
+      const langs = [...new Set(works.flatMap(w => w.languages))];
+      $('#statLangs').textContent = langs.length ? (langs.length === 1 ? langs[0] : langs.length) : '—';
+      $('#statLangsLabel').textContent = langs.length === 1 ? 'Language' : 'Languages';
+      $('#statLangs').title = langs.join(', ');
+      const years = works.map(w => w.yearNum).filter(y => y != null);
+      const lo = Math.min(...years), hi = Math.max(...years);
+      $('#statSpan').textContent = years.length ? (lo === hi ? String(lo) : `${lo}–${hi}`) : '—';
+      $('#statSpanLabel').textContent = years.length && lo === hi ? 'Date of origin' : 'Dates of origin';
+      el.pillText.textContent = fatal ? 'Catalogue error' : `${plural(online.length, 'edition')} online`;
+      el.pill.classList.toggle('is-warn', !!fatal || (isLocal && warnings.length > 0));
+
+      const latest = works.map(w => w.added).filter(Boolean).sort((a, b) => b - a)[0];
+      el.footUpdated.textContent = latest ? `Catalogue updated ${fmtDate(latest)}` : '';
+      el.citeText.textContent = `Project Scriptorium: public-domain transcriptions of books and manuscripts. ${/^https?:$/.test(location.protocol) ? absUrl('./') + ' ' : ''}Released under CC0 1.0. Accessed ${fmtDate(new Date(Date.UTC(today.getFullYear(), today.getMonth(), today.getDate())))}.`;
+    }
+
+    function renderNotices() {
+      let html = '';
+      if (fatal) {
+        html += `<div class="notice is-error" role="alert">${icon('alert')}<div><strong>The catalogue couldn't be read.</strong>${esc(fatal)}</div></div>`;
+      } else if (!works.length) {
+        html += `<div class="notice">${icon('info')}<div><strong>No works listed yet.</strong>Add your first book or manuscript to the <code>MANUSCRIPTS</code> list at the top of <code>index.html</code>.</div></div>`;
+      }
+      // Entry-level problems are only shown on your own computer; visitors never see them.
+      if (warnings.length && isLocal) {
+        html += `<div class="notice">${icon('alert')}<div><strong>Catalogue check (only visible while previewing locally)</strong><ul>${warnings.map(w => `<li>${esc(w)}</li>`).join('')}</ul></div></div>`;
+      }
+      el.notice.innerHTML = html;
+    }
+
+    function injectStructuredData() {
+      if (!works.length) return;
+      const data = {
+        '@context': 'https://schema.org', '@type': 'ItemList', name: 'Project Scriptorium catalogue',
+        itemListElement: works.map((w, i) => ({
+          '@type': 'ListItem', position: i + 1,
+          item: Object.fromEntries(Object.entries({
+            '@type': /manuscript/i.test(w.type) ? 'CreativeWork' : 'Book',
+            name: w.title, alternateName: w.titleOriginal || undefined,
+            author: w.author ? { '@type': 'Person', name: w.author } : undefined,
+            dateCreated: w.year || undefined, inLanguage: w.titleLang || undefined,
+            description: w.description || undefined,
+            url: w.forthcoming ? undefined : absUrl(w.href),
+            license: LICENCE_URL, isAccessibleForFree: true
+          }).filter(([, v]) => v !== undefined))
+        }))
+      };
+      const s = document.createElement('script');
+      s.type = 'application/ld+json';
+      s.textContent = JSON.stringify(data);
+      document.head.appendChild(s);
+    }
+
+    /* ── Toasts & clipboard ────────────────────────────────────────────────── */
+    function toast(msg, type = 'ok') {
+      const t = document.createElement('div');
+      t.className = 'toast' + (type === 'error' ? ' is-error' : '');
+      t.innerHTML = icon(type === 'error' ? 'alert' : 'check') + `<span>${esc(msg)}</span>`;
+      el.toasts.appendChild(t);
+      while (el.toasts.children.length > 3) el.toasts.firstElementChild.remove();
+      requestAnimationFrame(() => t.classList.add('show'));
+      setTimeout(() => { t.classList.remove('show'); setTimeout(() => t.remove(), 260); }, 2400);
+    }
+    async function copyText(text, okMsg) {
+      try {
+        if (navigator.clipboard && window.isSecureContext) await navigator.clipboard.writeText(text);
+        else {
+          const ta = document.createElement('textarea');
+          ta.value = text; ta.setAttribute('readonly', ''); ta.style.cssText = 'position:fixed;opacity:0;left:-9999px';
+          document.body.appendChild(ta); ta.select();
+          const ok = document.execCommand('copy'); ta.remove();
+          if (!ok) throw new Error('copy failed');
+        }
+        toast(okMsg);
+      } catch (e) { toast('Couldn’t copy. Your browser blocked clipboard access.', 'error'); }
+    }
+
+    /* ── Theme (shared with the edition pages) ─────────────────────────────── */
+    function applyTheme(t, persist) {
+      document.documentElement.setAttribute('data-theme', t);
+      el.themeBtn.innerHTML = icon(t === 'dark' ? 'sun' : 'moon');
+      el.themeBtn.setAttribute('aria-label', t === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+      if (persist) { try { localStorage.setItem('nkp:theme', JSON.stringify(t)); } catch (e) { /* storage unavailable */ } }
+    }
+
+    /* ── Events ────────────────────────────────────────────────────────────── */
+    const onSearch = debounce(() => render(), 90);
+    el.search.value = state.q;
+    el.search.addEventListener('input', () => { state.q = el.search.value; el.searchClear.hidden = !state.q; el.searchKbd.hidden = !!state.q; onSearch(); });
+    el.search.addEventListener('keydown', e => {
+      if (e.key === 'Escape') { if (state.q) { e.stopPropagation(); clearSearch(); } else el.search.blur(); }
+      if (e.key === 'Enter') {
+        const first = $('.work-link', el.list);
+        if (first && el.list.children.length === 1) first.click();
+        else if (first) first.focus();
+      }
+    });
+    function clearSearch() { state.q = ''; el.search.value = ''; render(); el.search.focus(); }
+    el.searchClear.addEventListener('click', clearSearch);
+    function resetAll() { state.q = ''; el.search.value = ''; FACETS.forEach(f => { state.filters[f.key] = ''; }); render(); }
+    el.reset.addEventListener('click', resetAll);
+    el.emptyReset.addEventListener('click', () => { resetAll(); el.search.focus(); });
+    el.facets.addEventListener('click', e => {
+      const b = e.target.closest('[data-facet]');
+      if (!b) return;
+      const k = b.dataset.facet, v = b.dataset.value;
+      state.filters[k] = state.filters[k] === v ? '' : v;
+      render();
+    });
+    el.sort.addEventListener('change', () => { state.sort = el.sort.value; store.set('sort', state.sort); render(); });
+    $$('[data-view]').forEach(b => b.addEventListener('click', () => { state.view = b.dataset.view; store.set('view', state.view); render(); }));
+    el.list.addEventListener('click', e => {
+      const b = e.target.closest('[data-copy]');
+      if (!b) return;
+      e.preventDefault();
+      copyText(b.dataset.copy, 'Link copied');
+    });
+    el.copyCite.addEventListener('click', () => copyText(el.citeText.textContent, 'Citation copied'));
+    el.themeBtn.addEventListener('click', () => applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark', true));
+
+    document.addEventListener('keydown', e => {
+      if (e.defaultPrevented || e.ctrlKey || e.metaKey || e.altKey) return;
+      const tag = (e.target.tagName || '').toLowerCase();
+      if (tag === 'input' || tag === 'textarea' || tag === 'select' || e.target.isContentEditable) return;
+      if (e.key === '/') { e.preventDefault(); el.search.focus(); el.search.select(); }
+      else if (e.key === 't' || e.key === 'T') el.themeBtn.click();
+      else if (e.key === 'Escape' && (state.q || FACETS.some(f => state.filters[f.key]))) resetAll();
+    });
+
+    /* ── Go ────────────────────────────────────────────────────────────────── */
+    applyTheme(document.documentElement.getAttribute('data-theme') || 'light', false);
+    renderFacets();
+    renderStats();
+    renderNotices();
+    render();
+    injectStructuredData();
+  })();
+  </script>
+</body>
+</html>
