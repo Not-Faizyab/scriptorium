@@ -1,0 +1,13 @@
+{
+  "page_number": 144,
+  "urdu_ground_truth_text": "۱۴۴\nترجمہ معلومات الآفاق\nمکہ معظمہ کا نقشہ",
+  "roman_urdu_transliteration": "144\nTarjuma Ma'lumat-ul-Afaq\nMakkah Muazzamah ka naqsha",
+  "english_page_summary": "This page contains a detailed historical map and illustration of Makkah Muazzamah (Kaaba and Masjid al-Haram) with Urdu labels and pagination number 144.",
+  "historical_entities": [
+    "مکہ معظمہ",
+    "معلومات الآفاق"
+  ],
+  "heidelberg_book_id": "aminaddinhan1873",
+  "heidelberg_image_url": "https://digi.ub.uni-heidelberg.de/diglitData/image/aminaddinhan1873/3/142.jpg",
+  "page_type": "lithograph_text"
+}

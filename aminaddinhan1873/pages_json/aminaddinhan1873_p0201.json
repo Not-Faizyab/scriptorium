@@ -1,0 +1,14 @@
+{
+  "page_number": 201,
+  "urdu_ground_truth_text": "ترجمہ معلومات الآفاق\n199\nعین الشجر\nعین عبد اللہ آیا وہ چشمہ درمیان قزوین اور ہمدان کے واقع ہے اور اسکا پانی اسقدر گرم ہے\nکہ اگر چشمہ او میں ڈال دو تو پک جاتا ہے اور ایک حصن\nاوس چشمہ کے معلومین ہے اور اوسکا پانی وہیں جمع\nہوتا ہے عین البقرہ چشمہ ملحقہ کے\nقریب ہے یہود اور نصاری اوسکی زیارت\nکرتے ہیں اور اوس چشمہ کا پانی پتھرین\nاور لوہا کہتا دین ہے کہ دویل\nجو حضرت آدم کی کیتی پر تھے\nتھے آراد وہ اسی چشمہ کے\nنکلتے تھے اوسکی\nتصویر یہ ہے",
+  "roman_urdu_transliteration": "Tarjuma Ma'lumat-ul-Afaq\n199\nAin-ush-Shajar\nAin-e-Abdullah aya wo chashma darmian Qazwin aur Hamdan ke waqay hai aur uska pani isqadar garam hai\nke agar chashma [gosht?] o mein dal do to pak jata hai aur ek hasn\nouss chashma ke ma'lumin hai aur uska pani wahin jama\nhota hai Ain-ul-Baqra chashma mulhaqa ke\nqarib hai Yahud aur Nasara uski ziyarat\nkarte hain aur oss chashma ka pani pattharin\naur loha kahta din hai ke Duwil\njo Hazrat Adam ki kheti par the\nthe arad wo isi chashma ke\nnikalte the uski\ntasweer yeh hai",
+  "english_page_summary": "This page features an illustration and text about 'Ain-ush-Shajar' (the Spring of the Tree) and 'Ain-e-Abdullah', a hot spring located between Qazwin and Hamadan, describing its healing properties, sulfurous water, local geography, and historical lore associated with Prophet Adam.",
+  "historical_entities": [
+    "Qazwin",
+    "Hamadan",
+    "Hazrat Adam"
+  ],
+  "heidelberg_book_id": "aminaddinhan1873",
+  "heidelberg_image_url": "https://digi.ub.uni-heidelberg.de/diglitData/image/aminaddinhan1873/3/199.jpg",
+  "page_type": "lithograph_text"
+}

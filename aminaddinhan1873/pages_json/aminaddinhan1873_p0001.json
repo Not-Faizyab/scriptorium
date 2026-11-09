@@ -1,0 +1,13 @@
+{
+  "page_number": 1,
+  "urdu_ground_truth_text": "عروسانۂ حکم کا وہ فضاے خلاء جو اِسیا ہو\nبہ رنگِ مہِ مبین، بہ نُورِ فسون، مہِ مبین ہو\nمطالعُ النُجُوم\nمعلوماتِ آفاق\nمربّعِ مِنی شِئی ونِکشُوفِ من مقبولِ جہات شد\nدر رُبعِ مِنی شِئی کِتَابُ مِین اِن مِن اِن شد",
+  "roman_urdu_transliteration": "uroosana-e-hukum ka woh faza-e-khalaa jo aisa ho, ba-rang-e-mah-e-mubeen, ba-noor-e-fasoon, mah-e-mubeen ho; matali-un-nujoom; maloomat-e-afaq; murabba-e-mini shi-ee wa nikshoof-e-min maqbool-e-jihat shud; dar rub-e-mini shi-ee kitab-e-meen in min in shud",
+  "english_page_summary": "Title page of the 1873 Lucknow Urdu lithograph containing ornamental Arabic/Urdu poetic verses, the title 'Matali-un-Nujoom' (Ascent of the Stars), and the secondary subtitle 'Maloomat-e-Afaq' (Information of the Horizons).",
+  "historical_entities": [
+    "Matali-un-Nujoom",
+    "Maloomat-e-Afaq"
+  ],
+  "heidelberg_book_id": "aminaddinhan1873",
+  "heidelberg_image_url": "https://digi.ub.uni-heidelberg.de/diglitData/image/aminaddinhan1873/3/000a.jpg",
+  "page_type": "lithograph_text"
+}

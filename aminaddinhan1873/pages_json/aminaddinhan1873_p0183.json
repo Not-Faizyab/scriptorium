@@ -1,0 +1,15 @@
+{
+  "page_number": 183,
+  "urdu_ground_truth_text": "ترجمہ معلومات الآفاق\n۱۸۱\nمنارہ سکندر\nبحر مغرب\nبحیرہ شام اسکو بحیرہ روم اور بحیرہ قسقیہ بھی کہتے ہیں طول اسکا مشرق سے مغرب تک ایک ہزار آٹھ سو فرسنگ کا ہے اور عرض اسکا اوس جگہ پر پہچان بحیرہ ی اسی میل ہے تین فرسنگ کا ہے اور اس مقام قدیم سو فرسنگ کا مقبرہ ہے اوسکی تصویر ہے\nمقبرہ فغلس\nاور فغلس ایک بادشاہ تھا جسنے اس دریا پر پل باندھا تھا کہ لوگوں کو پار اُترنے میں آسانی ہو وقت نہ اُٹھائیں",
+  "roman_urdu_transliteration": "Tarjuma Malumat-ul-Afaq\n181\nMinara-e-Sikandar\nBahr-e-Maghrib\nBahira-e-Sham isko bahira-e-Rum aur bahira-e-Qasqiya bhi kehte hain tul iska mashriq se maghrib tak ek hazar aath sau farsang ka hai aur arz iska us jagah par pehchan bahira-e-y asi meel hai teen farsang ka hai aur is maqam qadeem sau farsang ka maqbara hai uski tasveer hai\nMaqbara-e-Faghlus\nAur Faghlus ek badshah tha jisne is darya par pul bandha tha ke logon ko paar utarne mein aasani ho waqt na uthayein",
+  "english_page_summary": "This page contains illustrations and descriptions related to the Mediterranean Sea (referred to as Bahira-e-Sham or Bahira-e-Rum), the Pillar of Alexander, and the tomb of King Faghlus along with a bridge he built over the river.",
+  "historical_entities": [
+    "Sikandar",
+    "Bahira-e-Sham",
+    "Bahira-e-Rum",
+    "Faghlus"
+  ],
+  "heidelberg_book_id": "aminaddinhan1873",
+  "heidelberg_image_url": "https://digi.ub.uni-heidelberg.de/diglitData/image/aminaddinhan1873/3/181.jpg",
+  "page_type": "lithograph_text"
+}

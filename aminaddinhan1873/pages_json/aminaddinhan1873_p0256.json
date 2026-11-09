@@ -1,0 +1,13 @@
+{
+  "page_number": 256,
+  "urdu_ground_truth_text": "جاتی رہتی ہے، اور وہ جانور اسکو کھاتے ہیں اور اسکی تصویر یہ ہے * ماهیای پرندہ * اور نقل کردین کہ سنگ آبی کی گلا و دریا یا کنارہ پر یہاں آکرسونا ریت کی تین لیتا ہے اور جب گھروں کیاتا ہو اور موافق معمول کے اپنا معمول کے مطابق مرغ اوسکے منہ سے پیٹ پاک کردی سنگ آبی فرصت پاکرٹالی کہ زمین و رتا ہے اور پیٹ بھرین اوسکا شکم پارہ پارہ کرکے کہا جاتا ہے اور نکل آتا ہے اور گٹڑایل مرجاتا ہے * اوسکی تصویر یہ ہے * سنگ آبی",
+  "roman_urdu_transliteration": "jati rehti hai, aur woh janwar usko khatate hain aur uski tasveer yeh hai * mahi-e-parinda * aur naqal kareen ke sang-e-abi ki gala o darya ya kinara par yahan akar sona reet ki teen leta hai aur jab gharon kiata ho aur mawafiq mamool ke apna mamool ke mutabiq murgh oske munh se peet pak kardi sang-e-abi fursat pakar tali ke zameen o rata hai aur peet bhareen uska shikam para para karke kaha jata hai aur nikal ata hai aur gutterail mar jata hai * uski tasveer yeh hai * sang-e-abi",
+  "english_page_summary": "This page contains descriptions and illustrations of aquatic animals like the flying fish (mahi-e-parinda) and the water stone beast (sang-e-abi), detailing their behaviors and interactions with birds.",
+  "historical_entities": [
+    "ماهیای پرندہ",
+    "سنگ آبی"
+  ],
+  "heidelberg_book_id": "aminaddinhan1873",
+  "heidelberg_image_url": "https://digi.ub.uni-heidelberg.de/diglitData/image/aminaddinhan1873/3/254.jpg",
+  "page_type": "lithograph_text"
+}
