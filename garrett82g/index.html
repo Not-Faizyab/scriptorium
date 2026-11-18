@@ -1,0 +1,2902 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#F3F4F5" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#090A0B" media="(prefers-color-scheme: dark)" />
+  <meta name="description" content="Read ʿAjāʾib al-makhlūqāt wa-gharāʾib al-mawjūdāt (Princeton University Library, Garrett no. 82G), an 18th-century Indian illuminated Persian manuscript: high-resolution IIIF scans, 152 painted miniatures, Nastaʿlīq transcription, Roman transliteration, and English summaries." />
+  <title>ʿAjāʾib al-makhlūqāt — Princeton Garrett no. 82G (18th-c. India)</title>
+  <script>
+    (function () {
+      try {
+        var t = JSON.parse(localStorage.getItem('nkp:theme'));
+        if (t !== 'light' && t !== 'dark') t = 'dark';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://iiif-cloud.princeton.edu" crossorigin>
+  <link rel="preconnect" href="https://figgy.princeton.edu" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #F3F4F5;
+  --bg-tint: #ECEEF0;
+  --surface: #FFFFFF;
+  --surface-2: #F7F8F9;
+  --surface-3: #EAECED;
+  --ink: #17191B;
+  --ink-2: #454B51;
+  --ink-3: #737A80;
+  --line: #DDE0E3;
+  --line-2: #C9CDD1;
+  --accent: #17191B;
+  --accent-hover: #050607;
+  --accent-ink: #17191B;
+  --accent-soft: #E9EBED;
+  --accent-soft-2: #D9DDE0;
+  --on-accent: #FFFFFF;
+  --gold: #7A5C1E;
+  --gold-soft: #F3EEDB;
+  --mark: #FFE48F;
+  --mark-ink: #231A00;
+  --mark-current: #F5A524;
+  --danger: #B42318;
+  --danger-soft: #FDECEA;
+  --stage: #E5E7E9;
+  --stage-2: #DDE0E3;
+
+  --shadow-xs: 0 1px 2px rgba(15, 18, 20, .04);
+  --shadow-sm: 0 1px 3px rgba(15, 18, 20, .06);
+  --shadow-md: 0 8px 24px rgba(15, 18, 20, .08);
+  --shadow-lg: 0 20px 55px rgba(0, 0, 0, .18);
+
+  --r-sm: 0;
+  --r: 0;
+  --r-lg: 0;
+  --r-xl: 0;
+  --pill: 0;
+
+  --font-ui: Arial, Helvetica, sans-serif;
+  --font-display: Arial, Helvetica, sans-serif;
+  --font-urdu: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', 'Alvi Nastaleeq', 'Urdu Typesetting', 'Noto Naskh Arabic', serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --urdu-size: 23px;
+  --header-h: 64px;
+  --ease: cubic-bezier(.2, .7, .2, 1);
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --bg: #090A0B;
+  --bg-tint: #0D0F11;
+  --surface: #111315;
+  --surface-2: #171A1D;
+  --surface-3: #202428;
+  --ink: #F1F3F4;
+  --ink-2: #C0C5CA;
+  --ink-3: #8C939A;
+  --line: #292E33;
+  --line-2: #3A4147;
+  --accent: #E6E9EC;
+  --accent-hover: #FFFFFF;
+  --accent-ink: #F0F2F4;
+  --accent-soft: #22272C;
+  --accent-soft-2: #2D3339;
+  --on-accent: #090A0B;
+  --gold: #E2C275;
+  --gold-soft: #231F16;
+  --mark: #F3D35B;
+  --mark-ink: #141000;
+  --danger: #F07A6E;
+  --danger-soft: #3A1D1A;
+  --stage: #070809;
+  --stage-2: #101214;
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, .32);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, .28);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, .36);
+  --shadow-lg: 0 20px 55px rgba(0, 0, 0, .52);
+  color-scheme: dark;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  border-radius: 0 !important;
+}
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--header-h) + 16px); }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 15px/1.58 var(--font-ui);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+body.is-reading { overflow: hidden; }
+h1, h2, h3, h4, p, ul, ol, dl, dd, figure { margin: 0; padding: 0; }
+ul, ol { list-style: none; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; background: none; border: 0; padding: 0; }
+button:disabled { cursor: not-allowed; opacity: .45; }
+a { color: var(--accent-ink); text-underline-offset: 3px; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+:focus { outline: none; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.search-field input:focus-visible, .big-search input:focus-visible, .header-search input:focus-visible, h1[tabindex="-1"]:focus, h1[tabindex="-1"]:focus-visible, main:focus-visible, .text-pane:focus-visible { outline: none; }
+::selection { background: var(--accent-soft-2); }
+mark { background: var(--mark); color: var(--mark-ink); padding: 0 2px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+mark.is-current { background: var(--mark-current); box-shadow: 0 0 0 2px var(--mark-current); }
+kbd {
+  display: inline-block; min-width: 22px; padding: 1px 6px;
+  font: 600 12px/18px var(--font-ui); text-align: center;
+  color: var(--ink-2); background: var(--surface);
+  border: 1px solid var(--line-2); border-bottom-width: 2px;
+}
+code { font-family: var(--font-mono); font-size: .9em; background: var(--surface-3); padding: 1px 6px; }
+
+.sr-only { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.i { width: 20px; height: 20px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; vertical-align: middle; }
+.i-sm { width: 16px; height: 16px; }
+.i-lg { width: 28px; height: 28px; }
+.urdu { font-family: var(--font-urdu); direction: rtl; }
+
+.skip-link {
+  position: fixed; left: 16px; top: -80px; z-index: 300;
+  background: var(--accent); color: var(--on-accent); padding: 10px 16px;
+  font-weight: 600; text-decoration: none; transition: top .15s;
+}
+.skip-link:focus { top: 12px; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 44px; padding: 0 18px;
+  font-weight: 600; font-size: 14px; line-height: 1; white-space: nowrap;
+  text-decoration: none;
+  border: 1px solid var(--line-2);
+  background: var(--surface); color: var(--ink);
+  transition: background .15s, border-color .15s, color .15s;
+}
+.btn:hover:not(:disabled) { background: var(--surface-2); border-color: var(--ink-3); }
+.btn:active:not(:disabled) { transform: translateY(1px); }
+.btn-primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.btn-primary:hover:not(:disabled) { background: var(--accent-hover); border-color: var(--accent-hover); color: var(--on-accent); }
+.btn-soft { background: var(--surface-3); border-color: transparent; color: var(--ink); }
+.btn-soft:hover:not(:disabled) { background: var(--line-2); border-color: transparent; }
+.btn-ghost { background: transparent; border-color: transparent; }
+.btn-ghost:hover:not(:disabled) { background: var(--surface-3); border-color: transparent; }
+.btn-sm { min-height: 36px; padding: 0 14px; font-size: 13.5px; }
+.btn-lg { min-height: 50px; padding: 0 24px; font-size: 15.5px; }
+.icon-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 42px; height: 42px;
+  color: var(--ink-2); transition: background .15s, color .15s;
+}
+.icon-btn:hover:not(:disabled) { background: var(--surface-3); color: var(--ink); }
+.icon-btn.sm { width: 34px; height: 34px; }
+.link-btn { color: var(--ink); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.link-btn:hover { color: var(--accent-hover); }
+
+/* ---------- Header ---------- */
+.app-header {
+  position: sticky; top: 0; z-index: 50;
+  height: var(--header-h);
+  background: color-mix(in srgb, var(--bg) 97%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.header-inner {
+  height: 100%; max-width: 1440px; margin: 0 auto; padding: 0 20px;
+  display: flex; align-items: center; gap: 20px;
+}
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); min-width: 0; }
+.brand-text { display: flex; flex-direction: column; min-width: 0; line-height: 1.15; }
+.brand-title { font-weight: 700; font-size: 16px; white-space: nowrap; }
+.brand-sub { font-size: 11px; letter-spacing: .04em; color: var(--ink-3); white-space: nowrap; }
+.main-nav { display: flex; gap: 8px; margin-left: 12px; }
+.main-nav a {
+  padding: 8px 11px;
+  color: var(--ink-2); text-decoration: none; font-weight: 600; font-size: 14px;
+  transition: background .15s, color .15s;
+}
+.main-nav a:hover { background: var(--surface-3); color: var(--ink); }
+.main-nav a[aria-current="page"] { background: var(--surface-3); color: var(--ink); }
+.header-actions { margin-left: auto; display: flex; align-items: center; gap: 6px; }
+.header-search {
+  position: relative; display: flex; align-items: center;
+  width: 280px; height: 42px; padding: 0 12px 0 40px;
+  background: var(--surface); border: 1px solid var(--line-2);
+  transition: border-color .15s, box-shadow .15s, width .2s var(--ease);
+}
+.header-search:focus-within { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-soft); width: 340px; }
+.header-search > .i { position: absolute; left: 13px; color: var(--ink-3); width: 18px; height: 18px; }
+.header-search input { flex: 1; min-width: 0; border: 0; background: transparent; height: 100%; font-size: 14.5px; }
+.header-search input::placeholder { color: var(--ink-3); }
+.header-search input::-webkit-search-cancel-button { display: none; }
+.header-search:focus-within kbd { display: none; }
+.menu-toggle { display: none; }
+
+.mobile-menu {
+  position: absolute; top: calc(var(--header-h) - 1px); left: 0; right: 0;
+  background: var(--bg); border-bottom: 1px solid var(--line);
+  box-shadow: var(--shadow-md); padding: 10px 14px 16px;
+  display: grid; gap: 4px;
+}
+.mobile-menu a {
+  display: flex; align-items: center; gap: 12px; padding: 13px 14px;
+  color: var(--ink); text-decoration: none; font-weight: 600; font-size: 15px;
+}
+.mobile-menu a:hover, .mobile-menu a[aria-current="page"] { background: var(--accent-soft); color: var(--accent-ink); }
+
+/* ---------- Views ---------- */
+main { flex: 1; display: flex; flex-direction: column; min-height: 0; }
+.view { flex: 1; }
+.view:focus { outline: none; }
+.container { width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+.page-head { padding: 40px 0 22px; }
+.page-head h1 { font-weight: 600; font-size: clamp(28px, 4vw, 38px); line-height: 1.15; }
+.page-head p { color: var(--ink-2); font-size: 16px; margin-top: 8px; max-width: 680px; }
+.eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--ink-2); }
+
+/* Loading + setup */
+.center-stage { flex: 1; display: grid; place-items: center; padding: 48px 20px; }
+.spinner { width: 22px; height: 22px; border: 3px solid var(--accent-soft-2); border-top-color: var(--accent); animation: spin .8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading-msg { display: flex; align-items: center; gap: 14px; color: var(--ink-2); font-size: 16px; }
+.setup-card {
+  width: 100%; max-width: 620px; background: var(--surface); border: 1px solid var(--line);
+  box-shadow: var(--shadow-md); padding: 40px;
+}
+.setup-card h1 { font-weight: 600; font-size: 30px; margin: 10px 0 10px; line-height: 1.2; }
+.setup-card > p { color: var(--ink-2); font-size: 15.5px; }
+.dropzone {
+  margin: 26px 0 18px; width: 100%;
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  padding: 34px 20px; border: 2px dashed var(--line-2);
+  background: var(--surface-2); color: var(--ink-2); text-align: center;
+  transition: border-color .15s, background .15s;
+}
+.dropzone:hover, .dropzone.is-over { border-color: var(--accent); background: var(--accent-soft); }
+.dropzone .dz-icon { width: 56px; height: 56px; display: grid; place-items: center; background: var(--surface); color: var(--accent); box-shadow: var(--shadow-sm); margin-bottom: 6px; }
+.dropzone strong { font-size: 16.5px; color: var(--ink); }
+.dropzone small { color: var(--ink-3); font-size: 13px; }
+.fake-link { color: var(--accent-ink); text-decoration: underline; font-weight: 600; text-underline-offset: 3px; }
+details.help-details { border-top: 1px solid var(--line); padding-top: 14px; }
+details.help-details summary { cursor: pointer; font-weight: 600; color: var(--ink-2); list-style: none; display: flex; align-items: center; gap: 8px; }
+details.help-details summary::-webkit-details-marker { display: none; }
+details.help-details summary .i { transition: transform .2s; }
+details.help-details[open] summary .i { transform: rotate(90deg); }
+details.help-details p { margin-top: 10px; color: var(--ink-2); font-size: 14.5px; }
+.codeline { margin-top: 10px; display: flex; align-items: center; gap: 8px; background: var(--surface-3); padding: 6px 6px 6px 14px; }
+.codeline code { background: none; padding: 0; flex: 1; }
+.alert {
+  display: flex; gap: 10px; align-items: flex-start; margin-top: 16px; padding: 12px 14px;
+  background: var(--danger-soft); color: var(--danger); font-size: 14px;
+}
+
+/* ---------- Home ---------- */
+.hero { position: relative; overflow: hidden; padding: 54px 0 56px; }
+.hero-grid > * { min-width: 0; }
+.hero-grid { position: relative; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 56px; align-items: center; }
+.hero h1 { font-weight: 600; font-size: clamp(32px, 4.4vw, 50px); line-height: 1.12; letter-spacing: -.015em; margin: 14px 0 18px; }
+.hero h1 em { font-style: normal; color: var(--ink); }
+.hero-lead { font-size: 16.5px; color: var(--ink-2); max-width: 560px; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.big-search {
+  margin-top: 28px; max-width: 580px;
+  display: flex; align-items: center; gap: 8px;
+  background: var(--surface); border: 1px solid var(--line-2);
+  padding: 6px 6px 6px 16px;
+  transition: border-color .15s, box-shadow .15s;
+}
+.big-search:focus-within { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-soft); }
+.big-search > .i { color: var(--ink-3); }
+.big-search input { flex: 1; min-width: 0; border: 0; background: transparent; font-size: 16px; height: 44px; }
+.big-search input::placeholder { color: var(--ink-3); }
+.big-search input::-webkit-search-cancel-button { display: none; }
+.try-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 14px; font-size: 13px; color: var(--ink-3); }
+.chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  min-height: 32px; padding: 0 12px;
+  background: var(--surface); border: 1px solid var(--line-2);
+  font-size: 13px; font-weight: 500; color: var(--ink);
+  transition: background .15s, border-color .15s, color .15s;
+}
+.chip:hover { background: var(--surface-3); border-color: var(--line-2); color: var(--ink); }
+.chip .chip-n { font-size: 12px; color: var(--ink-3); font-weight: 600; }
+
+.hero-art { position: relative; height: 440px; }
+.book-cover, .book-page {
+  position: absolute; overflow: hidden;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, .34);
+}
+.book-page {
+  width: 270px; height: 390px; right: 4%; top: 28px; transform: rotate(1.5deg);
+  background: #E2D4B6; border: 1px solid rgba(0,0,0,.12);
+}
+.book-page img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.book-cover {
+  width: 290px; height: 410px; left: 6%; top: 8px; transform: rotate(-1.5deg);
+  background: linear-gradient(155deg, #202326, #08090A);
+  color: #E9ECEF; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+  padding: 26px; text-align: center;
+}
+.book-cover::before {
+  content: ""; position: absolute; inset: 14px; border: 1.5px solid rgba(225, 230, 234, .35);
+}
+.book-cover::after {
+  content: ""; position: absolute; inset: 20px; border: 1px solid rgba(225, 230, 234, .18);
+}
+.book-cover .arch { width: 64px; height: 78px; color: #BFC5CA; margin-bottom: 6px; }
+.book-cover .cover-ur { font-family: var(--font-urdu); font-size: 32px; line-height: 2; direction: rtl; }
+.book-cover .cover-en { font-size: 18px; }
+.book-cover .cover-meta { font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; opacity: .8; margin-top: 8px; }
+
+.stats-band { position: relative; margin-top: -8px; }
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); background: var(--surface); border: 1px solid var(--line); padding: 0; }
+.stat { padding: 22px 18px; text-align: center; }
+.stat + .stat { border-left: 1px solid var(--line); }
+.stat b { display: block; font-weight: 600; font-size: 31px; line-height: 1.1; color: var(--ink); }
+.stat span { color: var(--ink-3); font-size: 14px; }
+
+.section { padding: 54px 0; }
+.section-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; margin-bottom: 26px; flex-wrap: wrap; }
+.section-head h2 { font-weight: 600; font-size: 27px; line-height: 1.2; }
+.section-head p { color: var(--ink-2); margin-top: 6px; }
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.step {
+  background: var(--surface); border: 1px solid var(--line);
+  padding: 22px; position: relative;
+}
+.step-n {
+  width: 34px; height: 34px; display: grid; place-items: center;
+  background: var(--surface-3); color: var(--ink); margin-bottom: 16px;
+}
+.step h3 { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+.step p { color: var(--ink-2); font-size: 15px; }
+.chip-cloud { display: flex; flex-wrap: wrap; gap: 10px; }
+
+.continue-card {
+  display: flex; align-items: center; gap: 18px; padding: 16px 18px; margin-top: 24px; max-width: 580px;
+  background: var(--surface); border: 1px solid var(--line);
+  text-decoration: none; color: inherit; text-align: left; width: 100%;
+  transition: border-color .15s, box-shadow .15s;
+}
+.continue-card:hover { border-color: var(--line-2); box-shadow: var(--shadow-sm); }
+.continue-card .cc-icon { width: 42px; height: 42px; display: grid; place-items: center; background: var(--surface-3); color: var(--ink-2); flex-shrink: 0; }
+.continue-card .cc-text { flex: 1; min-width: 0; }
+.continue-card .cc-text b { display: block; font-size: 15.5px; }
+.continue-card .cc-text span { display: block; color: var(--ink-3); font-size: 13.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* ---------- Pages (browse) ---------- */
+.toolbar-card {
+  background: var(--surface); border: 1px solid var(--line);
+  padding: 16px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px;
+}
+.search-field {
+  position: relative; display: flex; align-items: center; gap: 6px;
+  height: 50px; padding: 0 8px 0 46px;
+  background: var(--surface-2); border: 1px solid var(--line);
+  transition: border-color .15s, box-shadow .15s, background .15s;
+}
+.search-field:focus-within { border-color: var(--accent); background: var(--surface); box-shadow: 0 0 0 2px var(--accent-soft); }
+.search-field > .i { position: absolute; left: 16px; color: var(--ink-3); }
+.search-field input { flex: 1; min-width: 0; height: 100%; border: 0; background: transparent; font-size: 16px; }
+.search-field input::placeholder { color: var(--ink-3); }
+.search-field input::-webkit-search-cancel-button { display: none; }
+.filters { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; }
+.filter-group { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; min-width: 0; max-width: 100%; }
+.filter-label { font-size: 13.5px; color: var(--ink-3); font-weight: 600; }
+.seg { display: inline-flex; max-width: 100%; overflow-x: auto; scrollbar-width: none; padding: 4px; gap: 2px; background: var(--surface-3); }
+.seg::-webkit-scrollbar { display: none; }
+.seg button {
+  min-height: 34px; padding: 0 13px;
+  font-size: 13.5px; font-weight: 600; color: var(--ink-2); white-space: nowrap;
+  transition: background .15s, color .15s, box-shadow .15s;
+}
+.seg button:hover { color: var(--ink); }
+.seg button[aria-pressed="true"], .seg button[aria-checked="true"] { background: var(--surface); color: var(--ink); box-shadow: var(--shadow-sm); }
+.seg .n { font-weight: 500; color: var(--ink-3); margin-left: 4px; font-size: 12.5px; }
+.select {
+  appearance: none; -webkit-appearance: none;
+  min-height: 42px; padding: 0 38px 0 14px;
+  border: 1px solid var(--line-2); background: var(--surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236B746F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 12px center / 16px;
+  font-size: 14px; font-weight: 600; cursor: pointer;
+}
+.select:hover { border-color: var(--ink-3); }
+.jump-form { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+.jump-form input {
+  width: 84px; height: 42px; padding: 0 12px;
+  border: 1px solid var(--line-2); background: var(--surface); font-size: 14.5px; text-align: center;
+  -moz-appearance: textfield; appearance: textfield;
+}
+.jump-form input::-webkit-outer-spin-button, .jump-form input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.jump-form input:focus { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-soft); }
+.results-line { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin: 22px 0 16px; color: var(--ink-2); font-size: 15px; }
+.results-line strong { color: var(--ink); }
+.goto-hint {
+  display: flex; align-items: center; gap: 12px; width: 100%; margin-bottom: 16px;
+  padding: 14px 18px; background: var(--surface-3); color: var(--ink); font-weight: 600; text-align: left;
+}
+.goto-hint:hover { background: var(--line); }
+
+.page-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 18px; padding-bottom: 64px; }
+.page-card {
+  display: flex; flex-direction: column; text-align: left; width: 100%; height: 100%;
+  background: var(--surface); border: 1px solid var(--line);
+  overflow: hidden; color: inherit; text-decoration: none;
+  transition: border-color .15s, box-shadow .15s;
+}
+.page-card:hover { box-shadow: var(--shadow-sm); border-color: var(--line-2); }
+.page-card.is-current { border-color: var(--ink-2); box-shadow: inset 0 0 0 1px var(--ink-2); }
+.thumb {
+  position: relative; aspect-ratio: 4 / 3; overflow: hidden;
+  background: var(--surface-3);
+  border-bottom: 1px solid var(--line);
+}
+[data-theme="dark"] .thumb { background: #171A1D; }
+.thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 22%; opacity: 0; transition: opacity .3s; }
+.thumb img.is-loaded { opacity: 1; }
+.thumb-fallback {
+  position: absolute; inset: 0; display: grid; place-items: center;
+  font-weight: 600; font-size: 38px; color: rgba(60, 45, 25, .35);
+}
+[data-theme="dark"] .thumb-fallback { color: rgba(235, 220, 190, .25); }
+.thumb-tag {
+  position: absolute; left: 10px; top: 10px; z-index: 1;
+  padding: 3px 9px; font-size: 11.5px; font-weight: 700;
+  background: rgba(255, 255, 255, .92); color: #222;
+}
+.thumb-tag.is-here { background: var(--ink); color: var(--bg); }
+.thumb-tag.is-art { background: #1E1A10; color: #F2D68A; border: 1px solid rgba(242, 214, 138, .4); }
+.card-body { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.card-title { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.card-title b { font-size: 16px; font-weight: 700; }
+.card-title span { font-size: 12px; color: var(--ink-3); white-space: nowrap; }
+.card-snippet { font-size: 14px; color: var(--ink-2); line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.card-snippet.is-urdu { font-family: var(--font-urdu); font-size: 16.5px; line-height: 2.1; direction: rtl; text-align: right; -webkit-line-clamp: 2; }
+.card-snippet.is-empty { color: var(--ink-3); font-style: italic; }
+.found-in { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 6px; }
+.found-in span { font-size: 11.5px; font-weight: 600; padding: 2px 8px; background: var(--surface-3); color: var(--ink-2); }
+
+.empty {
+  grid-column: 1 / -1; text-align: center; padding: 56px 20px; color: var(--ink-2);
+  background: var(--surface); border: 1px dashed var(--line-2);
+}
+.empty .empty-icon { width: 60px; height: 60px; display: inline-grid; place-items: center; background: var(--surface-3); color: var(--ink-3); margin-bottom: 14px; }
+.empty h3 { font-size: 19px; color: var(--ink); margin-bottom: 6px; }
+.empty .empty-actions { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 18px; }
+
+/* ---------- People ---------- */
+.people-tools { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.people-tools .search-field { flex: 1; min-width: 240px; }
+.people-list { padding: 8px 0 64px; }
+.letter-group { margin-top: 22px; scroll-margin-top: calc(var(--header-h) + 16px); }
+.az-bar { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 4px; }
+.az-bar button { min-width: 36px; height: 36px; font-weight: 700; color: var(--ink); background: var(--surface); border: 1px solid var(--line); }
+.az-bar button:hover { background: var(--surface-3); border-color: var(--line-2); }
+.letter-group h2 { font-size: 22px; font-weight: 600; color: var(--ink); margin-bottom: 12px; padding-bottom: 6px; border-bottom: 1px solid var(--line); }
+.people-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.person {
+  display: flex; align-items: center; gap: 12px; width: 100%; text-align: left;
+  padding: 14px 16px; background: var(--surface); border: 1px solid var(--line);
+  transition: border-color .15s, box-shadow .15s;
+}
+.person:hover { border-color: var(--line-2); box-shadow: var(--shadow-xs); }
+.person-av {
+  width: 38px; height: 38px; flex-shrink: 0; display: grid; place-items: center;
+  background: var(--surface-3); color: var(--ink); font-weight: 700; font-size: 15px;
+}
+.person-main { min-width: 0; flex: 1; }
+.person-name { display: block; font-weight: 600; font-size: 15px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.person-count { display: block; font-size: 13px; color: var(--ink-3); }
+.person .i { color: var(--ink-3); }
+
+/* ---------- About ---------- */
+.about-grid { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 40px; padding-bottom: 64px; align-items: start; }
+.prose h2 { font-weight: 600; font-size: 24px; margin: 36px 0 12px; }
+.prose h2:first-child { margin-top: 0; }
+.prose p { color: var(--ink-2); font-size: 15.5px; margin-bottom: 14px; max-width: 680px; }
+.feature-list { display: grid; gap: 12px; margin: 16px 0 8px; }
+.feature { display: flex; gap: 16px; padding: 18px; background: var(--surface); border: 1px solid var(--line); }
+.feature .f-icon { width: 42px; height: 42px; flex-shrink: 0; display: grid; place-items: center; background: var(--surface-3); color: var(--ink); }
+.feature h3 { font-size: 16px; margin-bottom: 2px; }
+.feature p { font-size: 14.5px; margin: 0; color: var(--ink-2); }
+.side-card { background: var(--surface); border: 1px solid var(--line); padding: 22px; }
+.side-card + .side-card { margin-top: 16px; }
+.side-card h3 { font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); margin-bottom: 14px; }
+.facts { display: grid; gap: 12px; }
+.facts dt { font-size: 12.5px; color: var(--ink-3); font-weight: 600; }
+.facts dd { font-size: 15px; }
+.link-list { display: grid; gap: 4px; }
+.link-list a { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 12px; margin: 0 -12px; text-decoration: none; font-weight: 600; font-size: 14.5px; }
+.link-list a:hover { background: var(--surface-3); }
+.mini-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.mini-stats div { background: var(--surface-2); padding: 12px 14px; }
+.mini-stats b { display: block; font-size: 23px; line-height: 1.2; }
+.mini-stats span { font-size: 12.5px; color: var(--ink-3); }
+.shortcut-list { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; margin-top: 10px; max-width: 680px; }
+.shortcut-list div { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 14.5px; color: var(--ink-2); }
+.shortcut-list kbd + kbd { margin-left: 4px; }
+
+/* ---------- Footer ---------- */
+.site-footer { border-top: 1px solid var(--line); background: var(--bg-tint); color: var(--ink-3); font-size: 13.5px; }
+.footer-inner { max-width: 1180px; margin: 0 auto; padding: 26px 24px; display: flex; flex-wrap: wrap; gap: 12px 28px; align-items: center; justify-content: space-between; }
+.footer-inner nav { display: flex; flex-wrap: wrap; gap: 6px 20px; }
+.footer-inner a, .footer-inner button { color: var(--ink-2); text-decoration: none; font-weight: 500; font-size: 13.5px; }
+.footer-inner a:hover, .footer-inner button:hover { color: var(--accent-ink); text-decoration: underline; }
+body.is-reading .site-footer { display: none; }
+
+/* ---------- Reader ---------- */
+.view-read { flex: none; display: flex; flex-direction: column; overflow: hidden; height: calc(100vh - var(--header-h)); height: calc(100dvh - var(--header-h)); min-height: 0; }
+.read-bar {
+  display: flex; align-items: center; gap: 12px; padding: 10px 20px;
+  background: var(--surface); border-bottom: 1px solid var(--line); flex-shrink: 0;
+}
+.read-bar .back { padding-left: 10px; }
+.pager { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+.page-indicator { display: flex; align-items: center; gap: 8px; font-size: 14.5px; color: var(--ink-2); white-space: nowrap; }
+.page-indicator input {
+  width: 66px; height: 40px; text-align: center;
+  border: 1px solid var(--line-2); background: var(--surface-2); font-weight: 700; font-size: 14.5px;
+  -moz-appearance: textfield; appearance: textfield;
+}
+.page-indicator input::-webkit-outer-spin-button, .page-indicator input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.page-indicator input:focus { border-color: var(--accent); background: var(--surface); box-shadow: 0 0 0 2px var(--accent-soft); }
+.read-progress { flex: 1; max-width: 260px; height: 4px; background: var(--surface-3); overflow: hidden; margin: 0 10px; }
+.read-progress span { display: block; height: 100%; width: 0; background: var(--accent); transition: width .25s var(--ease); }
+.pane-switch { display: none; padding: 10px 14px; background: var(--surface); border-bottom: 1px solid var(--line); }
+.pane-switch .seg { width: 100%; }
+.pane-switch .seg button { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 38px; }
+
+.read-body { flex: 1; min-height: 0; display: grid; grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr); }
+.pic-pane { position: relative; min-height: 0; min-width: 0; display: flex; background: var(--stage); border-right: 1px solid var(--line); }
+.viewport {
+  flex: 1; min-height: 0; position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  cursor: grab; user-select: none; -webkit-user-select: none; touch-action: none;
+  background: var(--stage);
+}
+.viewport.is-dragging { cursor: grabbing; }
+.viewport:focus-visible { outline: 3px solid var(--accent); outline-offset: -3px; }
+#scanImage {
+  max-width: calc(100% - 48px); max-height: calc(100% - 124px); margin-bottom: 56px; object-fit: contain; transform-origin: center center;
+  background: #E2D4B6;
+  box-shadow: 0 20px 50px rgba(40, 30, 15, .28), 0 2px 8px rgba(40, 30, 15, .15);
+  transition: filter .2s ease, opacity .25s ease; will-change: transform; -webkit-user-drag: none;
+}
+#scanImage.animate { transition: transform .25s var(--ease), filter .2s ease, opacity .25s ease; }
+#scanImage.is-stale { opacity: .35; filter: blur(2px) saturate(.6); }
+#scanImage.is-hidden { opacity: 0; }
+#scanImage.f-invert { filter: invert(.92) hue-rotate(180deg) contrast(1.25); }
+#scanImage.f-contrast { filter: contrast(1.45) brightness(1.06) grayscale(.2); }
+.pic-overlay { position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none; padding: 24px; }
+.pic-loading { opacity: 0; transition: opacity .2s; }
+.pic-pane.is-loading .pic-loading { opacity: 1; }
+.loading-chip { display: inline-flex; align-items: center; gap: 10px; padding: 10px 16px; background: var(--surface); box-shadow: var(--shadow-sm); font-size: 14px; color: var(--ink-2); }
+.pic-error .msg-card { pointer-events: auto; }
+.msg-card { max-width: 380px; background: var(--surface); box-shadow: var(--shadow-md); padding: 26px; text-align: center; }
+.msg-card .msg-icon { width: 52px; height: 52px; display: inline-grid; place-items: center; background: var(--surface-3); color: var(--ink-2); margin-bottom: 12px; }
+.msg-card h3 { font-size: 17px; margin-bottom: 6px; }
+.msg-card p { color: var(--ink-2); font-size: 14.5px; }
+.msg-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 16px; }
+
+.zoom-dock {
+  position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%); z-index: 5;
+  display: flex; align-items: center; gap: 2px; padding: 4px;
+  background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow-sm);
+}
+.zoom-dock .icon-btn { width: 40px; height: 40px; }
+.pic-pane.no-image .zoom-dock > :not(.menu-wrap) { opacity: .4; pointer-events: none; }
+.zoom-dock .zoom-val { min-width: 58px; height: 40px; font-size: 14px; font-weight: 700; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.zoom-dock .zoom-val:hover { background: var(--surface-3); }
+.dock-sep { width: 1px; height: 22px; background: var(--line-2); margin: 0 4px; }
+.gesture-hint {
+  position: absolute; top: 16px; left: 50%; transform: translate(-50%, -8px); z-index: 4;
+  padding: 9px 16px; background: rgba(8, 9, 10, .94); color: #fff; font-size: 13.5px;
+  opacity: 0; pointer-events: none; transition: opacity .3s, transform .3s; white-space: nowrap;
+}
+.gesture-hint.show { opacity: 1; transform: translate(-50%, 0); }
+
+.popover {
+  position: absolute; z-index: 60; min-width: 250px; padding: 6px;
+  background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow-md);
+}
+.zoom-dock .menu-wrap > .popover {
+  top: auto !important;
+  bottom: calc(100% + 12px);
+  right: 0;
+  width: min(300px, calc(100vw - 24px));
+  max-height: min(70vh, calc(100dvh - 110px));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.menu-item {
+  display: flex; align-items: center; gap: 12px; width: 100%; padding: 10px 12px;
+  font-size: 14px; text-align: left; color: var(--ink); text-decoration: none; font-weight: 500;
+}
+.menu-item:hover, .menu-item:focus-visible { background: var(--surface-2); outline: none; }
+.menu-item .i { color: var(--ink-3); }
+.menu-item .hint { margin-left: auto; font-size: 12px; color: var(--ink-3); }
+.menu-item[aria-checked="true"] { color: var(--accent-ink); }
+.menu-item[aria-checked="true"] .i { color: var(--accent-ink); }
+.menu-item .check { margin-left: auto; width: 18px; height: 18px; border: 1.5px solid var(--line-2); display: grid; place-items: center; }
+.menu-item[aria-checked="true"] .check { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.menu-item .check .i { width: 12px; height: 12px; color: inherit; stroke-width: 3; opacity: 0; }
+.menu-item[aria-checked="true"] .check .i { opacity: 1; }
+.menu-sep { height: 1px; background: var(--line); margin: 6px 4px; }
+.menu-label { font-size: 11.5px; font-weight: 700; color: var(--ink-3); text-transform: uppercase; letter-spacing: .06em; padding: 8px 12px 4px; }
+.menu-wrap { position: relative; }
+.menu-wrap > .popover { top: calc(100% + 8px); right: 0; }
+
+.text-pane { min-height: 0; min-width: 0; overflow-y: auto; overscroll-behavior: contain; background: var(--bg); scroll-behavior: smooth; }
+.text-inner { width: 100%; max-width: none; margin: 0; padding: 34px 24px 64px; }
+.tip-card {
+  display: flex; gap: 14px; align-items: flex-start; padding: 19px 16px; margin-bottom: 26px;
+  background: var(--surface-3); color: var(--ink); line-height: 1.7;
+}
+.tip-card .i { color: var(--ink-2); margin-top: 2px; }
+.tip-card p { font-size: 14.5px; color: var(--ink-2); }
+.tip-card b { color: var(--ink); }
+.tip-card .btn { margin-top: 10px; }
+.search-banner {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 12px 12px; margin-bottom: 24px;
+  background: var(--surface); border: 1px solid var(--line); font-size: 14px;
+}
+.search-banner .sb-text { display: flex; align-items: center; gap: 10px; color: var(--ink-2); min-width: 200px; flex: 1; }
+.search-banner .sb-text .i { color: var(--ink-2); }
+.search-banner .sb-text b { color: var(--ink); }
+.search-banner .sb-actions { display: flex; align-items: center; gap: 4px; }
+.match-steps { display: inline-flex; align-items: center; gap: 2px; padding-right: 8px; margin-right: 4px; border-right: 1px solid var(--line); }
+.match-steps span { font-size: 13px; color: var(--ink-3); padding: 0 6px; white-space: nowrap; }
+
+.page-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-bottom: 28px; }
+.page-heading h1 { font-weight: 600; font-size: 27px; line-height: 1.2; }
+.page-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+.tag { display: inline-flex; align-items: center; gap: 6px; padding: 3px 7px; font-size: 11px; font-weight: 600; background: var(--surface-3); color: var(--ink-2); }
+.tag.is-text { background: var(--surface-3); color: var(--ink); }
+.tag.is-art { background: var(--gold-soft); color: var(--gold); border: 1px solid color-mix(in srgb, var(--gold) 35%, transparent); }
+.tag .i { width: 13px; height: 13px; }
+.page-actions { display: flex; gap: 5px; flex-wrap: wrap; }
+
+.block { background: var(--surface); border: 1px solid var(--line); margin-bottom: 24px; }
+.block.is-art-block { border-color: color-mix(in srgb, var(--gold) 45%, var(--line)); }
+.block-head { display: flex; align-items: center; gap: 8px; padding: 22px 18px 0; flex-wrap: wrap; }
+.block-head h2 { font-size: 15px; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+.block-head h2 .b-icon { width: 24px; height: 24px; display: grid; place-items: center; background: var(--surface-3); color: var(--ink); }
+.block.is-art-block .block-head h2 .b-icon { background: var(--gold-soft); color: var(--gold); }
+.block-head h2 .b-icon .i { width: 14px; height: 14px; }
+.block-head .muted { color: var(--ink-3); font-size: 12px; }
+.block-body { padding: 18px 18px 26px; }
+.summary-text { font-size: 15px; line-height: 1.75; color: var(--ink); }
+.summary-text.is-empty, .muted-note { font-size: 14.5px; color: var(--ink-3); font-style: italic; }
+.entity-chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.text-tools { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; padding: 18px 18px 0; }
+.text-tools .spacer { flex: 1; }
+.size-ctrl { display: inline-flex; align-items: center; background: var(--surface-3); padding: 4px; }
+.size-ctrl button { width: 34px; height: 34px; font-weight: 700; color: var(--ink-2); font-size: 14px; }
+.size-ctrl button:hover:not(:disabled) { background: var(--surface); color: var(--ink); }
+.size-ctrl .size-lbl { font-size: 13px; color: var(--ink-3); padding: 0 6px; font-weight: 600; }
+.text-explain { padding: 14px 18px 0; font-size: 13px; line-height: 1.65; color: var(--ink-3); }
+.note {
+  display: flex; gap: 10px; align-items: flex-start; margin: 18px 18px 4px; padding: 14px 14px;
+  background: var(--surface-3); color: var(--ink-2); font-size: 13.5px; line-height: 1.7;
+}
+.note .i { color: var(--ink-2); margin-top: 1px; }
+.lines { padding: 18px 8px 22px; counter-reset: none; }
+.line {
+  display: grid; grid-template-columns: 26px minmax(0, 1fr) 26px; gap: 10px; align-items: start;
+  padding: 14px 8px;
+  transition: background .15s;
+}
+.line + .line { margin-top: 5px; }
+.line:hover { background: var(--surface-2); }
+.line.is-selected { background: var(--accent-soft); box-shadow: inset 2px 0 0 var(--accent); }
+.ln {
+  width: 27px; height: 27px; margin-top: 8px;
+  font-size: 11px; font-weight: 700; color: var(--ink-3); font-variant-numeric: tabular-nums;
+  border: 1px solid var(--line-2); background: var(--surface);
+  transition: background .15s, color .15s, border-color .15s;
+}
+.ln:hover { border-color: var(--accent); color: var(--accent-ink); }
+.line.is-selected .ln { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.line-body { min-width: 0; }
+.ur { font-family: var(--font-urdu); font-size: var(--urdu-size); line-height: 2.3; direction: rtl; text-align: right; color: var(--ink); overflow-wrap: anywhere; }
+.ro { font-size: 14px; line-height: 1.8; color: var(--ink-2); margin-top: 2px; overflow-wrap: anywhere; }
+.lines.mode-urdu .ro, .lines.mode-roman .ur { display: none; }
+.lines.mode-roman .ro { font-size: 15px; line-height: 1.8; color: var(--ink); padding-top: 2px; }
+.lines.mode-roman .ln { margin-top: 0; }
+.line-copy { opacity: 0; margin-top: 6px; transition: opacity .15s; }
+.line:hover .line-copy, .line:focus-within .line-copy, .line.is-selected .line-copy { opacity: 1; }
+.missing { color: var(--ink-3); font-style: italic; font-family: var(--font-ui); font-size: 14px; }
+.next-card {
+  display: flex; align-items: center; gap: 12px; width: 100%; text-align: left; margin-top: 20px;
+  padding: 19px 18px; background: var(--accent); color: var(--on-accent);
+  transition: background .15s;
+}
+.next-card:hover { background: var(--accent-hover); }
+.next-card .nc-text { flex: 1; min-width: 0; }
+.next-card small { display: block; font-size: 12px; opacity: .85; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; }
+.next-card b { display: block; font-size: 16px; }
+.next-card span.nc-sub { display: block; font-size: 12px; opacity: .85; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.next-card .i { width: 24px; height: 24px; }
+.prev-link { display: flex; justify-content: center; margin-top: 20px; }
+
+/* skeleton */
+.skel { display: block; height: 14px; background: linear-gradient(90deg, var(--surface-3), var(--surface-2), var(--surface-3)); background-size: 200% 100%; animation: shimmer 1.4s infinite; margin: 8px 0; }
+@keyframes shimmer { to { background-position: -200% 0; } }
+
+/* ---------- Dialogs, toasts, overlays ---------- */
+dialog.modal {
+  width: min(560px, calc(100vw - 32px)); max-height: calc(100dvh - 48px); padding: 0; border: 1px solid var(--line);
+  background: var(--surface); color: var(--ink); box-shadow: var(--shadow-lg);
+}
+dialog.modal::backdrop { background: rgba(17, 21, 19, .55); backdrop-filter: blur(2px); }
+.modal-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 20px 22px 0; }
+.modal-head h2 { font-weight: 600; font-size: 22px; }
+.modal-body { padding: 14px 22px 24px; }
+.modal-body p { color: var(--ink-2); }
+.cite-box { margin: 14px 0 16px; padding: 16px; background: var(--surface-2); border: 1px solid var(--line); font-size: 14.5px; line-height: 1.6; user-select: all; }
+.toasts { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); z-index: 400; display: flex; flex-direction: column; align-items: center; gap: 8px; pointer-events: none; width: max-content; max-width: calc(100vw - 32px); }
+.toast {
+  display: flex; align-items: center; gap: 10px; padding: 12px 16px;
+  background: #1E2522; color: #F3F6F4; box-shadow: var(--shadow-lg); font-size: 14px; font-weight: 500;
+  opacity: 0; transform: translateY(10px); transition: opacity .22s, transform .22s var(--ease); pointer-events: auto;
+}
+[data-theme="dark"] .toast { background: #F1F3F4; color: #111315; }
+.toast.show { opacity: 1; transform: none; }
+.toast .i { color: currentColor; }
+.toast.is-error .i { color: #F79A8F; }
+.toast-action { margin-left: 6px; font-weight: 700; color: inherit; text-decoration: underline; }
+.drop-overlay { position: fixed; inset: 0; z-index: 500; display: grid; place-items: center; background: rgba(0, 0, 0, .58); pointer-events: none; }
+.drop-overlay div { display: flex; align-items: center; gap: 14px; padding: 26px 34px; background: var(--surface); box-shadow: var(--shadow-lg); font-size: 18px; font-weight: 700; border: 1px solid var(--line-2); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1180px) {
+  .header-search { width: 220px; }
+  .header-search:focus-within { width: 260px; }
+  .brand-sub { display: none; }
+}
+@media (max-width: 1020px) {
+  .main-nav, .header-search { display: none; }
+  .menu-toggle { display: inline-flex; }
+  .search-toggle { display: inline-flex !important; }
+  .hero-grid { grid-template-columns: minmax(0, 1fr); }
+  .hero-art { display: none; }
+  .about-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 900px) {
+  .view-read .read-body { grid-template-columns: 1fr; }
+  .pane-switch { display: block; }
+  .view-read[data-pane="picture"] .text-pane { display: none; }
+  .view-read[data-pane="text"] .pic-pane { display: none; }
+  .pic-pane { border-right: 0; }
+  .read-progress { display: none; }
+  .text-inner { padding: 30px 18px 52px; }
+}
+@media (max-width: 720px) {
+  :root { --header-h: 58px; }
+  .container { padding: 0 16px; }
+  .header-inner { padding: 0 12px; gap: 10px; }
+  .brand-title { font-size: 15.5px; }
+  .hero { padding: 36px 0; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .stat:nth-child(3) { border-left: 0; }
+  .stat:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .stat b { font-size: 27px; }
+  .steps { grid-template-columns: 1fr; }
+  .section { padding: 40px 0; }
+  .page-head { padding: 28px 0 18px; }
+  .jump-form { margin-left: 0; }
+  .page-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
+  .card-body { padding: 12px; }
+  .read-bar { padding: 8px 10px; gap: 6px; }
+  .read-bar .back .lbl { display: none; }
+  .read-bar .back { padding: 0; width: 42px; }
+  .pager .btn .lbl { display: none; }
+  .pager .btn { padding: 0; width: 44px; }
+  .setup-card { padding: 26px 20px; }
+  .shortcut-list { grid-template-columns: 1fr; }
+  .line { grid-template-columns: 24px minmax(0, 1fr); gap: 9px; padding: 12px 5px; }
+  .line-copy { display: none; }
+  .block-head, .block-body, .text-tools, .text-explain { padding-left: 16px; padding-right: 16px; }
+  .note { margin-left: 16px; margin-right: 16px; }
+  .lines { padding: 15px 6px 18px; }
+  .ur { line-height: 2.2; }
+  .seg button { padding: 0 11px; }
+  .people-tools .search-field { min-width: 0; width: 100%; flex-basis: 100%; }
+  .search-banner .sb-actions { width: 100%; justify-content: flex-end; }
+}
+@media (max-width: 380px) {
+  .brand-text { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+}
+@media print {
+  .app-header, .site-footer, .read-bar, .pane-switch, .pic-pane, .zoom-dock, .tip-card, .search-banner, .next-card, .prev-link, .page-actions, .text-tools, .line-copy { display: none !important; }
+  body.is-reading { overflow: visible; }
+  .view-read { height: auto; }
+  .read-body { display: block; }
+  .text-pane { overflow: visible; }
+}
+.search-toggle { display: none; }
+  </style>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="i-chev-left" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></symbol>
+  <symbol id="i-chev-right" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></symbol>
+  <symbol id="i-chev-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  <symbol id="i-chev-up" viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6"/></symbol>
+  <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></symbol>
+  <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+  <symbol id="i-rotate" viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.6-5.9"/><path d="M20 4v5h-5"/></symbol>
+  <symbol id="i-fit" viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M8 21H5a2 2 0 0 1-2-2v-3M16 21h3a2 2 0 0 0 2-2v-3"/></symbol>
+  <symbol id="i-fit-width" viewBox="0 0 24 24"><path d="M3 4v16M21 4v16M7 12h10M7 12l3-3M7 12l3 3M17 12l-3-3M17 12l-3 3"/></symbol>
+  <symbol id="i-contrast" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-invert" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M3.5 20.5l17-17V18a2.5 2.5 0 0 1-2.5 2.5z" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-expand" viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></symbol>
+  <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V5M7 10l5-5 5 5M5 20h14"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11"/><path d="M5 15V6a2 2 0 0 1 2-2h8"/></symbol>
+  <symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></symbol>
+  <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2.5 12h2M19.5 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.6h.01"/></symbol>
+  <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5L5 21"/></symbol>
+  <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3l2.2 6.8L21 12l-6.8 2.2L12 21l-2.2-6.8L3 12l6.8-2.2z"/></symbol>
+  <symbol id="i-text" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9L1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/></symbol>
+  <symbol id="i-code" viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></symbol>
+  <symbol id="i-quote" viewBox="0 0 24 24"><path d="M10 7H5v6h4c0 2-1 3.5-3 4M19 7h-5v6h4c0 2-1 3.5-3 4"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></symbol>
+  <symbol id="i-book-open" viewBox="0 0 24 24"><path d="M2 5.5C4.5 4 8 4 12 6c4-2 7.5-2 10-.5V19c-2.5-1.5-6-1.5-10 .5-4-2-7.5-2-10-.5z"/><path d="M12 6v13.5"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18.5 14.2A6.5 6.5 0 0 1 21.5 20"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7" height="7"/><rect x="13.5" y="3.5" width="7" height="7"/><rect x="3.5" y="13.5" width="7" height="7"/><rect x="13.5" y="13.5" width="7" height="7"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-more" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.3" fill="currentColor"/><circle cx="12" cy="12" r="1.3" fill="currentColor"/><circle cx="19" cy="12" r="1.3" fill="currentColor"/></symbol>
+  <symbol id="i-shuffle" viewBox="0 0 24 24"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></symbol>
+  <symbol id="i-lightbulb" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></symbol>
+  <symbol id="i-bookmark" viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></symbol>
+  <symbol id="i-hd" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14"/><path d="M7 9v6M11 9v6M7 12h4M14.5 9v6h1.5a3 3 0 0 0 0-6z"/></symbol>
+  <symbol id="i-translate" viewBox="0 0 24 24"><path d="M4 5h9M8.5 3v2M6 5c.5 3 2.5 5.5 5.5 7M11 5c-.7 3.5-3 6.5-7 8"/><path d="M13 21l4-9 4 9M14.5 18h5"/></symbol>
+  <symbol id="i-arch" viewBox="0 0 64 78"><path d="M6 76V36C6 20 18 9 32 2c14 7 26 18 26 34v40" fill="none" stroke="currentColor" stroke-width="3"/><path d="M16 76V40c0-10 7-18 16-23 9 5 16 13 16 23v36" fill="none" stroke="currentColor" stroke-width="2" opacity=".7"/><circle cx="32" cy="44" r="4" fill="currentColor"/></symbol>
+</svg>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="app-header">
+  <div class="header-inner">
+    <a class="brand" href="../index.html" aria-label="Project Scriptorium — ʿAjāʾib al-makhlūqāt">
+      <span class="brand-text">
+        <span class="brand-title">ʿAjāʾib al-makhlūqāt</span>
+        <span class="brand-sub">Princeton Garrett no. 82G · 18th-c. India</span>
+      </span>
+    </a>
+    <nav class="main-nav" aria-label="Main">
+      <a href="#view=pages" data-go="pages">All scans</a>
+      <a href="#view=people" data-go="people">Entities &amp; cosmos</a>
+      <a href="#view=about" data-go="about">About</a>
+      <a href="../index.html">← All volumes</a>
+    </nav>
+    <div class="header-actions">
+      <form class="header-search" id="headerSearch" role="search">
+        <svg class="i" aria-hidden="true"><use href="#i-search"/></svg>
+        <label class="sr-only" for="headerSearchInput">Search the manuscript</label>
+        <input id="headerSearchInput" type="search" placeholder="Search the manuscript…" autocomplete="off" spellcheck="false" enterkeyhint="search" />
+        <kbd aria-hidden="true">/</kbd>
+      </form>
+      <button class="icon-btn search-toggle" id="searchToggle" type="button" aria-label="Search the manuscript"><svg class="i"><use href="#i-search"/></svg></button>
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch to dark mode" title="Light / dark mode"><svg class="i"><use href="#i-moon"/></svg></button>
+      <button class="icon-btn menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><svg class="i"><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Main" hidden>
+    <a href="#view=pages" data-go="pages"><svg class="i"><use href="#i-grid"/></svg>All scans</a>
+    <a href="#view=people" data-go="people"><svg class="i"><use href="#i-users"/></svg>Entities &amp; cosmos</a>
+    <a href="#view=about" data-go="about"><svg class="i"><use href="#i-info"/></svg>About this manuscript</a>
+    <a href="../index.html"><svg class="i"><use href="#i-arrow-left"/></svg>Project Scriptorium catalogue</a>
+  </nav>
+</header>
+
+<main id="main" tabindex="-1">
+
+  <!-- Loading -->
+  <section class="view center-stage" data-view="loading" aria-live="polite">
+    <div class="loading-msg"><span class="spinner"></span>Opening Princeton Garrett no. 82G…</div>
+  </section>
+
+  <!-- Setup: corpus could not be fetched -->
+  <section class="view center-stage" data-view="setup" hidden>
+    <div class="setup-card">
+      <span class="eyebrow"><svg class="i i-sm"><use href="#i-book-open"/></svg>One quick step</span>
+      <h1>Let’s open the manuscript</h1>
+      <p>This workstation reads the manuscript’s transcription and miniature index from <code>corpus.json</code>. Your browser blocked automatic loading because the file was opened directly from disk.</p>
+      <button class="dropzone" id="dropzone" type="button">
+        <span class="dz-icon"><svg class="i"><use href="#i-upload"/></svg></span>
+        <strong>Drag <code>corpus.json</code> here</strong>
+        <span>or <span class="fake-link">choose the file from your computer</span></span>
+        <small>Nothing is uploaded anywhere — the file stays on your device.</small>
+      </button>
+      <details class="help-details">
+        <summary><svg class="i i-sm"><use href="#i-chev-right"/></svg>Want it to load on its own every time?</summary>
+        <p>Put <code>index.html</code> and <code>corpus.json</code> in the same folder, run this command, then visit <a href="http://localhost:8000">localhost:8000</a>.</p>
+        <div class="codeline"><code id="serverCmd">python -m http.server 8000</code><button class="icon-btn sm" id="copyCmdBtn" type="button" aria-label="Copy command" title="Copy command"><svg class="i i-sm"><use href="#i-copy"/></svg></button></div>
+      </details>
+      <div class="alert" id="setupError" role="alert" hidden></div>
+    </div>
+  </section>
+
+  <!-- Home -->
+  <section class="view" data-view="home" aria-labelledby="homeTitle" hidden>
+    <div class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow"><svg class="i i-sm"><use href="#i-book-open"/></svg>Princeton University Library · Garrett no. 82G</span>
+          <h1 id="homeTitle">Read <em>ʿAjāʾib al-makhlūqāt</em>, scan by scan</h1>
+          <p class="hero-lead">Explore all 502 scans of this 18th-century Indian illuminated Persian manuscript of al-Qazwīnī’s <em>Wonders of Creation</em>, complete with 152 opaque watercolor miniatures, line-by-line Nastaʿlīq transcription, Roman transliteration, and English summaries.</p>
+          <div class="hero-actions">
+            <button class="btn btn-primary btn-lg" type="button" data-action="start">Start reading<svg class="i"><use href="#i-arrow-right"/></svg></button>
+            <a class="btn btn-lg" href="#view=pages" data-go="pages"><svg class="i"><use href="#i-grid"/></svg>Browse all 502 scans</a>
+            <button class="btn btn-lg btn-ghost" type="button" data-action="random" title="Open an illuminated folio"><svg class="i"><use href="#i-sparkle"/></svg>Random miniature</button>
+          </div>
+          <button class="continue-card" type="button" id="continueCard" hidden>
+            <span class="cc-icon"><svg class="i"><use href="#i-bookmark"/></svg></span>
+            <span class="cc-text"><b id="continueTitle">Pick up where you left off</b><span id="continueSub"></span></span>
+            <svg class="i"><use href="#i-arrow-right"/></svg>
+          </button>
+          <form class="big-search" id="homeSearch" role="search">
+            <svg class="i" aria-hidden="true"><use href="#i-search"/></svg>
+            <label class="sr-only" for="homeSearchInput">Search the manuscript</label>
+            <input id="homeSearchInput" type="search" placeholder="Search constellations, angels, animals, or Persian text…" autocomplete="off" spellcheck="false" enterkeyhint="search" />
+            <button class="btn btn-primary" type="submit">Search</button>
+          </form>
+          <div class="try-row" id="tryRow" hidden><span>Try:</span></div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="book-page" id="heroPage" hidden><img id="heroPageImg" alt="" referrerpolicy="no-referrer" /></div>
+          <div class="book-cover">
+            <svg class="arch"><use href="#i-arch"/></svg>
+            <div class="cover-ur" lang="fa">عجائب المخلوقات</div>
+            <div class="cover-en">ʿAjāʾib al-makhlūqāt</div>
+            <div class="cover-meta">Garrett 82G · 18th-c. India</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats-band">
+      <div class="container"><div class="stats" id="homeStats"></div></div>
+    </div>
+
+    <div class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>How it works</h2>
+            <p>Inspect high-resolution Princeton IIIF facsimiles alongside diplomatic Nastaʿlīq text and miniature descriptions.</p>
+          </div>
+          <a class="btn" href="garrett82g_complete.txt" download="garrett82g_complete.txt"><svg class="i i-sm"><use href="#i-download"/></svg>Download full book (.TXT)</a>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-n"><svg class="i"><use href="#i-grid"/></svg></div>
+            <h3>1. Browse folios or miniatures</h3>
+            <p>Filter specifically for the 152 illuminated folios or search across planets, angels, flora, and fauna.</p>
+          </div>
+          <div class="step">
+            <div class="step-n"><svg class="i"><use href="#i-image"/></svg></div>
+            <h3>2. Inspect the original manuscript</h3>
+            <p>Zoom deep into gold illuminations, red rubrics, and 20-line Nastaʿlīq calligraphy via Princeton’s IIIF server.</p>
+          </div>
+          <div class="step">
+            <div class="step-n"><svg class="i"><use href="#i-translate"/></svg></div>
+            <h3>3. Read in three parallel layers</h3>
+            <p>Compare the English digest and miniature iconography with line-by-line Persian script and Roman transliteration.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="homePeopleSection" style="padding-top:0" hidden>
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Most referenced figures, constellations &amp; places</h2>
+            <p>Click any entry to inspect every folio where it appears.</p>
+          </div>
+          <a class="btn" href="#view=people" data-go="people">See full entity index<svg class="i i-sm"><use href="#i-arrow-right"/></svg></a>
+        </div>
+        <div class="chip-cloud" id="homeChips"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pages / search -->
+  <section class="view" data-view="pages" aria-labelledby="pagesTitle" hidden>
+    <div class="container">
+      <div class="page-head">
+        <h1 id="pagesTitle" tabindex="-1">All scans</h1>
+        <p id="pagesIntro">Every scan of Princeton Garrett no. 82G. Filter for illuminated miniatures or search in English, Persian, or Roman transliteration.</p>
+      </div>
+      <div class="toolbar-card">
+        <form class="search-field" id="pagesSearch" role="search">
+          <svg class="i" aria-hidden="true"><use href="#i-search"/></svg>
+          <label class="sr-only" for="searchInput">Search the manuscript</label>
+          <input id="searchInput" type="search" placeholder="Search in English, Persian, Roman transliteration, or miniature descriptions…" autocomplete="off" spellcheck="false" enterkeyhint="search" />
+          <button class="icon-btn sm" id="searchClear" type="button" aria-label="Clear search" hidden><svg class="i i-sm"><use href="#i-x"/></svg></button>
+        </form>
+        <div class="filters">
+          <div class="filter-group" role="group" aria-label="Show">
+            <div class="seg" id="typeSeg">
+              <button type="button" data-filter="all" aria-pressed="true">All<span class="n" data-count="all"></span></button>
+              <button type="button" data-filter="illuminated" aria-pressed="false" title="Folios containing painted miniatures or diagrams">Miniatures<span class="n" data-count="illuminated"></span></button>
+              <button type="button" data-filter="text" aria-pressed="false" title="Pages with Persian manuscript text">With text<span class="n" data-count="text"></span></button>
+              <button type="button" data-filter="cover_or_flyleaf" aria-pressed="false" title="Leather bindings and blank flyleaves">Bindings &amp; blanks<span class="n" data-count="cover_or_flyleaf"></span></button>
+            </div>
+          </div>
+          <div class="filter-group">
+            <label class="filter-label" for="scopeSelect">Look in</label>
+            <select class="select" id="scopeSelect">
+              <option value="all">Everything</option>
+              <option value="english">English summaries &amp; art</option>
+              <option value="persian">Persian text</option>
+              <option value="roman">Roman transliteration</option>
+              <option value="entities">Entities &amp; cosmos</option>
+            </select>
+          </div>
+          <form class="jump-form" id="jumpForm">
+            <label class="filter-label" for="jumpInput">Go to scan</label>
+            <input id="jumpInput" type="number" inputmode="numeric" min="1" placeholder="#" />
+            <button class="btn btn-sm btn-soft" type="submit">Go</button>
+          </form>
+        </div>
+      </div>
+      <div class="results-line" id="resultsLine" aria-live="polite"></div>
+      <div id="gotoHintWrap"></div>
+      <ul class="page-grid" id="pageGrid" aria-label="Scans"></ul>
+    </div>
+  </section>
+
+  <!-- People & places -->
+  <section class="view" data-view="people" aria-labelledby="peopleTitle" hidden>
+    <div class="container">
+      <div class="page-head">
+        <h1 id="peopleTitle" tabindex="-1">Entities, constellations &amp; places</h1>
+        <p>Historical scholars, archangels, celestial bodies, exotic islands, and natural taxa indexed across the codex.</p>
+      </div>
+      <div class="toolbar-card">
+        <div class="people-tools">
+          <div class="search-field">
+            <svg class="i" aria-hidden="true"><use href="#i-search"/></svg>
+            <label class="sr-only" for="entityFilter">Find an entry</label>
+            <input id="entityFilter" type="search" placeholder="Find a name, constellation, or place…" autocomplete="off" spellcheck="false" />
+          </div>
+          <div class="seg" role="group" aria-label="Sort by">
+            <button type="button" data-esort="freq" aria-pressed="true">Most mentioned</button>
+            <button type="button" data-esort="alpha" aria-pressed="false">A–Z</button>
+          </div>
+        </div>
+      </div>
+      <div class="results-line" id="peopleMeta" aria-live="polite"></div>
+      <div class="people-list" id="peopleList"></div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="view" data-view="about" aria-labelledby="aboutTitle" hidden>
+    <div class="container">
+      <div class="page-head">
+        <h1 id="aboutTitle" tabindex="-1">About this manuscript</h1>
+        <p>Codicological provenance, iconographic scope, and corpus architecture for Volume II of Project Scriptorium.</p>
+      </div>
+      <div class="about-grid">
+        <div class="prose">
+          <h2>The manuscript</h2>
+          <p><em>ʿAjāʾib al-makhlūqāt wa-gharāʾib al-mawjūdāt</em> (<span class="urdu" lang="fa">عجائب المخلوقات وغرائب الموجودات</span>, “Wonders of Creation and Oddities of Existing Things”) is the foundational 13th-century cosmographical encyclopedia by Zakarīyā ibn Muḥammad al-Qazwīnī (d. 1283). This Persian codex (Princeton University Library, <code>Islamic Manuscripts, Garrett no. 82G</code>) was illustrated and bound in 18th-century India, copying a colophon signed by ʿAbd Allāh ibn ʿAlī Bey Damāvandī.</p>
+          <p>Written in 20-line black and red <em>Nastaʿlīq</em> within gold, black, and blue rulings, the manuscript features an illuminated gold frontispiece, astronomical diagrams, and 152 illuminated folios depicting planets, constellations (such as Cassiopeia), archangels, mythical islands (Wāqwāq and Sumatra), flora, and fauna.</p>
+
+          <h2>What you’ll find on each scan</h2>
+          <div class="feature-list">
+            <div class="feature"><span class="f-icon"><svg class="i"><use href="#i-image"/></svg></span><div><h3>High-resolution IIIF facsimile</h3><p>Direct facsimile served from Princeton University Library’s Digital PUL server with zoom, rotation, contrast enhancement, and full-resolution toggle.</p></div></div>
+            <div class="feature"><span class="f-icon"><svg class="i"><use href="#i-sparkle"/></svg></span><div><h3>Miniature &amp; diagram iconography</h3><p>Dedicated iconographic notes flagging painted miniatures, planetary symbols, and gold-and-red diagrams on illuminated folios.</p></div></div>
+            <div class="feature"><span class="f-icon"><svg class="i"><use href="#i-text"/></svg></span><div><h3>Diplomatic Persian transcription</h3><p>Line-by-line Nastaʿlīq transcription preserving original lineation for full-text search and paleographic comparison.</p></div></div>
+            <div class="feature"><span class="f-icon"><svg class="i"><use href="#i-translate"/></svg></span><div><h3>Roman transliteration &amp; English digest</h3><p>Complete line-by-line Latin-script transliteration paired with concise scholarly English summaries.</p></div></div>
+          </div>
+
+          <h2>Credits &amp; open license</h2>
+          <p>Manuscript facsimiles courtesy of Princeton University Library, Special Collections (<code>ark:/88435/h989r3272</code>, No Known Copyright). Diplomatic HTR transcription, transliteration, English digests, and iconographic index compiled by Syed Faizyab Mujtaba under CC0 1.0.</p>
+        </div>
+        <aside>
+          <div class="side-card">
+            <h3>At a glance</h3>
+            <div class="mini-stats" id="aboutStats"></div>
+          </div>
+          <div class="side-card">
+            <h3>Codex details</h3>
+            <dl class="facts">
+              <div><dt>Title</dt><dd>ʿAjāʾib al-makhlūqāt · <span class="urdu" lang="fa">عجائب المخلوقات</span></dd></div>
+              <div><dt>Author</dt><dd>Zakarīyā ibn Muḥammad al-Qazwīnī</dd></div>
+              <div><dt>Origin</dt><dd>India, 18th century (colophon: ʿAbd Allāh ibn ʿAlī Bey Damāvandī)</dd></div>
+              <div><dt>Holding institution</dt><dd>Princeton University Library</dd></div>
+              <div><dt>Call number &amp; ARK</dt><dd>Garrett no. 82G · ark:/88435/h989r3272</dd></div>
+            </dl>
+          </div>
+          <div class="side-card">
+            <h3>Downloads &amp; links</h3>
+            <div class="link-list">
+              <a href="garrett82g_complete.txt" download="garrett82g_complete.txt">Download complete corpus (.TXT)<svg class="i i-sm"><use href="#i-download"/></svg></a>
+              <a href="corpus.json" download="garrett82g_corpus.json">Download structured JSON (.JSON)<svg class="i i-sm"><use href="#i-download"/></svg></a>
+              <a href="https://catalog.princeton.edu/catalog/9955765013506421" target="_blank" rel="noopener">Princeton catalog record<svg class="i i-sm"><use href="#i-external"/></svg></a>
+              <a href="https://figgy.princeton.edu/concern/scanned_resources/da45a495-2286-4fa6-99f0-b7c2a4ab6f6f/manifest" target="_blank" rel="noopener">Princeton IIIF manifest<svg class="i i-sm"><use href="#i-external"/></svg></a>
+            </div>
+          </div>
+          <div class="side-card">
+            <h3>Data source</h3>
+            <p style="font-size:14px;color:var(--ink-2)" id="sourceNote">Using the manuscript’s data file.</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reader -->
+  <section class="view view-read" data-view="read" data-pane="picture" aria-label="Manuscript reader" hidden>
+    <div class="read-bar">
+      <button class="btn btn-ghost btn-sm back" type="button" id="backBtn"><svg class="i"><use href="#i-arrow-left"/></svg><span class="lbl" id="backLabel">All scans</span></button>
+      <div class="read-progress" aria-hidden="true"><span id="readProgress"></span></div>
+      <div class="pager">
+        <button class="btn btn-sm" id="prevBtn" type="button" aria-label="Previous scan"><svg class="i"><use href="#i-chev-left"/></svg><span class="lbl">Previous</span></button>
+        <form class="page-indicator" id="pageJump">
+          <label class="sr-only" for="pageJumpInput">Scan number</label>
+          <span aria-hidden="true">Scan</span>
+          <input id="pageJumpInput" type="number" inputmode="numeric" min="1" title="Type a scan number and press Enter" />
+          <span id="pageOf">of —</span>
+        </form>
+        <button class="btn btn-sm btn-primary" id="nextBtn" type="button" aria-label="Next scan"><span class="lbl">Next</span><svg class="i"><use href="#i-chev-right"/></svg></button>
+      </div>
+    </div>
+    <div class="pane-switch">
+      <div class="seg" role="group" aria-label="Show">
+        <button type="button" data-pane="picture" aria-pressed="true"><svg class="i i-sm"><use href="#i-image"/></svg>Facsimile</button>
+        <button type="button" data-pane="text" aria-pressed="false"><svg class="i i-sm"><use href="#i-text"/></svg>Text &amp; miniature</button>
+      </div>
+    </div>
+    <div class="read-body">
+      <div class="pic-pane" id="picPane">
+        <div class="viewport" id="viewport" tabindex="0" aria-label="Manuscript scan. Scroll or pinch to zoom, drag to move, double-click to zoom in.">
+          <img id="scanImage" class="is-hidden" alt="" referrerpolicy="no-referrer" draggable="false" />
+          <div class="pic-overlay pic-loading" aria-hidden="true"><div class="loading-chip"><span class="spinner"></span><span id="loadingText">Loading scan…</span></div></div>
+          <div class="pic-overlay pic-error" id="picError" hidden>
+            <div class="msg-card" role="alert">
+              <span class="msg-icon"><svg class="i"><use href="#i-image"/></svg></span>
+              <h3 id="picErrorTitle">The scan didn’t load</h3>
+              <p>We couldn’t retrieve this facsimile from Princeton’s IIIF server — check your connection or open it in the library catalog.</p>
+              <div class="msg-actions">
+                <button class="btn btn-sm btn-primary" id="retryImgBtn" type="button"><svg class="i i-sm"><use href="#i-rotate"/></svg>Try again</button>
+                <a class="btn btn-sm" id="errOpenLink" href="#" target="_blank" rel="noopener">Open in Princeton catalog<svg class="i i-sm"><use href="#i-external"/></svg></a>
+              </div>
+            </div>
+          </div>
+          <div class="gesture-hint" id="gestureHint" aria-hidden="true">Scroll to zoom · drag to move</div>
+        </div>
+        <div class="zoom-dock" role="toolbar" aria-label="Picture controls">
+          <button class="icon-btn" id="zoomOutBtn" type="button" aria-label="Zoom out" title="Zoom out"><svg class="i"><use href="#i-minus"/></svg></button>
+          <button class="zoom-val" id="zoomLabel" type="button" title="Fit the whole page" aria-label="Zoom level. Click to fit the page.">100%</button>
+          <button class="icon-btn" id="zoomInBtn" type="button" aria-label="Zoom in" title="Zoom in"><svg class="i"><use href="#i-plus"/></svg></button>
+          <span class="dock-sep" aria-hidden="true"></span>
+          <button class="icon-btn" id="fitBtn" type="button" aria-label="Fit the whole page" title="Fit the whole page"><svg class="i"><use href="#i-fit"/></svg></button>
+          <div class="menu-wrap" style="position:static">
+            <button class="icon-btn" id="picMoreBtn" type="button" aria-label="More picture options" title="More options" aria-haspopup="menu" aria-expanded="false" aria-controls="picMenu"><svg class="i"><use href="#i-more"/></svg></button>
+            <div class="popover" id="picMenu" role="menu" aria-label="Picture options" hidden>
+              <button class="menu-item" role="menuitem" type="button" data-pic="width"><svg class="i"><use href="#i-fit-width"/></svg>Fit to width</button>
+              <button class="menu-item" role="menuitem" type="button" data-pic="rotate"><svg class="i"><use href="#i-rotate"/></svg>Rotate</button>
+              <button class="menu-item" role="menuitem" type="button" data-pic="fullscreen"><svg class="i"><use href="#i-expand"/></svg>Full screen</button>
+              <div class="menu-sep"></div>
+              <button class="menu-item" role="menuitemcheckbox" aria-checked="false" type="button" data-pic="contrast"><svg class="i"><use href="#i-contrast"/></svg>Make ink darker<span class="check"><svg class="i"><use href="#i-check"/></svg></span></button>
+              <button class="menu-item" role="menuitemcheckbox" aria-checked="false" type="button" data-pic="invert"><svg class="i"><use href="#i-invert"/></svg>Invert colours<span class="check"><svg class="i"><use href="#i-check"/></svg></span></button>
+              <button class="menu-item" role="menuitemcheckbox" aria-checked="false" type="button" data-pic="hd"><svg class="i"><use href="#i-hd"/></svg>Full IIIF resolution<span class="check"><svg class="i"><use href="#i-check"/></svg></span></button>
+              <div class="menu-sep"></div>
+              <a class="menu-item" role="menuitem" id="rawImageLink" href="#" target="_blank" rel="noopener"><svg class="i"><use href="#i-download"/></svg>Open original image</a>
+              <a class="menu-item" role="menuitem" id="diglitLink" href="#" target="_blank" rel="noopener"><svg class="i"><use href="#i-external"/></svg>View in Princeton catalog</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-pane" id="textPane" tabindex="-1">
+        <div class="text-inner">
+          <div class="tip-card" id="tipCard" hidden>
+            <svg class="i"><use href="#i-lightbulb"/></svg>
+            <div>
+              <p id="tipText"><b>New here?</b> On the left is the high-resolution Princeton IIIF scan — scroll to zoom and drag to inspect gold miniatures and Nastaʿlīq script. On the right are miniature descriptions, English digests, and line-by-line text.</p>
+              <button class="btn btn-sm" type="button" id="tipDismiss">Got it</button>
+            </div>
+          </div>
+
+          <div class="search-banner" id="searchBanner" hidden>
+            <div class="sb-text"><svg class="i"><use href="#i-search"/></svg><span id="sbText"></span></div>
+            <div class="sb-actions">
+              <span class="match-steps" id="matchSteps">
+                <span id="matchLabel"></span>
+                <button class="icon-btn sm" id="matchPrev" type="button" aria-label="Previous match on this page"><svg class="i i-sm"><use href="#i-chev-up"/></svg></button>
+                <button class="icon-btn sm" id="matchNext" type="button" aria-label="Next match on this page"><svg class="i i-sm"><use href="#i-chev-down"/></svg></button>
+              </span>
+              <button class="btn btn-sm btn-ghost" type="button" id="sbResults">See all results</button>
+              <button class="icon-btn sm" type="button" id="sbClear" aria-label="Clear search" title="Clear search"><svg class="i i-sm"><use href="#i-x"/></svg></button>
+            </div>
+          </div>
+
+          <div class="page-heading">
+            <div>
+              <h1 id="pageTitle" tabindex="-1">Scan —</h1>
+              <div class="page-tags" id="pageTags"></div>
+            </div>
+            <div class="page-actions">
+              <button class="btn btn-sm" id="shareBtn" type="button" title="Copy a link to this scan"><svg class="i i-sm"><use href="#i-share"/></svg><span class="lbl">Share</span></button>
+              <div class="menu-wrap">
+                <button class="btn btn-sm" id="saveBtn" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="saveMenu" title="Download or cite"><svg class="i i-sm"><use href="#i-download"/></svg><span class="lbl">Save</span><svg class="i i-sm"><use href="#i-chev-down"/></svg></button>
+                <div class="popover" id="saveMenu" role="menu" aria-label="Save options" hidden>
+                  <div class="menu-label">This scan</div>
+                  <button class="menu-item" role="menuitem" type="button" data-export="persian-txt"><svg class="i"><use href="#i-file"/></svg>Persian text<span class="hint">.txt</span></button>
+                  <button class="menu-item" role="menuitem" type="button" data-export="roman-txt"><svg class="i"><use href="#i-file"/></svg>Roman transliteration<span class="hint">.txt</span></button>
+                  <button class="menu-item" role="menuitem" type="button" data-export="page-json"><svg class="i"><use href="#i-code"/></svg>Everything on this scan<span class="hint">.json</span></button>
+                  <button class="menu-item" role="menuitem" type="button" data-export="cite"><svg class="i"><use href="#i-quote"/></svg>How to cite this folio</button>
+                  <div class="menu-sep"></div>
+                  <div class="menu-label">Complete manuscript</div>
+                  <a class="menu-item" role="menuitem" href="garrett82g_complete.txt" download="garrett82g_complete.txt"><svg class="i"><use href="#i-download"/></svg>Full book — single file<span class="hint">.txt</span></a>
+                  <button class="menu-item" role="menuitem" type="button" data-export="results-json"><svg class="i"><use href="#i-layers"/></svg><span id="exportResultsLabel">All scans</span><span class="hint">.json</span></button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <section class="block is-art-block" aria-labelledby="artTitle" id="artBlock" hidden>
+            <div class="block-head"><h2 id="artTitle"><span class="b-icon"><svg class="i"><use href="#i-sparkle"/></svg></span>Miniature &amp; diagram iconography</h2></div>
+            <div class="block-body"><p class="summary-text" id="artText"></p></div>
+          </section>
+
+          <section class="block" aria-labelledby="sumTitle">
+            <div class="block-head"><h2 id="sumTitle"><span class="b-icon"><svg class="i"><use href="#i-quote"/></svg></span>What this folio is about</h2></div>
+            <div class="block-body"><p class="summary-text" id="summaryText"><span class="skel" style="width:90%"></span><span class="skel" style="width:70%"></span></p></div>
+          </section>
+
+          <section class="block" aria-labelledby="entTitle" id="entBlock">
+            <div class="block-head"><h2 id="entTitle"><span class="b-icon"><svg class="i"><use href="#i-users"/></svg></span>Mentioned on this folio</h2><span class="muted" id="entHint"></span></div>
+            <div class="block-body"><div class="entity-chips" id="entityChips"></div></div>
+          </section>
+
+          <section class="block" aria-labelledby="txtTitle">
+            <div class="block-head"><h2 id="txtTitle"><span class="b-icon"><svg class="i"><use href="#i-text"/></svg></span>The text, line by line</h2><span class="muted" id="lineCount"></span></div>
+            <div class="text-tools">
+              <div class="seg" role="radiogroup" aria-label="Show the text as" id="modeSeg">
+                <button type="button" role="radio" data-mode="parallel" aria-checked="true">Persian + Roman</button>
+                <button type="button" role="radio" data-mode="urdu" aria-checked="false">Persian</button>
+                <button type="button" role="radio" data-mode="roman" aria-checked="false">Roman</button>
+              </div>
+              <div class="size-ctrl" role="group" aria-label="Text size">
+                <button type="button" id="fontDown" aria-label="Smaller text" title="Smaller text">A−</button>
+                <span class="size-lbl" aria-hidden="true">Size</span>
+                <button type="button" id="fontUp" aria-label="Larger text" title="Larger text">A+</button>
+              </div>
+              <span class="spacer"></span>
+              <button class="btn btn-sm btn-ghost" id="copyTextBtn" type="button"><svg class="i i-sm"><use href="#i-copy"/></svg>Copy text</button>
+            </div>
+            <p class="text-explain" id="textExplain">“Roman” shows the Persian/Arabic text transliterated into Latin letters. Tap a line number to highlight and share it.</p>
+            <div class="note" id="lineWarning" hidden></div>
+            <ol class="lines mode-parallel" id="lineList" aria-label="Lines of text"></ol>
+          </section>
+
+          <button class="next-card" type="button" id="nextCard" hidden>
+            <span class="nc-text"><small id="nextCardKicker">Keep reading</small><b id="nextCardTitle">Next scan</b><span class="nc-sub" id="nextCardSub"></span></span>
+            <svg class="i"><use href="#i-arrow-right"/></svg>
+          </button>
+          <div class="prev-link"><button class="link-btn" type="button" id="prevLink" hidden>← Previous scan</button></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>Facsimiles: Princeton University Library (Garrett no. 82G) · Transcription &amp; Index: Syed Faizyab Mujtaba</span>
+    <nav aria-label="Footer">
+      <a href="../index.html">Project Scriptorium</a>
+      <a href="#view=about" data-go="about">About</a>
+      <a href="garrett82g_complete.txt" download="garrett82g_complete.txt">Full book (.TXT)</a>
+      <button type="button" data-action="help">Keyboard shortcuts</button>
+    </nav>
+  </div>
+</footer>
+
+<dialog class="modal" id="helpDialog" aria-labelledby="helpTitle">
+  <div class="modal-head"><h2 id="helpTitle">Keyboard shortcuts</h2><button class="icon-btn" type="button" data-close aria-label="Close"><svg class="i"><use href="#i-x"/></svg></button></div>
+  <div class="modal-body">
+    <p>Optional — everything also works with a mouse or by touch.</p>
+    <div class="shortcut-list" style="grid-template-columns:1fr">
+      <div><span>Previous / next scan</span><span><kbd>←</kbd><kbd>→</kbd></span></div>
+      <div><span>Search</span><span><kbd>/</kbd></span></div>
+      <div><span>Zoom in / out · fit</span><span><kbd>+</kbd><kbd>−</kbd><kbd>0</kbd></span></div>
+      <div><span>Persian + Roman / Persian / Roman</span><span><kbd>1</kbd><kbd>2</kbd><kbd>3</kbd></span></div>
+      <div><span>Next / previous match on a folio</span><span><kbd>N</kbd><kbd>⇧ N</kbd></span></div>
+      <div><span>Light / dark mode</span><span><kbd>T</kbd></span></div>
+      <div><span>Close menus · clear search</span><span><kbd>Esc</kbd></span></div>
+      <div><span>Show this list</span><span><kbd>?</kbd></span></div>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="modal" id="citeDialog" aria-labelledby="citeTitle">
+  <div class="modal-head"><h2 id="citeTitle">Cite this folio</h2><button class="icon-btn" type="button" data-close aria-label="Close"><svg class="i"><use href="#i-x"/></svg></button></div>
+  <div class="modal-body">
+    <p>Using this manuscript folio in an essay or paper? Copy the scholarly citation below.</p>
+    <div class="cite-box" id="citeBox"></div>
+    <button class="btn btn-primary" type="button" id="citeCopy"><svg class="i i-sm"><use href="#i-copy"/></svg>Copy citation</button>
+  </div>
+</dialog>
+
+<input id="filePicker" type="file" accept=".json,.jsonl,application/json" hidden />
+<div class="drop-overlay" id="dropOverlay" hidden><div><svg class="i i-lg"><use href="#i-upload"/></svg>Drop the file to open the manuscript</div></div>
+<div class="toasts" id="toasts" role="status" aria-live="polite"></div>
+<script>
+(() => {
+  'use strict';
+
+  /* ================= Constants & helpers ================= */
+  const BOOK_ID = 'garrett82g';
+  const CATALOG_URL = 'https://catalog.princeton.edu/catalog/9955765013506421';
+  const BOOK_TITLE = 'ʿAjāʾib al-makhlūqāt';
+  const ARABIC_RE = /[؀-ۿݐ-ݿﭐ-﷿ﹰ-﻿]/g;
+  const HAS_ARABIC = /[؀-ۿݐ-ݿﭐ-﷿ﹰ-﻿]/;
+  const MIN_SCALE = 0.4, MAX_SCALE = 8;
+  const SCOPE_FIELDS = { all: ['fa', 'ro', 'en', 'art', 'ent'], persian: ['fa'], roman: ['ro'], english: ['en', 'art'], entities: ['ent'] };
+  const FIELD_LABEL = { fa: 'Persian text', ro: 'Roman transliteration', en: 'Summary', art: 'Miniature note', ent: 'Entities' };
+  const SCOPE_LABEL = { all: '', persian: ' in the Persian text', roman: ' in the Roman transliteration', english: ' in the English summaries & miniature notes', entities: ' in entities & cosmos' };
+  const TYPES = ['all', 'illuminated', 'text', 'cover_or_flyleaf'];
+  const VIEWS = ['home', 'pages', 'people', 'about'];
+
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+  const pad = n => String(n).padStart(4, '0');
+  const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+  const plural = (n, one, many) => `${Number(n).toLocaleString()} ${n === 1 ? one : (many || one + 's')}`;
+  const esc = s => String(s == null ? '' : s)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  const icon = (name, cls = '') => `<svg class="i ${cls}" aria-hidden="true"><use href="#i-${name}"/></svg>`;
+  const debounce = (fn, ms) => { let t; return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), ms); }; };
+  const truncate = (s, n) => { s = String(s || '').replace(/\s+/g, ' ').trim(); return s.length > n ? s.slice(0, n).replace(/\s+\S*$/, '') + '…' : s; };
+
+  const store = {
+    get(k, d) {
+      try {
+        const ns = k === 'theme' ? 'nkp:' : 'ps82g:';
+        const v = localStorage.getItem(ns + k);
+        return v === null ? d : JSON.parse(v);
+      } catch (e) { return d; }
+    },
+    set(k, v) {
+      try {
+        const ns = k === 'theme' ? 'nkp:' : 'ps82g:';
+        localStorage.setItem(ns + k, JSON.stringify(v));
+      } catch (e) {}
+    }
+  };
+
+  const mqNarrow = window.matchMedia('(max-width: 900px)');
+  const mqHeaderSearch = window.matchMedia('(min-width: 1021px)');
+
+  const state = {
+    pages: [],
+    byNum: new Map(),
+    results: [],
+    counts: { all: 0, illuminated: 0, text: 0, cover_or_flyleaf: 0 },
+    hitTotal: 0,
+    numQ: null,
+    current: null,
+    view: 'loading',
+    filter: 'all',
+    scope: 'all',
+    query: '',
+    terms: [],
+    selectedLine: null,
+    useFullRes: false,
+    viewMode: store.get('viewMode', 'parallel'),
+    urduSize: store.get('urduSize', 23),
+    pane: store.get('pane', 'picture'),
+    entityIndex: [],
+    entityCounts: new Map(),
+    entitySort: 'freq',
+    imgStatus: 'idle',
+    markIdx: -1,
+    sourceLabel: ''
+  };
+  const view = { scale: 1, rot: 0, x: 0, y: 0, fit: 'page' };
+
+  const el = {
+    main: $('#main'),
+    headerSearch: $('#headerSearch'),
+    headerSearchInput: $('#headerSearchInput'),
+    searchToggle: $('#searchToggle'),
+    themeBtn: $('#themeBtn'),
+    menuToggle: $('#menuToggle'),
+    mobileMenu: $('#mobileMenu'),
+    dropzone: $('#dropzone'),
+    setupError: $('#setupError'),
+    filePicker: $('#filePicker'),
+    dropOverlay: $('#dropOverlay'),
+    homeStats: $('#homeStats'),
+    homeSearch: $('#homeSearch'),
+    homeSearchInput: $('#homeSearchInput'),
+    tryRow: $('#tryRow'),
+    homeChips: $('#homeChips'),
+    homePeopleSection: $('#homePeopleSection'),
+    continueCard: $('#continueCard'),
+    continueTitle: $('#continueTitle'),
+    continueSub: $('#continueSub'),
+    heroPage: $('#heroPage'),
+    heroPageImg: $('#heroPageImg'),
+    pagesTitle: $('#pagesTitle'),
+    pagesIntro: $('#pagesIntro'),
+    search: $('#searchInput'),
+    searchClear: $('#searchClear'),
+    scopeSelect: $('#scopeSelect'),
+    typeSeg: $('#typeSeg'),
+    jumpForm: $('#jumpForm'),
+    jumpInput: $('#jumpInput'),
+    resultsLine: $('#resultsLine'),
+    gotoHintWrap: $('#gotoHintWrap'),
+    grid: $('#pageGrid'),
+    entityFilter: $('#entityFilter'),
+    peopleMeta: $('#peopleMeta'),
+    peopleList: $('#peopleList'),
+    aboutStats: $('#aboutStats'),
+    sourceNote: $('#sourceNote'),
+    read: $('[data-view="read"]'),
+    backBtn: $('#backBtn'),
+    backLabel: $('#backLabel'),
+    readProgress: $('#readProgress'),
+    prevBtn: $('#prevBtn'),
+    nextBtn: $('#nextBtn'),
+    pageJump: $('#pageJump'),
+    pageJumpInput: $('#pageJumpInput'),
+    pageOf: $('#pageOf'),
+    picPane: $('#picPane'),
+    viewport: $('#viewport'),
+    img: $('#scanImage'),
+    loadingText: $('#loadingText'),
+    picError: $('#picError'),
+    picErrorTitle: $('#picErrorTitle'),
+    errOpenLink: $('#errOpenLink'),
+    gestureHint: $('#gestureHint'),
+    zoomLabel: $('#zoomLabel'),
+    picMoreBtn: $('#picMoreBtn'),
+    picMenu: $('#picMenu'),
+    rawLink: $('#rawImageLink'),
+    diglitLink: $('#diglitLink'),
+    textPane: $('#textPane'),
+    tipCard: $('#tipCard'),
+    tipText: $('#tipText'),
+    searchBanner: $('#searchBanner'),
+    sbText: $('#sbText'),
+    matchSteps: $('#matchSteps'),
+    matchLabel: $('#matchLabel'),
+    pageTitle: $('#pageTitle'),
+    pageTags: $('#pageTags'),
+    saveBtn: $('#saveBtn'),
+    saveMenu: $('#saveMenu'),
+    exportResultsLabel: $('#exportResultsLabel'),
+    artBlock: $('#artBlock'),
+    artText: $('#artText'),
+    summary: $('#summaryText'),
+    entBlock: $('#entBlock'),
+    entHint: $('#entHint'),
+    entityChips: $('#entityChips'),
+    lineCount: $('#lineCount'),
+    modeSeg: $('#modeSeg'),
+    textExplain: $('#textExplain'),
+    lineWarning: $('#lineWarning'),
+    lineList: $('#lineList'),
+    copyTextBtn: $('#copyTextBtn'),
+    nextCard: $('#nextCard'),
+    nextCardKicker: $('#nextCardKicker'),
+    nextCardTitle: $('#nextCardTitle'),
+    nextCardSub: $('#nextCardSub'),
+    prevLink: $('#prevLink'),
+    toasts: $('#toasts'),
+    helpDialog: $('#helpDialog'),
+    citeDialog: $('#citeDialog'),
+    citeBox: $('#citeBox')
+  };
+
+  /* ================= Accent-insensitive search (Persian/Arabic + Latin) ================= */
+  const CHAR_MAP = {
+    'ي': 'ی', 'ى': 'ی',
+    'ك': 'ک',
+    'ه': 'ہ', 'ة': 'ہ', 'ۀ': 'ہ', 'ە': 'ہ',
+    'ٱ': 'ا',
+    'ʿ': '', 'ʾ': '', 'ʻ': '', 'ʼ': '', '’': '', '‘': '', "'": '', '`': '', '´': '',
+    'ı': 'i', 'ß': 'ss', 'æ': 'ae', 'œ': 'oe', 'đ': 'd', 'ł': 'l', 'ø': 'o', 'ħ': 'h'
+  };
+  for (let d = 0; d < 10; d++) {
+    CHAR_MAP[String.fromCharCode(0x0660 + d)] = String(d);
+    CHAR_MAP[String.fromCharCode(0x06F0 + d)] = String(d);
+  }
+  const STRIP_RE = /[̀-ͯ᪰-᫿᷀-᷿⃐-⃿︠-︯ؐ-ًؚ-ٰٟۖ-ۭـ​-‏­]/g;
+  const normCache = new Map();
+  function normChar(ch) {
+    let r = normCache.get(ch);
+    if (r !== undefined) return r;
+    const mapped = Object.prototype.hasOwnProperty.call(CHAR_MAP, ch) ? CHAR_MAP[ch] : ch;
+    r = mapped ? mapped.normalize('NFD').toLowerCase().replace(STRIP_RE, '') : '';
+    r = Array.from(r).map(c => (Object.prototype.hasOwnProperty.call(CHAR_MAP, c) ? CHAR_MAP[c] : c)).join('');
+    if (/^\s+$/.test(r)) r = ' ';
+    normCache.set(ch, r);
+    return r;
+  }
+  function buildNorm(raw) {
+    raw = raw == null ? '' : String(raw);
+    let norm = '';
+    const map = [];
+    for (let i = 0; i < raw.length; i++) {
+      const n = normChar(raw[i]);
+      for (let k = 0; k < n.length; k++) map.push(i);
+      norm += n;
+    }
+    return { norm, map };
+  }
+  const normStr = s => buildNorm(s).norm.replace(/\s+/g, ' ').trim();
+  function parseQuery(q) {
+    const terms = [];
+    const re = /"([^"]+)"|(\S+)/g;
+    let m;
+    while ((m = re.exec(q))) {
+      const t = normStr(m[1] || m[2]);
+      if (t && !terms.includes(t)) terms.push(t);
+    }
+    return terms.sort((a, b) => b.length - a.length);
+  }
+  function countOcc(hay, needle) {
+    if (!needle) return 0;
+    let c = 0, i = hay.indexOf(needle);
+    while (i !== -1) { c++; i = hay.indexOf(needle, i + needle.length); }
+    return c;
+  }
+  function highlight(raw, terms = state.terms) {
+    raw = raw == null ? '' : String(raw);
+    if (!raw || !terms.length) return esc(raw);
+    const { norm, map } = buildNorm(raw);
+    const ranges = [];
+    for (const t of terms) {
+      let i = norm.indexOf(t);
+      while (i !== -1) {
+        let s = map[i], e = map[i + t.length - 1] + 1;
+        while (e < raw.length && normChar(raw[e]) === '') e++;
+        ranges.push([s, e]);
+        i = norm.indexOf(t, i + t.length);
+      }
+    }
+    if (!ranges.length) return esc(raw);
+    ranges.sort((a, b) => a[0] - b[0]);
+    const merged = [ranges[0].slice()];
+    for (let k = 1; k < ranges.length; k++) {
+      const last = merged[merged.length - 1];
+      if (ranges[k][0] <= last[1]) last[1] = Math.max(last[1], ranges[k][1]);
+      else merged.push(ranges[k].slice());
+    }
+    let out = '', pos = 0;
+    for (const [s, e] of merged) {
+      out += esc(raw.slice(pos, s)) + '<mark>' + esc(raw.slice(s, e)) + '</mark>';
+      pos = e;
+    }
+    return out + esc(raw.slice(pos));
+  }
+  function snippet(idx, raw, terms, radius = 60) {
+    let first = -1;
+    for (const t of terms) {
+      const i = idx.norm.indexOf(t);
+      if (i !== -1 && (first === -1 || i < first)) first = i;
+    }
+    if (first === -1) return null;
+    const o = idx.map[first];
+    let start = raw.lastIndexOf('', o) + 1;
+    let end = raw.indexOf('', o); if (end === -1) end = raw.length;
+    let pre = '', post = '';
+    if (o - start > radius) { start = raw.indexOf(' ', o - radius) + 1 || o - radius; pre = '…'; }
+    if (end - o > radius * 2) { end = raw.lastIndexOf(' ', o + radius * 2); if (end <= o) end = o + radius * 2; post = '…'; }
+    return pre + highlight(raw.slice(start, end), terms) + post;
+  }
+  const splitLines = s => String(s || '').split(/?/).filter(l => l.trim().length > 0);
+
+  /* ================= Data loading ================= */
+  function preparePage(raw) {
+    const p = Object.assign({}, raw);
+    p.page_number = Number(p.page_number);
+    p.folio_label = String(p.folio_label || `Scan ${p.page_number}`);
+    p.persian_ground_truth_text = String(p.persian_ground_truth_text || p.urdu_ground_truth_text || '');
+    p.roman_persian_transliteration = String(p.roman_persian_transliteration || p.roman_urdu_transliteration || '');
+    p.english_page_summary = String(p.english_page_summary || '');
+    p.artwork_description = String(p.artwork_description || '');
+    p.contains_illumination = Boolean(p.contains_illumination && p.artwork_description.trim());
+    p.image_url = String(p.image_url || p.heidelberg_image_url || '');
+
+    let ents = p.historical_entities;
+    if (typeof ents === 'string') ents = ents.split(/[;]/);
+    p.historical_entities = Array.isArray(ents) ? ents.map(e => String(e).trim()).filter(Boolean) : [];
+
+    const arabic = (p.persian_ground_truth_text.trim().match(ARABIC_RE) || []).length;
+    p._hasText = arabic >= 15 || ['manuscript_text', 'illuminated_frontispiece', 'illustrated_folio'].includes(p.page_type);
+
+    Object.defineProperty(p, '_fa', { value: splitLines(p.persian_ground_truth_text), enumerable: false });
+    Object.defineProperty(p, '_ro', { value: splitLines(p.roman_persian_transliteration), enumerable: false });
+    Object.defineProperty(p, '_idx', {
+      value: {
+        fa: buildNorm(p.persian_ground_truth_text),
+        ro: buildNorm(p.roman_persian_transliteration),
+        en: buildNorm(p.english_page_summary),
+        art: buildNorm(p.artwork_description),
+        ent: buildNorm(p.historical_entities.join(''))
+      },
+      enumerable: false
+    });
+    return p;
+  }
+
+  function buildEntityIndex() {
+    const m = new Map();
+    for (const p of state.pages) {
+      for (const name of new Set(p.historical_entities)) {
+        if (!m.has(name)) m.set(name, { name, count: 0, norm: normStr(name) });
+        m.get(name).count++;
+      }
+    }
+    state.entityIndex = Array.from(m.values());
+    state.entityCounts = m;
+  }
+
+  function parseCorpusText(text) {
+    text = String(text).replace(/^﻿/, '').trim();
+    if (!text) throw new Error('The file is empty.');
+    let data = JSON.parse(text);
+    if (!Array.isArray(data) && data && typeof data === 'object') {
+      data = data.pages || data.records || data.items || data.data || data.corpus || (data.page_number != null ? [data] : null);
+    }
+    if (!Array.isArray(data)) throw new Error('Expected a list of folio records.');
+    return data;
+  }
+
+  function loadCorpus(records, sourceLabel, { fromFile = false } = {}) {
+    const pages = records
+      .filter(r => r && typeof r === 'object')
+      .map(preparePage)
+      .filter(p => Number.isFinite(p.page_number))
+      .sort((a, b) => a.page_number - b.page_number);
+    if (!pages.length) throw new Error('No scans with a page_number were found.');
+
+    const wasLoaded = state.pages.length > 0;
+    state.pages = pages;
+    state.byNum = new Map(pages.map(p => [p.page_number, p]));
+    state.sourceLabel = sourceLabel;
+    buildEntityIndex();
+
+    const minNum = pages[0].page_number, maxNum = pages[pages.length - 1].page_number;
+    el.jumpInput.min = el.pageJumpInput.min = minNum;
+    el.jumpInput.max = el.pageJumpInput.max = maxNum;
+    el.jumpInput.placeholder = `${minNum}–${maxNum}`;
+    el.pageOf.textContent = `of ${maxNum}`;
+    el.sourceNote.textContent = fromFile ? `Showing data from “${sourceLabel}”.` : `Showing data from ${sourceLabel}.`;
+
+    renderStats();
+    if (!wasLoaded || state.view === 'setup' || state.view === 'loading') {
+      state.current = null;
+      applyRoute({ initial: true });
+    } else {
+      runSearch();
+      if (state.view === 'read' && !state.byNum.has(state.current)) go('home');
+      else refreshCurrentView();
+    }
+    if (fromFile) toast(`Opened “${sourceLabel}” — ${plural(pages.length, 'scan')}`);
+  }
+
+  function showSetup(errMsg) {
+    showView('setup');
+    if (errMsg) {
+      el.setupError.hidden = false;
+      el.setupError.innerHTML = icon('alert') + `<span>${esc(errMsg)}</span>`;
+    }
+  }
+
+  function loadFromFile(file) {
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = ev => {
+      try {
+        loadCorpus(parseCorpusText(ev.target.result), file.name, { fromFile: true });
+        el.setupError.hidden = true;
+      } catch (err) {
+        const msg = `That file couldn’t be opened (“${file.name}”): ${err.message}`;
+        if (!state.pages.length) showSetup(msg);
+        toast(msg, { type: 'error', ms: 6000 });
+      }
+    };
+    reader.onerror = () => toast(`Couldn’t read “${file.name}”.`, { type: 'error' });
+    reader.readAsText(file);
+  }
+
+  async function init() {
+    applyPrefs();
+    try {
+      const res = await fetch('corpus.json', { cache: 'no-cache' });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      loadCorpus(parseCorpusText(await res.text()), 'corpus.json');
+    } catch (err) {
+      const parseProblem = err instanceof SyntaxError || /JSON|list|record|page_number|empty/i.test(err.message || '');
+      showSetup(parseProblem ? `corpus.json was found, but it couldn’t be read: ${err.message}` : '');
+    }
+  }
+
+  /* ================= Search ================= */
+  function matchPage(p, fields, numQ) {
+    const hits = { fa: 0, ro: 0, en: 0, art: 0, ent: 0, total: 0, num: numQ !== null && p.page_number === numQ };
+    for (const t of state.terms) {
+      let any = false;
+      for (const f of fields) {
+        const c = countOcc(p._idx[f].norm, t);
+        if (c) { hits[f] += c; hits.total += c; any = true; }
+      }
+      if (!any && !hits.num) return null;
+    }
+    return hits;
+  }
+
+  function matchesFilter(p, filter) {
+    if (filter === 'all') return true;
+    if (filter === 'illuminated') return p.contains_illumination;
+    if (filter === 'text') return p._hasText;
+    if (filter === 'cover_or_flyleaf') return !p._hasText && !p.contains_illumination;
+    return true;
+  }
+
+  function runSearch() {
+    state.terms = parseQuery(state.query);
+    const q = state.query.trim();
+    const numQ = /^\d{1,4}$/.test(q) ? Number(q) : null;
+    const fields = SCOPE_FIELDS[state.scope];
+    const counts = { all: 0, illuminated: 0, text: 0, cover_or_flyleaf: 0 };
+    const results = [];
+    let hitTotal = 0;
+    for (const p of state.pages) {
+      let hits = null;
+      if (state.terms.length) {
+        hits = matchPage(p, fields, numQ);
+        if (!hits) continue;
+      }
+      counts.all++;
+      if (p.contains_illumination) counts.illuminated++;
+      if (p._hasText) counts.text++;
+      if (!p._hasText && !p.contains_illumination) counts.cover_or_flyleaf++;
+
+      if (!matchesFilter(p, state.filter)) continue;
+      if (hits) hitTotal += hits.total;
+      results.push({ p, hits });
+    }
+    state.results = results;
+    state.counts = counts;
+    state.hitTotal = hitTotal;
+    state.numQ = numQ;
+  }
+
+  const isFiltered = () => state.terms.length > 0 || state.filter !== 'all';
+
+  function preferredField(hits) {
+    if (state.scope !== 'all') return SCOPE_FIELDS[state.scope][0];
+    const order = HAS_ARABIC.test(state.query) ? ['fa', 'art', 'en', 'ent', 'ro'] : ['art', 'en', 'ent', 'ro', 'fa'];
+    return order.find(f => hits[f]) || null;
+  }
+
+  function syncSearchInputs() {
+    if (el.search.value !== state.query) el.search.value = state.query;
+    el.searchClear.hidden = !state.query;
+    el.scopeSelect.value = state.scope;
+    $$('button[data-filter]', el.typeSeg).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.filter === state.filter)));
+  }
+
+  function refreshSearch() {
+    runSearch();
+    syncSearchInputs();
+    if (state.view === 'pages') renderGrid();
+    if (state.view === 'read') { const p = state.byNum.get(state.current); if (p) renderReader(p); }
+    writeHash(false);
+  }
+  const refreshSearchDebounced = debounce(refreshSearch, 150);
+
+  function setQuery(q, { scope, filter } = {}) {
+    state.query = q;
+    if (scope) state.scope = scope;
+    if (filter) state.filter = filter;
+    refreshSearch();
+  }
+
+  function clearSearch() { state.filter = 'all'; setQuery('', { scope: 'all' }); }
+
+  function submitGlobalSearch(q) {
+    q = String(q || '').trim();
+    if (!q) { go('pages', { focusSearch: true }); return; }
+    if (/^\d{1,4}$/.test(q) && state.byNum.has(Number(q))) { openPage(Number(q), { history: 'push' }); return; }
+    state.query = q; state.scope = 'all'; state.filter = 'all';
+    runSearch(); syncSearchInputs();
+    go('pages');
+  }
+
+  function filterByEntity(name) {
+    state.query = `"${name}"`; state.scope = 'entities'; state.filter = 'all';
+    runSearch(); syncSearchInputs();
+    go('pages');
+  }
+
+  /* ================= Routing ================= */
+  function readHash() {
+    const out = {};
+    try {
+      const h = new URLSearchParams(location.hash.replace(/^#/, ''));
+      if (h.get('scan')) out.scan = Number(h.get('scan'));
+      if (h.get('view')) out.view = h.get('view');
+      if (h.get('q')) out.q = h.get('q');
+      if (h.get('in')) out.in = h.get('in');
+      if (h.get('type')) out.type = h.get('type');
+      if (h.get('line')) out.line = Number(h.get('line'));
+    } catch (e) {}
+    return out;
+  }
+
+  function buildHash() {
+    const h = new URLSearchParams();
+    if (state.view === 'read' && state.current != null) h.set('scan', state.current);
+    else if (VIEWS.includes(state.view) && state.view !== 'home') h.set('view', state.view);
+    if (state.view === 'read' || state.view === 'pages') {
+      if (state.query.trim()) h.set('q', state.query.trim());
+      if (state.scope !== 'all') h.set('in', state.scope);
+      if (state.filter !== 'all') h.set('type', state.filter);
+    }
+    if (state.view === 'read' && state.selectedLine) h.set('line', state.selectedLine);
+    const s = h.toString();
+    return s ? '#' + s : '';
+  }
+
+  let lastHash = null;
+  function writeHash(push) {
+    if (!state.pages.length || !(VIEWS.includes(state.view) || state.view === 'read')) return;
+    const s = buildHash();
+    if (s === (location.hash || '') && !push) { lastHash = s; return; }
+    if (s === (location.hash || '')) return;
+    lastHash = s;
+    const url = s || (location.pathname + location.search);
+    try { history[push ? 'pushState' : 'replaceState'](null, '', url); }
+    catch (e) { if (push) location.hash = s.replace(/^#/, ''); }
+  }
+
+  function applyRoute({ initial = false } = {}) {
+    if (!state.pages.length) return;
+    const h = readHash();
+    const q = h.q || '';
+    const scope = SCOPE_FIELDS[h.in] ? h.in : 'all';
+    const filter = TYPES.includes(h.type) ? h.type : 'all';
+    if (initial || q !== state.query || scope !== state.scope || filter !== state.filter) {
+      state.query = q; state.scope = scope; state.filter = filter;
+      runSearch(); syncSearchInputs();
+    }
+    lastHash = location.hash || '';
+    if (h.scan && state.byNum.has(h.scan)) openPage(h.scan, { line: h.line || null, history: 'none' });
+    else showView(VIEWS.includes(h.view) ? h.view : 'pages');
+  }
+  window.addEventListener('popstate', () => applyRoute());
+  window.addEventListener('hashchange', () => { if ((location.hash || '') !== lastHash) applyRoute(); });
+
+  /* ================= Views ================= */
+  const VIEW_TITLES = { home: '', pages: 'All scans', people: 'Entities & cosmos', about: 'About this manuscript' };
+
+  function showView(v) {
+    const prev = state.view;
+    state.view = v;
+    $$('main > [data-view]').forEach(s => { s.hidden = s.dataset.view !== v; });
+    document.body.classList.toggle('is-reading', v === 'read');
+    $$('.main-nav [data-go], .mobile-menu [data-go]').forEach(a => {
+      const on = a.dataset.go === v || (v === 'read' && a.dataset.go === 'pages');
+      if (on) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
+    });
+    const showHeaderSearch = !['home', 'pages', 'setup', 'loading'].includes(v);
+    el.headerSearch.style.visibility = showHeaderSearch ? '' : 'hidden';
+    el.searchToggle.style.visibility = ['pages', 'setup', 'loading'].includes(v) ? 'hidden' : '';
+    setMobileMenu(false);
+    closeMenus();
+    const noData = v === 'setup' || v === 'loading';
+    $('.main-nav').style.visibility = noData ? 'hidden' : '';
+    el.menuToggle.style.visibility = noData ? 'hidden' : '';
+
+    if (v === 'home') renderHome();
+    if (v === 'pages') renderGrid();
+    if (v === 'people') renderPeople();
+    if (v === 'about') renderStats();
+    if (v !== 'read') {
+      document.title = VIEW_TITLES[v] ? `${VIEW_TITLES[v]} · ${BOOK_TITLE} (Princeton Garrett 82G)` : `${BOOK_TITLE} — 18th-century illuminated manuscript (Princeton Garrett 82G)`;
+      if (prev !== v) window.scrollTo(0, 0);
+    }
+  }
+
+  function refreshCurrentView() {
+    if (state.view === 'read') { const p = state.byNum.get(state.current); if (p) { renderReader(p); updateReaderNav(p); } }
+    else showView(state.view);
+  }
+
+  function go(v, { focusSearch = false } = {}) {
+    const from = state.view;
+    showView(v);
+    writeHash(true);
+    if (v === 'pages') {
+      if (focusSearch) setTimeout(() => el.search.focus(), 30);
+      else if (from === 'read' && state.current != null) {
+        const card = el.grid.querySelector(`[data-page="${state.current}"]`);
+        if (card) requestAnimationFrame(() => { card.scrollIntoView({ block: 'center' }); card.focus({ preventScroll: true }); });
+      } else focusHeading(el.pagesTitle);
+    } else if (v === 'people') focusHeading($('#peopleTitle'));
+    else if (v === 'about') focusHeading($('#aboutTitle'));
+  }
+  function focusHeading(h) { if (h) h.focus({ preventScroll: true }); }
+
+  /* ================= Home ================= */
+  function topEntities(n) {
+    return state.entityIndex.slice().sort((a, b) => b.count - a.count || a.name.localeCompare(b.name)).slice(0, n);
+  }
+
+  function firstTextPage() {
+    return (state.pages.find(p => p._hasText) || state.pages[0]).page_number;
+  }
+
+  function renderStats() {
+    const illumCount = state.pages.filter(p => p.contains_illumination).length;
+    const lines = state.pages.reduce((s, p) => s + p._fa.length, 0);
+    const items = [
+      [state.pages.length, 'scans in codex'],
+      [illumCount, 'illuminated folios'],
+      [lines, 'lines transcribed'],
+      [state.entityIndex.length, 'indexed entities']
+    ];
+    el.homeStats.innerHTML = items.map(([n, l]) => `<div class="stat"><b>${n.toLocaleString()}</b><span>${l}</span></div>`).join('');
+    el.aboutStats.innerHTML = items.map(([n, l]) => `<div><b>${n.toLocaleString()}</b><span>${l}</span></div>`).join('');
+  }
+
+  function renderHome() {
+    if (!state.pages.length) return;
+    renderStats();
+    const top = topEntities(16);
+    el.tryRow.hidden = !top.length;
+    el.tryRow.innerHTML = '<span>Try:</span>' + top.slice(0, 4).map(e => `<button class="chip" type="button" data-entity="${esc(e.name)}">${esc(e.name)}</button>`).join('');
+    el.homePeopleSection.hidden = !top.length;
+    el.homeChips.innerHTML = top.map(e => `<button class="chip" type="button" data-entity="${esc(e.name)}" title="See the ${plural(e.count, 'scan')} that mention ${esc(e.name)}">${esc(e.name)}<span class="chip-n">${e.count}</span></button>`).join('');
+
+    const last = store.get('lastScan', null);
+    const lp = last != null && state.byNum.get(last);
+    if (lp && last !== firstTextPage()) {
+      el.continueCard.hidden = false;
+      el.continueCard.dataset.page = last;
+      el.continueTitle.textContent = `Continue reading — scan ${last}`;
+      el.continueSub.textContent = truncate(lp.artwork_description || lp.english_page_summary, 90) || 'Pick up where you left off';
+    } else el.continueCard.hidden = true;
+    renderHeroImage();
+  }
+
+  function renderHeroImage() {
+    const p = state.pages.find(x => x.contains_illumination) || state.byNum.get(firstTextPage());
+    const url = p && thumbUrl(p, 600);
+    if (!url) { el.heroPage.hidden = true; return; }
+    if (el.heroPageImg.getAttribute('src') === url) return;
+    el.heroPageImg.onload = () => { el.heroPage.hidden = false; };
+    el.heroPageImg.onerror = () => { el.heroPage.hidden = true; };
+    el.heroPageImg.src = url;
+  }
+
+  /* ================= Pages grid ================= */
+  const SHORT_LABEL = { en: 'Summary', art: 'Miniature', fa: 'Persian', ro: 'Roman', ent: 'Entities' };
+
+  function cardHtml(p, hits) {
+    const here = p.page_number === state.current;
+    let snip = '', cls = '', attr = '';
+    if (hits && hits.total) {
+      const f = preferredField(hits);
+      const raw = f === 'fa' ? p.persian_ground_truth_text : f === 'ro' ? p.roman_persian_transliteration : f === 'art' ? p.artwork_description : f === 'ent' ? p.historical_entities.join(' · ') : p.english_page_summary;
+      const idx = f === 'ent' ? buildNorm(raw) : (f ? p._idx[f] : null);
+      snip = (f && snippet(idx, raw, state.terms, 28)) || '';
+      if (f === 'fa') { cls = 'is-urdu'; attr = ' lang="fa"'; }
+    }
+    if (!snip) {
+      const s = (p.contains_illumination ? p.artwork_description : p.english_page_summary).trim() || p.english_page_summary.trim();
+      snip = s ? esc(truncate(s, 155)) : (p._hasText ? 'No summary yet.' : 'Binding or blank flyleaf.');
+      if (!s) cls = 'is-empty';
+    }
+    let found = '';
+    if (hits && hits.total) {
+      found = `<span class="found-in">${['art', 'en', 'fa', 'ro', 'ent'].filter(f => hits[f]).map(f => `<span title="${plural(hits[f], 'match', 'matches')} in ${FIELD_LABEL[f].toLowerCase()}">${SHORT_LABEL[f]} · ${hits[f]}</span>`).join('')}</span>`;
+    }
+    const url = thumbUrl(p, 400);
+    let label = '';
+    if (here) label = '<span class="thumb-tag is-here">You’re here</span>';
+    else if (p.contains_illumination) label = '<span class="thumb-tag is-art">Miniature</span>';
+
+    return `<li><button type="button" class="page-card${here ? ' is-current' : ''}" data-page="${p.page_number}" aria-label="Scan ${p.page_number}${p.contains_illumination ? ', illuminated folio' : ''}">
+        <span class="thumb">${label}<span class="thumb-fallback" aria-hidden="true">${p.page_number}</span>${url ? `<img src="${esc(url)}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">` : ''}</span>
+        <span class="card-body">
+          <span class="card-title"><b>Scan ${p.page_number}</b><span>${p._fa.length ? plural(p._fa.length, 'line') : 'Flyleaf'}</span></span>
+          <span class="card-snippet ${cls}"${attr}>${snip}</span>
+          ${found}
+        </span>
+      </button></li>`;
+  }
+
+  function renderGrid({ keepScroll = false } = {}) {
+    const { results, counts } = state;
+    $$('[data-count]', el.typeSeg).forEach(c => { c.textContent = (counts[c.dataset.count] || 0).toLocaleString(); });
+    const total = state.pages.length;
+    const q = state.query.trim();
+    const typeTxt = state.filter === 'illuminated' ? ' with painted miniatures' : state.filter === 'text' ? ' with text' : state.filter === 'cover_or_flyleaf' ? ' that are bindings or blanks' : '';
+    let line;
+    if (state.terms.length) {
+      line = `<span><strong>${plural(results.length, 'scan')}</strong>${typeTxt} found for “${esc(q)}”${SCOPE_LABEL[state.scope]}${state.hitTotal ? ` · ${plural(state.hitTotal, 'match', 'matches')}` : ''}</span>`;
+    } else if (state.filter !== 'all') {
+      line = `<span>Showing <strong>${plural(results.length, 'scan')}</strong>${typeTxt}</span>`;
+    } else {
+      line = `<span>Showing all <strong>${total.toLocaleString()}</strong> scans</span>`;
+    }
+    if (isFiltered() || state.scope !== 'all') line += `<button class="link-btn" type="button" data-action="clear">Clear search</button>`;
+    el.resultsLine.innerHTML = line;
+    el.pagesTitle.textContent = state.terms.length ? 'Search results' : state.filter === 'illuminated' ? 'Illuminated miniatures & diagrams' : 'All scans';
+    el.pagesIntro.textContent = state.terms.length ? 'Folios matching your search. Matching words are highlighted — open a scan to inspect it in context.' : 'Every scan of Princeton Garrett no. 82G. Filter for illuminated miniatures or search in English, Persian, or Roman transliteration.';
+
+    el.gotoHintWrap.innerHTML = state.numQ !== null && state.byNum.has(state.numQ)
+      ? `<button type="button" class="goto-hint" data-page="${state.numQ}">${icon('arrow-right')}Open scan ${state.numQ}<kbd style="margin-left:auto">Enter</kbd></button>` : '';
+
+    if (!results.length) {
+      el.grid.innerHTML = `<li class="empty">
+          <span class="empty-icon">${icon('search', 'i-lg')}</span>
+          <h3>No scans found</h3>
+          <p>${q ? `Nothing matched “${esc(q)}”${SCOPE_LABEL[state.scope]}.` : 'No scans of this kind.'} Try a shorter term — diacritics don’t matter.</p>
+          <div class="empty-actions">
+            ${state.scope !== 'all' ? '<button class="btn btn-sm" type="button" data-action="scope-all">Look in everything</button>' : ''}
+            ${state.filter !== 'all' ? '<button class="btn btn-sm" type="button" data-action="filter-all">Show all scans</button>' : ''}
+            <button class="btn btn-sm btn-primary" type="button" data-action="clear">Clear search</button>
+          </div>
+        </li>`;
+    } else {
+      el.grid.innerHTML = results.map(r => cardHtml(r.p, r.hits)).join('');
+    }
+  }
+
+  el.grid.addEventListener('load', e => { if (e.target.tagName === 'IMG') e.target.classList.add('is-loaded'); }, true);
+  el.grid.addEventListener('error', e => { if (e.target.tagName === 'IMG') e.target.remove(); }, true);
+
+  /* ================= People & places ================= */
+  function initialOf(name) {
+    const n = normStr(name).replace(/^(the|al|el)[\s-]+/, '');
+    const ch = Array.from(n.replace(/[^\p{L}\p{N}]/gu, ''))[0] || '#';
+    return /\d/.test(ch) ? '#' : ch.toUpperCase();
+  }
+
+  function personHtml(e, f) {
+    return `<button type="button" class="person" data-entity="${esc(e.name)}" title="See the ${plural(e.count, 'scan')} that mention ${esc(e.name)}">
+        <span class="person-av" aria-hidden="true">${esc(initialOf(e.name))}</span>
+        <span class="person-main"><span class="person-name">${highlight(e.name, f ? [f] : [])}</span><span class="person-count">on ${plural(e.count, 'scan')}</span></span>
+        ${icon('chev-right', 'i-sm')}
+      </button>`;
+  }
+
+  function renderPeople() {
+    const f = normStr(el.entityFilter.value);
+    let items = state.entityIndex.slice();
+    if (f) items = items.filter(e => e.norm.includes(f));
+    const alpha = state.entitySort === 'alpha';
+    items.sort(alpha ? (a, b) => a.name.localeCompare(b.name) : (a, b) => b.count - a.count || a.name.localeCompare(b.name));
+    el.peopleMeta.innerHTML = f
+      ? `<span><strong>${items.length}</strong> of ${state.entityIndex.length} entries match “${esc(el.entityFilter.value.trim())}”</span>`
+      : `<span><strong>${state.entityIndex.length.toLocaleString()}</strong> entities, constellations &amp; places indexed</span>`;
+    if (!items.length) {
+      el.peopleList.innerHTML = `<div class="empty"><span class="empty-icon">${icon('users', 'i-lg')}</span><h3>${state.entityIndex.length ? 'No entries match' : 'No entities listed yet'}</h3><p>${state.entityIndex.length ? 'Try fewer letters.' : 'This data file doesn’t list any entities.'}</p></div>`;
+      return;
+    }
+    if (alpha && !f && items.length > 40) {
+      const groups = new Map();
+      for (const e of items) { const k = initialOf(e.name); if (!groups.has(k)) groups.set(k, []); groups.get(k).push(e); }
+      const keys = Array.from(groups.keys());
+      el.peopleList.innerHTML = `<nav class="az-bar" aria-label="Jump to letter">${keys.map(k => `<button type="button" data-letter="${esc(k)}">${esc(k)}</button>`).join('')}</nav>` +
+        keys.map(k => `<section class="letter-group" id="letter-${esc(k)}" aria-label="${esc(k)}"><h2>${esc(k)}</h2><div class="people-grid">${groups.get(k).map(e => personHtml(e, f)).join('')}</div></section>`).join('');
+    } else {
+      el.peopleList.innerHTML = `<div class="people-grid" style="margin-top:4px">${items.map(e => personHtml(e, f)).join('')}</div>`;
+    }
+  }
+
+  /* ================= Reader ================= */
+  function neighbor(dir) {
+    const seq = state.results.map(r => r.p.page_number);
+    if (!seq.length || state.current == null) return null;
+    const i = seq.indexOf(state.current);
+    if (i !== -1) return seq[i + dir] != null ? seq[i + dir] : null;
+    if (dir > 0) { const n = seq.find(x => x > state.current); return n != null ? n : null; }
+    for (let k = seq.length - 1; k >= 0; k--) if (seq[k] < state.current) return seq[k];
+    return null;
+  }
+
+  function openPage(num, { line = null, history = 'replace' } = {}) {
+    const p = state.byNum.get(num);
+    if (!p) return false;
+    const entering = state.view !== 'read';
+    const changed = state.current !== num;
+    state.current = num;
+    state.selectedLine = line ? Number(line) : null;
+    store.set('lastScan', num);
+    if (entering) showView('read');
+    updateReaderNav(p);
+    updateLinks(p);
+    if (changed || (entering && state.imgStatus !== 'ok' && state.imgStatus !== 'loading')) loadImage(p);
+    else if (entering) requestAnimationFrame(() => applyFit(false));
+    renderReader(p, { resetScroll: changed || entering });
+    if (history !== 'none') writeHash(history === 'push');
+    document.title = `Scan ${num} · ${BOOK_TITLE} (Princeton Garrett 82G)`;
+    if (entering) focusHeading(el.pageTitle);
+    return true;
+  }
+
+  function turn(dir) {
+    const n = neighbor(dir);
+    if (n != null) openPage(n);
+    else if (state.pages.length) toast(dir > 0 ? 'That’s the last scan in this list' : 'That’s the first scan in this list', { ms: 1800 });
+  }
+
+  function updateReaderNav(p) {
+    const prev = neighbor(-1), next = neighbor(1);
+    el.prevBtn.disabled = prev == null;
+    el.nextBtn.disabled = next == null;
+    el.prevBtn.title = prev != null ? `Scan ${prev}  (←)` : 'No earlier scan';
+    el.nextBtn.title = next != null ? `Scan ${next}  (→)` : 'No later scan';
+    el.pageJumpInput.value = p.page_number;
+    const idx = state.pages.indexOf(p);
+    el.readProgress.style.width = `${((idx + 1) / state.pages.length) * 100}%`;
+    el.backLabel.textContent = state.terms.length ? 'Back to results' : 'All scans';
+    el.backBtn.setAttribute('aria-label', el.backLabel.textContent);
+  }
+
+  function hl(field, raw) { return SCOPE_FIELDS[state.scope].includes(field) ? highlight(raw) : esc(raw); }
+
+  function renderReader(p, { resetScroll = false } = {}) {
+    const n = p.page_number;
+    const fa = p._fa, ro = p._ro;
+    const total = Math.max(fa.length, ro.length);
+
+    el.tipCard.hidden = !!store.get('tipSeen', false);
+    if (!el.tipCard.hidden) {
+      el.tipText.innerHTML = mqNarrow.matches
+        ? '<b>New here?</b> Use the <b>Facsimile / Text</b> switch at the top to flip between Princeton’s scan and its transcription. Pinch to zoom.'
+        : '<b>New here?</b> On the left is Princeton University Library’s high-resolution IIIF scan — scroll to zoom and drag to inspect miniatures and Nastaʿlīq script.';
+    }
+
+    if (state.terms.length) {
+      const i = state.results.findIndex(r => r.p.page_number === n);
+      el.searchBanner.hidden = false;
+      el.sbText.innerHTML = i !== -1
+        ? `<b>“${esc(state.query.trim())}”</b> · result ${i + 1} of ${state.results.length}`
+        : `This scan isn’t in your current filter for <b>“${esc(state.query.trim())}”</b>`;
+    } else el.searchBanner.hidden = true;
+
+    el.pageTitle.textContent = `Scan ${n}`;
+    const tags = [];
+    if (p.contains_illumination) tags.push(`<span class="tag is-art">${icon('sparkle')}Illuminated miniature</span>`);
+    tags.push(p._hasText ? `<span class="tag is-text">${icon('check')}Has text</span>` : `<span class="tag">${icon('book')}Binding or blank leaf</span>`);
+    if (total) tags.push(`<span class="tag">${plural(fa.length || ro.length, 'line')}</span>`);
+    tags.push(`<span class="tag">${n} of ${state.pages[state.pages.length - 1].page_number}</span>`);
+    el.pageTags.innerHTML = tags.join('');
+    el.exportResultsLabel.textContent = isFiltered() ? `Scans in your results (${state.results.length})` : `All ${plural(state.pages.length, 'scan')}`;
+
+    // Miniature / Diagram Iconography
+    el.artBlock.hidden = !p.contains_illumination;
+    if (p.contains_illumination) {
+      el.artText.innerHTML = hl('art', p.artwork_description.trim());
+    }
+
+    // Summary
+    const summary = p.english_page_summary.trim();
+    el.summary.classList.toggle('is-empty', !summary);
+    el.summary.innerHTML = summary ? hl('en', summary) : (p._hasText ? 'There’s no summary for this folio yet.' : 'This is a leather cover or blank flyleaf.');
+
+    // Entities
+    const ents = p.historical_entities;
+    el.entBlock.hidden = !ents.length;
+    el.entHint.textContent = ents.length ? 'Click an entry to find it on other folios' : '';
+    el.entityChips.innerHTML = ents.map(name => {
+      const c = (state.entityCounts.get(name) || { count: 1 }).count;
+      return `<button type="button" class="chip" data-entity="${esc(name)}" title="See all ${plural(c, 'scan')} that mention ${esc(name)}">${hl('ent', name)}<span class="chip-n">${c > 1 ? `${c} scans` : 'only here'}</span></button>`;
+    }).join('');
+
+    // Lines
+    el.lineCount.textContent = !total ? '' : fa.length === ro.length || !ro.length || !fa.length ? plural(total, 'line') : `${fa.length} Persian · ${ro.length} Roman`;
+    $$('.text-tools, .text-explain', el.textPane).forEach(x => { x.hidden = !total; });
+    if (fa.length && ro.length && fa.length !== ro.length) {
+      el.lineWarning.hidden = false;
+      el.lineWarning.innerHTML = `${icon('alert')}<span>Note: this folio has ${fa.length} Persian lines and ${ro.length} Roman lines, so line alignment may shift slightly near the bottom.</span>`;
+    } else el.lineWarning.hidden = true;
+
+    if (!total) {
+      el.lineList.innerHTML = `<li class="empty" style="margin:4px 10px 6px;padding:30px 18px"><span class="empty-icon">${icon('file', 'i-lg')}</span><h3>No text on this scan</h3><p>${p._hasText ? 'No transcription recorded for this scan.' : 'Bindings and blank flyleaves contain no manuscript text.'}</p></li>`;
+    } else {
+      let html = '';
+      for (let i = 0; i < total; i++) {
+        const ln = i + 1;
+        const sel = state.selectedLine === ln;
+        html += `<li class="line${sel ? ' is-selected' : ''}" data-line="${ln}">
+            <button type="button" class="ln" data-select-line="${ln}" aria-pressed="${sel}" aria-label="Line ${ln}. Highlight and add to link">${ln}</button>
+            <div class="line-body">
+              <p class="ur" lang="fa" dir="rtl">${fa[i] != null ? hl('fa', fa[i]) : '<span class="missing">(no Persian for this line)</span>'}</p>
+              <p class="ro" lang="fa-Latn">${ro[i] != null ? hl('ro', ro[i]) : '<span class="missing">(no Roman transliteration for this line)</span>'}</p>
+            </div>
+            <button type="button" class="icon-btn sm line-copy" data-copy-line="${ln}" aria-label="Copy line ${ln}" title="Copy this line">${icon('copy', 'i-sm')}</button>
+          </li>`;
+      }
+      el.lineList.innerHTML = html;
+    }
+
+    // Keep reading
+    const next = neighbor(1), prev = neighbor(-1);
+    if (next != null) {
+      const np = state.byNum.get(next);
+      el.nextCard.hidden = false;
+      el.nextCard.dataset.page = next;
+      el.nextCardKicker.textContent = state.terms.length ? 'Next result' : 'Keep reading';
+      el.nextCardTitle.textContent = `Scan ${next}${np.contains_illumination ? ' · Illuminated' : ''}`;
+      el.nextCardSub.textContent = truncate(np.artwork_description || np.english_page_summary, 110) || 'Binding or blank leaf';
+    } else el.nextCard.hidden = true;
+    el.prevLink.hidden = prev == null;
+    if (prev != null) { el.prevLink.dataset.page = prev; el.prevLink.textContent = `← Back to scan ${prev}`; }
+
+    updateMatchNav();
+    if (resetScroll) {
+      el.textPane.style.scrollBehavior = 'auto';
+      el.textPane.scrollTop = 0;
+      el.textPane.scrollBehavior = '';
+      if (state.selectedLine) {
+        const row = el.lineList.querySelector(`.line[data-line="${state.selectedLine}"]`);
+        if (row) requestAnimationFrame(() => row.scrollIntoView({ block: 'center' }));
+      } else if (state.terms.length) {
+        const marks = visibleMarks();
+        if (marks.length) {
+          const r = marks[0].getBoundingClientRect(), box = el.textPane.getBoundingClientRect();
+          if (r.bottom > box.bottom - 20) { state.markIdx = -1; stepMatch(1, { smooth: false }); }
+        }
+      }
+    }
+  }
+
+  function visibleMarks() {
+    const hiddenSel = state.viewMode === 'urdu' ? '.ro' : state.viewMode === 'roman' ? '.ur' : null;
+    return $$('mark', el.textPane).filter(m => !(hiddenSel && m.closest(hiddenSel)) && !m.closest('[hidden]'));
+  }
+
+  function updateMatchNav() {
+    state.markIdx = -1;
+    if (!state.terms.length) return;
+    const n = visibleMarks().length;
+    el.matchLabel.textContent = n ? `${plural(n, 'match', 'matches')} here` : 'No matches here';
+    $('#matchPrev').disabled = $('#matchNext').disabled = n === 0;
+  }
+
+  function stepMatch(dir, { smooth = true } = {}) {
+    if (state.view !== 'read') return;
+    const marks = visibleMarks();
+    if (!marks.length) return;
+    marks.forEach(m => m.classList.remove('is-current'));
+    state.markIdx = (state.markIdx + dir + marks.length) % marks.length;
+    const m = marks[state.markIdx];
+    m.classList.add('is-current');
+    if (mqNarrow.matches && state.pane !== 'text') setPane('text');
+    m.scrollIntoView({ block: 'center', behavior: smooth ? 'smooth' : 'auto' });
+    el.matchLabel.textContent = `Match ${state.markIdx + 1} of ${marks.length}`;
+  }
+
+  function setViewMode(mode) {
+    if (!['parallel', 'urdu', 'roman'].includes(mode)) mode = 'parallel';
+    state.viewMode = mode;
+    store.set('viewMode', mode);
+    el.lineList.className = `lines mode-${mode}`;
+    $$('[data-mode]', el.modeSeg).forEach(b => b.setAttribute('aria-checked', String(b.dataset.mode === mode)));
+    el.textExplain.textContent = mode === 'urdu'
+      ? 'The Persian/Arabic Nastaʿlīq text transcribed line by line. Tap a line number to highlight and share it.'
+      : mode === 'roman'
+        ? 'The same text transliterated into Latin letters. Tap a line number to highlight and share it.'
+        : '“Roman” shows the Persian/Arabic text transliterated into Latin letters. Tap a line number to highlight and share it.';
+    updateMatchNav();
+  }
+
+  function setUrduSize(px) {
+    state.urduSize = clamp(Math.round(px), 18, 40);
+    store.set('urduSize', state.urduSize);
+    document.documentElement.style.setProperty('--urdu-size', state.urduSize + 'px');
+    $('#fontDown').disabled = state.urduSize <= 18;
+    $('#fontUp').disabled = state.urduSize >= 40;
+  }
+
+  function setPane(p) {
+    state.pane = p === 'text' ? 'text' : 'picture';
+    store.set('pane', state.pane);
+    el.read.dataset.pane = state.pane;
+    $$('.pane-switch [data-pane]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.pane === state.pane)));
+    if (state.pane === 'picture') setTimeout(() => applyFit(false), 30);
+  }
+
+  /* ================= Picture viewer ================= */
+  function rawImageUrl(p) { return p.image_url || ''; }
+  function resolveImageUrl(p) {
+    const raw = rawImageUrl(p);
+    if (!raw) return '';
+    if (state.useFullRes) return raw.replace(/\/full\/[^/]+\//, '/full/full/');
+    return raw.replace(/\/full\/full\//, '/full/1500,/');
+  }
+  function thumbUrl(p, w) {
+    const raw = rawImageUrl(p);
+    if (!raw) return '';
+    return raw.replace(/\/full\/[^/]+\//, `/full/${w},/`);
+  }
+  function updateLinks(p) {
+    const raw = rawImageUrl(p) || CATALOG_URL;
+    el.diglitLink.href = CATALOG_URL;
+    el.rawLink.href = raw.replace(/\/full\/[^/]+\//, '/full/full/');
+    el.errOpenLink.href = CATALOG_URL;
+  }
+
+  let loadToken = 0;
+  function loadImage(p) {
+    const token = ++loadToken;
+    const url = resolveImageUrl(p);
+    state.imgStatus = 'loading';
+    el.picPane.classList.add('is-loading', 'no-image');
+    el.picError.hidden = true;
+    el.loadingText.textContent = `Loading scan ${p.page_number}${state.useFullRes ? ' in full resolution' : ''}…`;
+    el.img.alt = `Scan ${p.page_number} of ${BOOK_TITLE} (Princeton University Library, Garrett no. 82G)`;
+    if (el.img.getAttribute('src')) el.img.classList.add('is-stale');
+    const pre = new Image();
+    pre.referrerPolicy = 'no-referrer';
+    pre.onload = () => {
+      if (token !== loadToken) return;
+      el.img.src = url;
+      const done = () => {
+        if (token !== loadToken) return;
+        el.img.classList.remove('is-stale', 'is-hidden');
+        el.picPane.classList.remove('is-loading', 'no-image');
+        state.imgStatus = 'ok';
+        view.rot = 0;
+        applyFit(false);
+        showGestureHintOnce();
+        preloadNeighbors();
+      };
+      if (el.img.decode) el.img.decode().then(done, done); else done();
+    };
+    pre.onerror = () => {
+      if (token !== loadToken) return;
+      state.imgStatus = 'error';
+      el.picPane.classList.remove('is-loading');
+      el.img.classList.remove('is-stale');
+      el.img.classList.add('is-hidden');
+      el.img.removeAttribute('src');
+      el.picErrorTitle.textContent = `Scan ${p.page_number} didn’t load`;
+      el.picError.hidden = false;
+    };
+    pre.src = url;
+  }
+  function preloadNeighbors() {
+    [neighbor(1), neighbor(-1)].forEach(n => {
+      const p = n != null && state.byNum.get(n);
+      if (p) { const im = new Image(); im.referrerPolicy = 'no-referrer'; im.src = resolveImageUrl(p); }
+    });
+  }
+
+  function applyTransform(animate) {
+    el.img.classList.toggle('animate', !!animate);
+    el.img.style.transform = `translate(${view.x}px, ${view.y}px) scale(${view.scale}) rotate(${view.rot}deg)`;
+    el.zoomLabel.textContent = `${Math.round(view.scale * 100)}%`;
+  }
+  function fitPage(animate = true) { view.scale = 1; view.x = 0; view.y = 0; view.fit = 'page'; applyTransform(animate); }
+  function fitWidth(animate = true) {
+    if (!el.img.naturalWidth) return;
+    const vw = el.viewport.clientWidth, vh = el.viewport.clientHeight;
+    const rotated = Math.abs(view.rot % 180) === 90;
+    const w = rotated ? el.img.offsetHeight : el.img.offsetWidth;
+    const h = rotated ? el.img.offsetWidth : el.img.offsetHeight;
+    if (!w) return;
+    const s = clamp((vw - 28) / w, MIN_SCALE, MAX_SCALE);
+    const dispH = h * s;
+    view.scale = s; view.x = 0;
+    view.y = dispH > vh ? (dispH - vh) / 2 + 14 : 0;
+    view.fit = 'width';
+    applyTransform(animate);
+  }
+  function applyFit(animate) { if (view.fit === 'width') fitWidth(animate); else fitPage(animate); }
+  function zoomAt(newScale, cx, cy, animate = false) {
+    if (state.imgStatus !== 'ok') return;
+    newScale = clamp(newScale, MIN_SCALE, MAX_SCALE);
+    const r = el.viewport.getBoundingClientRect();
+    const px = (cx == null ? r.left + r.width / 2 : cx) - (r.left + r.width / 2);
+    const py = (cy == null ? r.top + r.height / 2 : cy) - (r.top + r.height / 2);
+    const k = newScale / view.scale;
+    view.x = px - k * (px - view.x);
+    view.y = py - k * (py - view.y);
+    view.scale = newScale;
+    view.fit = 'free';
+    applyTransform(animate);
+    dismissGestureHint();
+  }
+  function rotate() { view.rot += 90; if (view.fit === 'width') fitWidth(true); else applyTransform(true); }
+  function setImageFilter(kind) {
+    const on = !el.img.classList.contains('f-' + kind);
+    el.img.classList.remove('f-contrast', 'f-invert');
+    if (on) el.img.classList.add('f-' + kind);
+    $('[data-pic="contrast"]').setAttribute('aria-checked', String(on && kind === 'contrast'));
+    $('[data-pic="invert"]').setAttribute('aria-checked', String(on && kind === 'invert'));
+  }
+  function toggleHD() {
+    state.useFullRes = !state.useFullRes;
+    $('[data-pic="hd"]').setAttribute('aria-checked', String(state.useFullRes));
+    const p = state.byNum.get(state.current);
+    if (p) { updateLinks(p); loadImage(p); }
+    toast(state.useFullRes ? 'Loading full IIIF master resolution' : 'Showing standard 1500px IIIF resolution', { ms: 2000 });
+  }
+  function toggleFullscreen() {
+    if (document.fullscreenElement) { if (document.exitFullscreen) document.exitFullscreen(); }
+    else if (el.picPane.requestFullscreen) el.picPane.requestFullscreen().catch(() => toast('Full screen isn’t available here', { type: 'error' }));
+    else toast('Full screen isn’t available here', { type: 'error' });
+  }
+  document.addEventListener('fullscreenchange', () => setTimeout(() => applyFit(false), 60));
+
+  let hintTimer = null;
+  function showGestureHintOnce() {
+    if (store.get('hintSeen', false)) return;
+    el.gestureHint.textContent = matchMedia('(pointer: coarse)').matches ? 'Pinch to zoom · drag to move' : 'Scroll to zoom · drag to move · double-click to zoom in';
+    el.gestureHint.classList.add('show');
+    clearTimeout(hintTimer);
+    hintTimer = setTimeout(dismissGestureHint, 4500);
+  }
+  function dismissGestureHint() {
+    if (!el.gestureHint.classList.contains('show')) return;
+    el.gestureHint.classList.remove('show');
+    store.set('hintSeen', true);
+  }
+
+  el.viewport.addEventListener('wheel', e => {
+    if (state.imgStatus !== 'ok') return;
+    e.preventDefault();
+    const unit = e.deltaMode === 1 ? 0.05 : e.deltaMode === 2 ? 1 : 0.0015;
+    const factor = Math.exp(-e.deltaY * unit * (e.ctrlKey ? 2.2 : 1));
+    zoomAt(view.scale * factor, e.clientX, e.clientY);
+  }, { passive: false });
+
+  const pointers = new Map();
+  let pinch = null;
+  el.viewport.addEventListener('pointerdown', e => {
+    if (state.imgStatus !== 'ok' || (e.pointerType === 'mouse' && e.button !== 0)) return;
+    if (e.target.closest('a, button')) return;
+    el.viewport.setPointerCapture(e.pointerId);
+    pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    el.viewport.classList.add('is-dragging');
+    if (pointers.size === 2) {
+      const [a, b] = Array.from(pointers.values());
+      pinch = { dist: Math.hypot(a.x - b.x, a.y - b.y), mx: (a.x + b.x) / 2, my: (a.y + b.y) / 2 };
+    }
+    dismissGestureHint();
+  });
+  el.viewport.addEventListener('pointermove', e => {
+    const prev = pointers.get(e.pointerId);
+    if (!prev) return;
+    const cur = { x: e.clientX, y: e.clientY };
+    pointers.set(e.pointerId, cur);
+    if (pointers.size === 1) {
+      view.x += cur.x - prev.x; view.y += cur.y - prev.y;
+      view.fit = 'free';
+      applyTransform(false);
+    } else if (pointers.size === 2 && pinch) {
+      const [a, b] = Array.from(pointers.values());
+      const dist = Math.hypot(a.x - b.x, a.y - b.y);
+      const mx = (a.x + b.x) / 2, my = (a.y + b.y) / 2;
+      view.x += mx - pinch.mx; view.y += my - pinch.my;
+      zoomAt(view.scale * (dist / (pinch.dist || dist)), mx, my);
+      pinch = { dist, mx, my };
+    }
+  });
+  const endPointer = e => {
+    pointers.delete(e.pointerId);
+    if (pointers.size < 2) pinch = null;
+    if (!pointers.size) el.viewport.classList.remove('is-dragging');
+  };
+  el.viewport.addEventListener('pointerup', endPointer);
+  el.viewport.addEventListener('pointercancel', endPointer);
+  el.viewport.addEventListener('dblclick', e => {
+    if (state.imgStatus !== 'ok') return;
+    if (view.scale < 1.9) zoomAt(Math.max(2.2, view.scale * 2), e.clientX, e.clientY, true);
+    else fitPage(true);
+  });
+  el.viewport.addEventListener('keydown', e => {
+    if (state.imgStatus !== 'ok') return;
+    const step = 60;
+    const moves = { ArrowUp: [0, step], ArrowDown: [0, -step] };
+    if (moves[e.key] && view.scale > 1) { e.preventDefault(); view.x += moves[e.key][0]; view.y += moves[e.key][1]; view.fit = 'free'; applyTransform(true); }
+  });
+  if ('ResizeObserver' in window) {
+    new ResizeObserver(debounce(() => { if (state.imgStatus === 'ok' && view.fit === 'width') fitWidth(false); }, 80)).observe(el.viewport);
+  }
+
+  /* ================= Menus ================= */
+  const MENUS = [[el.picMoreBtn, el.picMenu], [el.saveBtn, el.saveMenu]];
+  function setMenu(btn, menu, open, focusFirst = false) {
+    menu.hidden = !open;
+    btn.setAttribute('aria-expanded', String(open));
+    if (open && focusFirst) { const f = menu.querySelector('.menu-item'); if (f) f.focus(); }
+  }
+  function closeMenus() { MENUS.forEach(([b, m]) => { if (!m.hidden) setMenu(b, m, false); }); }
+  MENUS.forEach(([btn, menu]) => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const open = menu.hidden;
+      closeMenus();
+      setMenu(btn, menu, open, e.detail === 0);
+    });
+    btn.addEventListener('keydown', e => { if (e.key === 'ArrowDown') { e.preventDefault(); closeMenus(); setMenu(btn, menu, true, true); } });
+    menu.addEventListener('keydown', e => {
+      const items = $$('.menu-item', menu);
+      const i = items.indexOf(document.activeElement);
+      if (e.key === 'ArrowDown') { e.preventDefault(); items[(i + 1) % items.length].focus(); }
+      if (e.key === 'ArrowUp') { e.preventDefault(); items[(i - 1 + items.length) % items.length].focus(); }
+      if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); setMenu(btn, menu, false); btn.focus(); }
+      if (e.key === 'Tab') setMenu(btn, menu, false);
+    });
+  });
+  document.addEventListener('click', e => { if (!e.target.closest('.menu-wrap')) closeMenus(); });
+
+  el.picMenu.addEventListener('click', e => {
+    const b = e.target.closest('[data-pic]');
+    if (!b) { if (e.target.closest('a')) closeMenus(); return; }
+    const k = b.dataset.pic;
+    if (k === 'width') { closeMenus(); view.fit === 'width' ? fitPage(true) : fitWidth(true); }
+    if (k === 'rotate') { closeMenus(); rotate(); }
+    if (k === 'fullscreen') { closeMenus(); toggleFullscreen(); }
+    if (k === 'contrast' || k === 'invert') setImageFilter(k);
+    if (k === 'hd') toggleHD();
+  });
+
+  el.saveMenu.addEventListener('click', e => {
+    const b = e.target.closest('[data-export]');
+    if (!b) { if (e.target.closest('a')) closeMenus(); return; }
+    closeMenus();
+    const p = state.byNum.get(state.current);
+    if (!p) return;
+    const base = `${BOOK_ID}_scan${pad(p.page_number)}`;
+    switch (b.dataset.export) {
+      case 'persian-txt':
+        if (!p.persian_ground_truth_text.trim()) { toast('This scan has no Persian text to save', { type: 'error' }); break; }
+        download(`${base}_persian.txt`, p.persian_ground_truth_text, 'text/plain;charset=utf-8'); break;
+      case 'roman-txt':
+        if (!p.roman_persian_transliteration.trim()) { toast('This scan has no Roman transliteration to save', { type: 'error' }); break; }
+        download(`${base}_roman.txt`, p.roman_persian_transliteration, 'text/plain;charset=utf-8'); break;
+      case 'page-json': download(`${base}.json`, JSON.stringify(p, null, 2), 'application/json;charset=utf-8'); break;
+      case 'cite': openCite(p); break;
+      case 'results-json': {
+        const list = state.results.map(r => r.p);
+        const suffix = isFiltered() ? 'results' : 'all';
+        download(`${BOOK_ID}_${suffix}_${list.length}scans.json`, JSON.stringify(list, null, 2), 'application/json;charset=utf-8');
+        break;
+      }
+    }
+  });
+
+  function citation(p) {
+    const d = new Date().toISOString().slice(0, 10);
+    return `Zakarīyā ibn Muḥammad al-Qazwīnī. ʿAjāʾib al-makhlūqāt wa-gharāʾib al-mawjūdāt. India, 18th century. Princeton University Library, Special Collections, Islamic Manuscripts, Garrett no. 82G (ark:/88435/h989r3272), scan ${pad(p.page_number)}. ${CATALOG_URL}. Diplomatic HTR transcription & iconographic index by Syed Faizyab Mujtaba (Project Scriptorium). Accessed ${d}.`;
+  }
+  function openCite(p) { el.citeBox.textContent = citation(p); openDialog(el.citeDialog); }
+  $('#citeCopy').addEventListener('click', () => copyText(el.citeBox.textContent, 'Citation copied'));
+
+  function download(filename, content, mime) {
+    const blob = new Blob([content], { type: mime });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = filename;
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1500);
+    toast(`Saved ${filename}`);
+  }
+
+  async function copyText(text, msg = 'Copied') {
+    try {
+      if (navigator.clipboard && window.isSecureContext) await navigator.clipboard.writeText(text);
+      else {
+        const ta = document.createElement('textarea');
+        ta.value = text; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove();
+      }
+      toast(msg);
+    } catch (e) { toast('Couldn’t copy — your browser blocked it', { type: 'error' }); }
+  }
+
+  function toast(msg, { type = 'ok', ms = 2600, action = null } = {}) {
+    const t = document.createElement('div');
+    t.className = 'toast' + (type === 'error' ? ' is-error' : '');
+    t.innerHTML = icon(type === 'error' ? 'alert' : 'check') + `<span>${esc(msg)}</span>`;
+    if (action) {
+      const b = document.createElement('button');
+      b.className = 'toast-action'; b.type = 'button'; b.textContent = action.label;
+      b.addEventListener('click', () => { action.fn(); t.remove(); });
+      t.appendChild(b);
+      ms = Math.max(ms, 6000);
+    }
+    el.toasts.appendChild(t);
+    while (el.toasts.children.length > 3) el.toasts.firstElementChild.remove();
+    requestAnimationFrame(() => t.classList.add('show'));
+    setTimeout(() => { t.classList.remove('show'); setTimeout(() => t.remove(), 260); }, ms);
+  }
+
+  function openDialog(d) {
+    closeMenus();
+    if (typeof d.showModal === 'function') { if (!d.open) d.showModal(); }
+    else d.setAttribute('open', '');
+  }
+  $$('dialog.modal').forEach(d => {
+    d.addEventListener('click', e => { if (e.target === d || e.target.closest('[data-close]')) { if (d.close) d.close(); else d.removeAttribute('open'); } });
+  });
+
+  /* ================= Theme, menu, prefs ================= */
+  function applyTheme(t, persist) {
+    document.documentElement.setAttribute('data-theme', t);
+    el.themeBtn.innerHTML = icon(t === 'dark' ? 'sun' : 'moon');
+    el.themeBtn.setAttribute('aria-label', t === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+    if (persist) store.set('theme', t);
+  }
+  const toggleTheme = () => applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark', true);
+  el.themeBtn.addEventListener('click', toggleTheme);
+
+  function setMobileMenu(open) {
+    el.mobileMenu.hidden = !open;
+    el.menuToggle.setAttribute('aria-expanded', String(open));
+    el.menuToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    el.menuToggle.innerHTML = icon(open ? 'x' : 'menu');
+  }
+  el.menuToggle.addEventListener('click', e => { e.stopPropagation(); setMobileMenu(el.mobileMenu.hidden); });
+  document.addEventListener('click', e => { if (!el.mobileMenu.hidden && !e.target.closest('.mobile-menu, #menuToggle')) setMobileMenu(false); });
+
+  function applyPrefs() {
+    applyTheme(document.documentElement.getAttribute('data-theme') || 'dark', false);
+    setViewMode(state.viewMode);
+    setUrduSize(state.urduSize);
+    setPane(state.pane);
+  }
+
+  /* ================= Event wiring ================= */
+  document.addEventListener('click', e => {
+    const a = e.target.closest('[data-go]');
+    if (!a || e.ctrlKey || e.metaKey || e.shiftKey || e.button > 0) return;
+    if (!state.pages.length) return;
+    e.preventDefault();
+    go(a.dataset.go);
+  });
+
+  document.addEventListener('click', e => {
+    const ent = e.target.closest('[data-entity]');
+    if (ent) { filterByEntity(ent.dataset.entity); return; }
+    const act = e.target.closest('[data-action]');
+    if (act) {
+      const k = act.dataset.action;
+      if (k === 'start') openPage(firstTextPage(), { history: 'push' });
+      if (k === 'random') {
+        const pool = state.pages.filter(p => p.contains_illumination);
+        const list = pool.length ? pool : state.pages;
+        openPage(list[Math.floor(Math.random() * list.length)].page_number, { history: 'push' });
+      }
+      if (k === 'clear') { clearSearch(); el.search.focus(); }
+      if (k === 'scope-all') setQuery(state.query, { scope: 'all' });
+      if (k === 'filter-all') setQuery(state.query, { filter: 'all' });
+      if (k === 'help') openDialog(el.helpDialog);
+      if (k === 'load-file') el.filePicker.click();
+    }
+  });
+
+  el.grid.addEventListener('click', e => {
+    const b = e.target.closest('[data-page]');
+    if (b) openPage(Number(b.dataset.page), { history: 'push' });
+  });
+  el.gotoHintWrap.addEventListener('click', e => {
+    const b = e.target.closest('[data-page]');
+    if (b) { const n = Number(b.dataset.page); state.query = ''; runSearch(); syncSearchInputs(); openPage(n, { history: 'push' }); }
+  });
+  el.continueCard.addEventListener('click', () => openPage(Number(el.continueCard.dataset.page), { history: 'push' }));
+
+  el.homeSearch.addEventListener('submit', e => { e.preventDefault(); submitGlobalSearch(el.homeSearchInput.value); el.homeSearchInput.value = ''; });
+  el.headerSearch.addEventListener('submit', e => { e.preventDefault(); submitGlobalSearch(el.headerSearchInput.value); el.headerSearchInput.value = ''; el.headerSearchInput.blur(); });
+  el.searchToggle.addEventListener('click', () => go('pages', { focusSearch: true }));
+  el.search.addEventListener('input', () => { state.query = el.search.value; el.searchClear.hidden = !state.query; refreshSearchDebounced(); });
+  $('#pagesSearch').addEventListener('submit', e => {
+    e.preventDefault();
+    state.query = el.search.value;
+    refreshSearch();
+    if (state.numQ !== null && state.byNum.has(state.numQ)) { const n = state.numQ; state.query = ''; runSearch(); syncSearchInputs(); openPage(n, { history: 'push' }); return; }
+    if (mqNarrow.matches) el.search.blur();
+  });
+  el.search.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { e.preventDefault(); if (el.search.value) clearSearch(); else el.search.blur(); }
+  });
+  el.searchClear.addEventListener('click', () => { clearSearch(); el.search.focus(); });
+  el.scopeSelect.addEventListener('change', () => setQuery(el.search.value, { scope: el.scopeSelect.value }));
+  $$('button[data-filter]', el.typeSeg).forEach(b => b.addEventListener('click', () => setQuery(el.search.value, { filter: b.dataset.filter })));
+  el.jumpForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const v = parseInt(el.jumpInput.value, 10);
+    if (state.byNum.has(v)) { el.jumpInput.value = ''; openPage(v, { history: 'push' }); }
+    else if (!Number.isNaN(v)) toast(`There’s no scan ${v} — try ${el.jumpInput.min} to ${el.jumpInput.max}`, { type: 'error' });
+  });
+
+  el.entityFilter.addEventListener('input', debounce(renderPeople, 100));
+  el.peopleList.addEventListener('click', e => {
+    const b = e.target.closest('[data-letter]');
+    if (b) { const g = document.getElementById('letter-' + b.dataset.letter); if (g) g.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+  $$('[data-esort]').forEach(b => b.addEventListener('click', () => {
+    state.entitySort = b.dataset.esort;
+    $$('[data-esort]').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+    renderPeople();
+  }));
+
+  el.backBtn.addEventListener('click', () => go('pages'));
+  el.prevBtn.addEventListener('click', () => turn(-1));
+  el.nextBtn.addEventListener('click', () => turn(1));
+  el.nextCard.addEventListener('click', () => openPage(Number(el.nextCard.dataset.page)));
+  el.prevLink.addEventListener('click', () => openPage(Number(el.prevLink.dataset.page)));
+  el.pageJump.addEventListener('submit', e => {
+    e.preventDefault();
+    const v = parseInt(el.pageJumpInput.value, 10);
+    if (state.byNum.has(v)) { openPage(v); el.pageJumpInput.blur(); }
+    else { if (!Number.isNaN(v)) toast(`There’s no scan ${v} — try ${el.pageJumpInput.min} to ${el.pageJumpInput.max}`, { type: 'error' }); el.pageJumpInput.value = state.current || ''; }
+  });
+  el.pageJumpInput.addEventListener('focus', () => el.pageJumpInput.select());
+  el.pageJumpInput.addEventListener('blur', () => { el.pageJumpInput.value = state.current || ''; });
+  $$('.pane-switch [data-pane]').forEach(b => b.addEventListener('click', () => setPane(b.dataset.pane)));
+  $('#zoomInBtn').addEventListener('click', () => zoomAt(view.scale * 1.35, null, null, true));
+  $('#zoomOutBtn').addEventListener('click', () => zoomAt(view.scale / 1.35, null, null, true));
+  $('#fitBtn').addEventListener('click', () => { view.rot = 0; fitPage(true); });
+  el.zoomLabel.addEventListener('click', () => fitPage(true));
+  $('#retryImgBtn').addEventListener('click', () => { const p = state.byNum.get(state.current); if (p) loadImage(p); });
+  $('#tipDismiss').addEventListener('click', () => { store.set('tipSeen', true); el.tipCard.hidden = true; });
+  $('#matchPrev').addEventListener('click', () => stepMatch(-1));
+  $('#matchNext').addEventListener('click', () => stepMatch(1));
+  $('#sbResults').addEventListener('click', () => go('pages'));
+  $('#sbClear').addEventListener('click', () => { clearSearch(); toast('Search cleared', { ms: 1400 }); });
+  $$('[data-mode]', el.modeSeg).forEach(b => b.addEventListener('click', () => setViewMode(b.dataset.mode)));
+  el.modeSeg.addEventListener('keydown', e => {
+    if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+    e.preventDefault(); e.stopPropagation();
+    const modes = ['parallel', 'urdu', 'roman'];
+    const i = (modes.indexOf(state.viewMode) + (e.key === 'ArrowRight' ? 1 : -1) + 3) % 3;
+    setViewMode(modes[i]);
+    $(`[data-mode="${modes[i]}"]`, el.modeSeg).focus();
+  });
+  $('#fontDown').addEventListener('click', () => setUrduSize(state.urduSize - 2));
+  $('#fontUp').addEventListener('click', () => setUrduSize(state.urduSize + 2));
+  $('#shareBtn').addEventListener('click', () => { writeHash(false); copyText(location.href, 'Link copied — opens this exact scan'); });
+  el.copyTextBtn.addEventListener('click', () => {
+    const p = state.byNum.get(state.current);
+    if (!p) return;
+    const parts = [];
+    if (state.viewMode !== 'roman' && p.persian_ground_truth_text.trim()) parts.push(p.persian_ground_truth_text.trim());
+    if (state.viewMode !== 'urdu' && p.roman_persian_transliteration.trim()) parts.push(p.roman_persian_transliteration.trim());
+    if (!parts.length) { toast('Nothing to copy on this scan', { type: 'error' }); return; }
+    copyText(parts.join(''), state.viewMode === 'urdu' ? 'Persian text copied' : state.viewMode === 'roman' ? 'Roman transliteration copied' : 'Persian and Roman text copied');
+  });
+  el.lineList.addEventListener('click', e => {
+    const sel = e.target.closest('[data-select-line]');
+    if (sel) {
+      const ln = Number(sel.dataset.selectLine);
+      state.selectedLine = state.selectedLine === ln ? null : ln;
+      $$('.line', el.lineList).forEach(row => {
+        const on = Number(row.dataset.line) === state.selectedLine;
+        row.classList.toggle('is-selected', on);
+        row.querySelector('.ln').setAttribute('aria-pressed', String(on));
+      });
+      writeHash(false);
+      return;
+    }
+    const cp = e.target.closest('[data-copy-line]');
+    if (cp) {
+      const p = state.byNum.get(state.current);
+      const i = Number(cp.dataset.copyLine) - 1;
+      const parts = [];
+      if (state.viewMode !== 'roman' && p._fa[i] != null) parts.push(p._fa[i]);
+      if (state.viewMode !== 'urdu' && p._ro[i] != null) parts.push(p._ro[i]);
+      copyText(parts.join(''), `Line ${i + 1} copied`);
+    }
+  });
+  (mqNarrow.addEventListener ? mqNarrow.addEventListener('change', () => setPane(state.pane)) : mqNarrow.addListener(() => setPane(state.pane)));
+
+  el.dropzone.addEventListener('click', () => el.filePicker.click());
+  el.filePicker.addEventListener('change', e => { loadFromFile(e.target.files[0]); e.target.value = ''; });
+  $('#copyCmdBtn').addEventListener('click', () => copyText($('#serverCmd').textContent, 'Command copied'));
+  let dragDepth = 0;
+  const isFileDrag = e => e.dataTransfer && Array.from(e.dataTransfer.types || []).includes('Files');
+  window.addEventListener('dragenter', e => { if (!isFileDrag(e)) return; e.preventDefault(); dragDepth++; el.dropOverlay.hidden = false; el.dropzone.classList.add('is-over'); });
+  window.addEventListener('dragover', e => { if (isFileDrag(e)) e.preventDefault(); });
+  window.addEventListener('dragleave', e => { if (!isFileDrag(e)) return; dragDepth = Math.max(0, dragDepth - 1); if (!dragDepth) { el.dropOverlay.hidden = true; el.dropzone.classList.remove('is-over'); } });
+  window.addEventListener('drop', e => {
+    if (!isFileDrag(e)) return;
+    e.preventDefault();
+    dragDepth = 0; el.dropOverlay.hidden = true; el.dropzone.classList.remove('is-over');
+    const f = e.dataTransfer.files && e.dataTransfer.files[0];
+    if (f) loadFromFile(f);
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.defaultPrevented) return;
+    const t = e.target;
+    const typing = t && t.closest && t.closest('input, textarea, select, [contenteditable="true"]');
+    if (e.key === 'Escape') {
+      if (MENUS.some(([, m]) => !m.hidden)) { closeMenus(); return; }
+      if (!el.mobileMenu.hidden) { setMobileMenu(false); el.menuToggle.focus(); return; }
+      if (typing && t === el.headerSearchInput) { t.value = ''; t.blur(); }
+      return;
+    }
+    if (typing || e.ctrlKey || e.metaKey || e.altKey) return;
+    if (document.querySelector('dialog[open]')) return;
+    if (!state.pages.length) return;
+    const k = e.key;
+    const inRead = state.view === 'read';
+    const onControl = t && t.closest && t.closest('[role="radiogroup"], [role="menu"], [role="separator"]');
+    const map = {
+      '/': () => {
+        if (state.view === 'pages') { el.search.focus(); el.search.select(); }
+        else if (state.view === 'home') el.homeSearchInput.focus();
+        else if (mqHeaderSearch.matches) el.headerSearchInput.focus();
+        else go('pages', { focusSearch: true });
+      },
+      '?': () => openDialog(el.helpDialog),
+      't': toggleTheme
+    };
+    if (inRead) Object.assign(map, {
+      'ArrowRight': () => turn(1), 'ArrowLeft': () => turn(-1),
+      '+': () => zoomAt(view.scale * 1.35, null, null, true), '=': () => zoomAt(view.scale * 1.35, null, null, true),
+      '-': () => zoomAt(view.scale / 1.35, null, null, true), '_': () => zoomAt(view.scale / 1.35, null, null, true),
+      '0': () => { view.rot = 0; fitPage(true); },
+      '1': () => setViewMode('parallel'), '2': () => setViewMode('urdu'), '3': () => setViewMode('roman'),
+      'n': () => stepMatch(1), 'N': () => stepMatch(-1)
+    });
+    if (onControl && (k === 'ArrowRight' || k === 'ArrowLeft')) return;
+    const fn = map[k] || (k.length === 1 && k !== 'N' ? map[k.toLowerCase()] : null);
+    if (!fn) return;
+    e.preventDefault();
+    fn();
+  });
+
+  window.openPage = n => openPage(Number(n), { history: 'push' });
+  window.filterByEntity = filterByEntity;
+
+  init();
+})();
+</script>
+</body>
+</html>
