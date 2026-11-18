@@ -379,6 +379,10 @@ details.help-details p { margin-top: 10px; color: var(--ink-2); font-size: 14.5p
 .continue-card .cc-text b { display: block; font-size: 15.5px; }
 .continue-card .cc-text span { display: block; color: var(--ink-3); font-size: 13.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
+/* Full-book text export */
+.book-download-row { display: flex; justify-content: flex-end; }
+@media (max-width: 640px) { .book-download-row .btn { width: 100%; } }
+
 /* ---------- Pages (browse) ---------- */
 .toolbar-card {
   background: var(--surface); border: 1px solid var(--line);
@@ -947,91 +951,6 @@ dialog.modal::backdrop { background: rgba(17, 21, 19, .55); backdrop-filter: blu
     </div>
   </section>
 
-  <!-- Home -->
-  <section class="view" data-view="home" aria-labelledby="homeTitle" hidden>
-    <div class="hero">
-      <div class="container hero-grid">
-        <div>
-          <span class="eyebrow"><svg class="i i-sm"><use href="#i-book-open"/></svg>Princeton University Library · Garrett no. 82G</span>
-          <h1 id="homeTitle">Read <em>ʿAjāʾib al-makhlūqāt</em>, scan by scan</h1>
-          <p class="hero-lead">Explore all 502 scans of this 18th-century Indian illuminated Persian manuscript of al-Qazwīnī’s <em>Wonders of Creation</em>, complete with 152 opaque watercolor miniatures, line-by-line Nastaʿlīq transcription, Roman transliteration, and English summaries.</p>
-          <div class="hero-actions">
-            <button class="btn btn-primary btn-lg" type="button" data-action="start">Start reading<svg class="i"><use href="#i-arrow-right"/></svg></button>
-            <a class="btn btn-lg" href="#view=pages" data-go="pages"><svg class="i"><use href="#i-grid"/></svg>Browse all 502 scans</a>
-            <button class="btn btn-lg btn-ghost" type="button" data-action="random" title="Open an illuminated folio"><svg class="i"><use href="#i-sparkle"/></svg>Random miniature</button>
-          </div>
-          <button class="continue-card" type="button" id="continueCard" hidden>
-            <span class="cc-icon"><svg class="i"><use href="#i-bookmark"/></svg></span>
-            <span class="cc-text"><b id="continueTitle">Pick up where you left off</b><span id="continueSub"></span></span>
-            <svg class="i"><use href="#i-arrow-right"/></svg>
-          </button>
-          <form class="big-search" id="homeSearch" role="search">
-            <svg class="i" aria-hidden="true"><use href="#i-search"/></svg>
-            <label class="sr-only" for="homeSearchInput">Search the manuscript</label>
-            <input id="homeSearchInput" type="search" placeholder="Search constellations, angels, animals, or Persian text…" autocomplete="off" spellcheck="false" enterkeyhint="search" />
-            <button class="btn btn-primary" type="submit">Search</button>
-          </form>
-          <div class="try-row" id="tryRow" hidden><span>Try:</span></div>
-        </div>
-        <div class="hero-art" aria-hidden="true">
-          <div class="book-page" id="heroPage" hidden><img id="heroPageImg" alt="" referrerpolicy="no-referrer" /></div>
-          <div class="book-cover">
-            <svg class="arch"><use href="#i-arch"/></svg>
-            <div class="cover-ur" lang="fa">عجائب المخلوقات</div>
-            <div class="cover-en">ʿAjāʾib al-makhlūqāt</div>
-            <div class="cover-meta">Garrett 82G · 18th-c. India</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="stats-band">
-      <div class="container"><div class="stats" id="homeStats"></div></div>
-    </div>
-
-    <div class="section">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>How it works</h2>
-            <p>Inspect high-resolution Princeton IIIF facsimiles alongside diplomatic Nastaʿlīq text and miniature descriptions.</p>
-          </div>
-          <a class="btn" href="garrett82g_complete.txt" download="garrett82g_complete.txt"><svg class="i i-sm"><use href="#i-download"/></svg>Download full book (.TXT)</a>
-        </div>
-        <div class="steps">
-          <div class="step">
-            <div class="step-n"><svg class="i"><use href="#i-grid"/></svg></div>
-            <h3>1. Browse folios or miniatures</h3>
-            <p>Filter specifically for the 152 illuminated folios or search across planets, angels, flora, and fauna.</p>
-          </div>
-          <div class="step">
-            <div class="step-n"><svg class="i"><use href="#i-image"/></svg></div>
-            <h3>2. Inspect the original manuscript</h3>
-            <p>Zoom deep into gold illuminations, red rubrics, and 20-line Nastaʿlīq calligraphy via Princeton’s IIIF server.</p>
-          </div>
-          <div class="step">
-            <div class="step-n"><svg class="i"><use href="#i-translate"/></svg></div>
-            <h3>3. Read in three parallel layers</h3>
-            <p>Compare the English digest and miniature iconography with line-by-line Persian script and Roman transliteration.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="section" id="homePeopleSection" style="padding-top:0" hidden>
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>Most referenced figures, constellations &amp; places</h2>
-            <p>Click any entry to inspect every folio where it appears.</p>
-          </div>
-          <a class="btn" href="#view=people" data-go="people">See full entity index<svg class="i i-sm"><use href="#i-arrow-right"/></svg></a>
-        </div>
-        <div class="chip-cloud" id="homeChips"></div>
-      </div>
-    </div>
-  </section>
-
   <!-- Pages / search -->
   <section class="view" data-view="pages" aria-labelledby="pagesTitle" hidden>
     <div class="container">
@@ -1071,6 +990,12 @@ dialog.modal::backdrop { background: rgba(17, 21, 19, .55); backdrop-filter: blu
             <button class="btn btn-sm btn-soft" type="submit">Go</button>
           </form>
         </div>
+      </div>
+      <div class="book-download-row">
+        <button class="btn btn-primary" id="downloadBookBtn" type="button">
+          <svg class="i i-sm" aria-hidden="true"><use href="#i-download"/></svg>
+          Download full book (.txt)
+        </button>
       </div>
       <div class="results-line" id="resultsLine" aria-live="polite"></div>
       <div id="gotoHintWrap"></div>
@@ -1374,7 +1299,7 @@ dialog.modal::backdrop { background: rgba(17, 21, 19, .55); backdrop-filter: blu
   const FIELD_LABEL = { fa: 'Persian text', ro: 'Roman transliteration', en: 'Summary', art: 'Miniature note', ent: 'Entities' };
   const SCOPE_LABEL = { all: '', persian: ' in the Persian text', roman: ' in the Roman transliteration', english: ' in the English summaries & miniature notes', entities: ' in entities & cosmos' };
   const TYPES = ['all', 'illuminated', 'text', 'cover_or_flyleaf'];
-  const VIEWS = ['home', 'pages', 'people', 'about'];
+  const VIEWS = ['pages', 'people', 'about'];
 
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
@@ -1446,17 +1371,6 @@ dialog.modal::backdrop { background: rgba(17, 21, 19, .55); backdrop-filter: blu
     setupError: $('#setupError'),
     filePicker: $('#filePicker'),
     dropOverlay: $('#dropOverlay'),
-    homeStats: $('#homeStats'),
-    homeSearch: $('#homeSearch'),
-    homeSearchInput: $('#homeSearchInput'),
-    tryRow: $('#tryRow'),
-    homeChips: $('#homeChips'),
-    homePeopleSection: $('#homePeopleSection'),
-    continueCard: $('#continueCard'),
-    continueTitle: $('#continueTitle'),
-    continueSub: $('#continueSub'),
-    heroPage: $('#heroPage'),
-    heroPageImg: $('#heroPageImg'),
     pagesTitle: $('#pagesTitle'),
     pagesIntro: $('#pagesIntro'),
     search: $('#searchInput'),
@@ -1713,7 +1627,7 @@ dialog.modal::backdrop { background: rgba(17, 21, 19, .55); backdrop-filter: blu
       applyRoute({ initial: true });
     } else {
       runSearch();
-      if (state.view === 'read' && !state.byNum.has(state.current)) go('home');
+      if (state.view === 'read' && !state.byNum.has(state.current)) go('pages');
       else refreshCurrentView();
     }
     if (fromFile) toast(`Opened “${sourceLabel}” — ${plural(pages.length, 'scan')}`);
@@ -1873,7 +1787,7 @@ dialog.modal::backdrop { background: rgba(17, 21, 19, .55); backdrop-filter: blu
   function buildHash() {
     const h = new URLSearchParams();
     if (state.view === 'read' && state.current != null) h.set('scan', state.current);
-    else if (VIEWS.includes(state.view) && state.view !== 'home') h.set('view', state.view);
+    else if (VIEWS.includes(state.view)) h.set('view', state.view);
     if (state.view === 'read' || state.view === 'pages') {
       if (state.query.trim()) h.set('q', state.query.trim());
       if (state.scope !== 'all') h.set('in', state.scope);
@@ -1908,13 +1822,13 @@ dialog.modal::backdrop { background: rgba(17, 21, 19, .55); backdrop-filter: blu
     }
     lastHash = location.hash || '';
     if (h.scan && state.byNum.has(h.scan)) openPage(h.scan, { line: h.line || null, history: 'none' });
-    else showView(VIEWS.includes(h.view) ? h.view : 'home');
+    else showView(VIEWS.includes(h.view) ? h.view : 'pages');
   }
   window.addEventListener('popstate', () => applyRoute());
   window.addEventListener('hashchange', () => { if ((location.hash || '') !== lastHash) applyRoute(); });
 
   /* ================= Views ================= */
-  const VIEW_TITLES = { home: '', pages: 'All scans', people: 'Entities & cosmos', about: 'About this manuscript' };
+  const VIEW_TITLES = { pages: 'All scans', people: 'Entities & cosmos', about: 'About this manuscript' };
 
   function showView(v) {
     const prev = state.view;
@@ -1925,7 +1839,7 @@ dialog.modal::backdrop { background: rgba(17, 21, 19, .55); backdrop-filter: blu
       const on = a.dataset.go === v || (v === 'read' && a.dataset.go === 'pages');
       if (on) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
     });
-    const showHeaderSearch = !['home', 'pages', 'setup', 'loading'].includes(v);
+    const showHeaderSearch = !['pages', 'setup', 'loading'].includes(v);
     el.headerSearch.style.visibility = showHeaderSearch ? '' : 'hidden';
     el.searchToggle.style.visibility = ['pages', 'setup', 'loading'].includes(v) ? 'hidden' : '';
     setMobileMenu(false);
@@ -1934,7 +1848,6 @@ dialog.modal::backdrop { background: rgba(17, 21, 19, .55); backdrop-filter: blu
     $('.main-nav').style.visibility = noData ? 'hidden' : '';
     el.menuToggle.style.visibility = noData ? 'hidden' : '';
 
-    if (v === 'home') renderHome();
     if (v === 'pages') renderGrid();
     if (v === 'people') renderPeople();
     if (v === 'about') renderStats();
@@ -1964,15 +1877,6 @@ dialog.modal::backdrop { background: rgba(17, 21, 19, .55); backdrop-filter: blu
   }
   function focusHeading(h) { if (h) h.focus({ preventScroll: true }); }
 
-  /* ================= Home ================= */
-  function topEntities(n) {
-    return state.entityIndex.slice().sort((a, b) => b.count - a.count || a.name.localeCompare(b.name)).slice(0, n);
-  }
-
-  function firstTextPage() {
-    return (state.pages.find(p => p._hasText) || state.pages[0]).page_number;
-  }
-
   function renderStats() {
     const illumCount = state.pages.filter(p => p.contains_illumination).length;
     const lines = state.pages.reduce((s, p) => s + p._fa.length, 0);
@@ -1982,38 +1886,7 @@ dialog.modal::backdrop { background: rgba(17, 21, 19, .55); backdrop-filter: blu
       [lines, 'lines transcribed'],
       [state.entityIndex.length, 'indexed entities']
     ];
-    el.homeStats.innerHTML = items.map(([n, l]) => `<div class="stat"><b>${n.toLocaleString()}</b><span>${l}</span></div>`).join('');
     el.aboutStats.innerHTML = items.map(([n, l]) => `<div><b>${n.toLocaleString()}</b><span>${l}</span></div>`).join('');
-  }
-
-  function renderHome() {
-    if (!state.pages.length) return;
-    renderStats();
-    const top = topEntities(16);
-    el.tryRow.hidden = !top.length;
-    el.tryRow.innerHTML = '<span>Try:</span>' + top.slice(0, 4).map(e => `<button class="chip" type="button" data-entity="${esc(e.name)}">${esc(e.name)}</button>`).join('');
-    el.homePeopleSection.hidden = !top.length;
-    el.homeChips.innerHTML = top.map(e => `<button class="chip" type="button" data-entity="${esc(e.name)}" title="See the ${plural(e.count, 'scan')} that mention ${esc(e.name)}">${esc(e.name)}<span class="chip-n">${e.count}</span></button>`).join('');
-
-    const last = store.get('lastScan', null);
-    const lp = last != null && state.byNum.get(last);
-    if (lp && last !== firstTextPage()) {
-      el.continueCard.hidden = false;
-      el.continueCard.dataset.page = last;
-      el.continueTitle.textContent = `Continue reading — scan ${last}`;
-      el.continueSub.textContent = truncate(lp.artwork_description || lp.english_page_summary, 90) || 'Pick up where you left off';
-    } else el.continueCard.hidden = true;
-    renderHeroImage();
-  }
-
-  function renderHeroImage() {
-    const p = state.pages.find(x => x.contains_illumination) || state.byNum.get(firstTextPage());
-    const url = p && thumbUrl(p, 600);
-    if (!url) { el.heroPage.hidden = true; return; }
-    if (el.heroPageImg.getAttribute('src') === url) return;
-    el.heroPageImg.onload = () => { el.heroPage.hidden = false; };
-    el.heroPageImg.onerror = () => { el.heroPage.hidden = true; };
-    el.heroPageImg.src = url;
   }
 
   /* ================= Pages grid ================= */
@@ -2617,6 +2490,30 @@ dialog.modal::backdrop { background: rgba(17, 21, 19, .55); backdrop-filter: blu
   function openCite(p) { el.citeBox.textContent = citation(p); openDialog(el.citeDialog); }
   $('#citeCopy').addEventListener('click', () => copyText(el.citeBox.textContent, 'Citation copied'));
 
+  function downloadFullBook() {
+    if (!state.pages.length) { toast('The manuscript text has not loaded yet', { type: 'error' }); return; }
+    const lines = [
+      BOOK_TITLE,
+      'Complete scan-by-scan text export',
+      `Scans included: ${state.pages.length}`,
+      ''
+    ];
+    for (const p of state.pages) {
+      const folio = p.folio_label && p.folio_label !== `Scan ${p.page_number}` ? ` — ${p.folio_label}` : '';
+      lines.push(`SCAN ${p.page_number}${folio}`, '='.repeat(48));
+      const persian = p.persian_ground_truth_text.trim();
+      const roman = p.roman_persian_transliteration.trim();
+      const summary = p.english_page_summary.trim();
+      const artwork = p.artwork_description.trim();
+      if (persian) lines.push('PERSIAN TEXT', persian, '');
+      if (roman) lines.push('ROMAN TRANSLITERATION', roman, '');
+      if (summary) lines.push('ENGLISH SUMMARY', summary, '');
+      if (artwork) lines.push('MINIATURE / ARTWORK DESCRIPTION', artwork, '');
+      if (!persian && !roman && !summary && !artwork) lines.push('[No transcription available for this scan]', '');
+    }
+    download(`${BOOK_ID}_full_book.txt`, '\uFEFF' + lines.join('\n').trimEnd() + '\n', 'text/plain;charset=utf-8');
+  }
+
   function download(filename, content, mime) {
     const blob = new Blob([content], { type: mime });
     const url = URL.createObjectURL(blob);
@@ -2706,12 +2603,6 @@ dialog.modal::backdrop { background: rgba(17, 21, 19, .55); backdrop-filter: blu
     const act = e.target.closest('[data-action]');
     if (act) {
       const k = act.dataset.action;
-      if (k === 'start') openPage(firstTextPage(), { history: 'push' });
-      if (k === 'random') {
-        const pool = state.pages.filter(p => p.contains_illumination);
-        const list = pool.length ? pool : state.pages;
-        openPage(list[Math.floor(Math.random() * list.length)].page_number, { history: 'push' });
-      }
       if (k === 'clear') { clearSearch(); el.search.focus(); }
       if (k === 'scope-all') setQuery(state.query, { scope: 'all' });
       if (k === 'filter-all') setQuery(state.query, { filter: 'all' });
@@ -2719,6 +2610,8 @@ dialog.modal::backdrop { background: rgba(17, 21, 19, .55); backdrop-filter: blu
       if (k === 'load-file') el.filePicker.click();
     }
   });
+
+  $('#downloadBookBtn').addEventListener('click', downloadFullBook);
 
   el.grid.addEventListener('click', e => {
     const b = e.target.closest('[data-page]');
@@ -2728,9 +2621,7 @@ dialog.modal::backdrop { background: rgba(17, 21, 19, .55); backdrop-filter: blu
     const b = e.target.closest('[data-page]');
     if (b) { const n = Number(b.dataset.page); state.query = ''; runSearch(); syncSearchInputs(); openPage(n, { history: 'push' }); }
   });
-  el.continueCard.addEventListener('click', () => openPage(Number(el.continueCard.dataset.page), { history: 'push' }));
 
-  el.homeSearch.addEventListener('submit', e => { e.preventDefault(); submitGlobalSearch(el.homeSearchInput.value); el.homeSearchInput.value = ''; });
   el.headerSearch.addEventListener('submit', e => { e.preventDefault(); submitGlobalSearch(el.headerSearchInput.value); el.headerSearchInput.value = ''; el.headerSearchInput.blur(); });
   el.searchToggle.addEventListener('click', () => go('pages', { focusSearch: true }));
   el.search.addEventListener('input', () => { state.query = el.search.value; el.searchClear.hidden = !state.query; refreshSearchDebounced(); });
@@ -2870,7 +2761,6 @@ dialog.modal::backdrop { background: rgba(17, 21, 19, .55); backdrop-filter: blu
     const map = {
       '/': () => {
         if (state.view === 'pages') { el.search.focus(); el.search.select(); }
-        else if (state.view === 'home') el.homeSearchInput.focus();
         else if (mqHeaderSearch.matches) el.headerSearchInput.focus();
         else go('pages', { focusSearch: true });
       },
