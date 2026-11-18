@@ -1620,14 +1620,14 @@ dialog.modal::backdrop { background: rgba(17, 21, 19, .55); backdrop-filter: blu
     }
     if (first === -1) return null;
     const o = idx.map[first];
-    let start = raw.lastIndexOf('', o) + 1;
-    let end = raw.indexOf('', o); if (end === -1) end = raw.length;
+    let start = raw.lastIndexOf('\n', o) + 1;
+    let end = raw.indexOf('\n', o); if (end === -1) end = raw.length;
     let pre = '', post = '';
     if (o - start > radius) { start = raw.indexOf(' ', o - radius) + 1 || o - radius; pre = '…'; }
     if (end - o > radius * 2) { end = raw.lastIndexOf(' ', o + radius * 2); if (end <= o) end = o + radius * 2; post = '…'; }
     return pre + highlight(raw.slice(start, end), terms) + post;
   }
-  const splitLines = s => String(s || '').split(/?/).filter(l => l.trim().length > 0);
+  const splitLines = s => String(s || '').split(/\r?\n/).filter(l => l.trim().length > 0);
 
   /* ================= Data loading ================= */
   function preparePage(raw) {
@@ -1656,7 +1656,7 @@ dialog.modal::backdrop { background: rgba(17, 21, 19, .55); backdrop-filter: blu
         ro: buildNorm(p.roman_persian_transliteration),
         en: buildNorm(p.english_page_summary),
         art: buildNorm(p.artwork_description),
-        ent: buildNorm(p.historical_entities.join(''))
+        ent: buildNorm(p.historical_entities.join('\n'))
       },
       enumerable: false
     });
@@ -1908,7 +1908,7 @@ dialog.modal::backdrop { background: rgba(17, 21, 19, .55); backdrop-filter: blu
     }
     lastHash = location.hash || '';
     if (h.scan && state.byNum.has(h.scan)) openPage(h.scan, { line: h.line || null, history: 'none' });
-    else showView(VIEWS.includes(h.view) ? h.view : 'pages');
+    else showView(VIEWS.includes(h.view) ? h.view : 'home');
   }
   window.addEventListener('popstate', () => applyRoute());
   window.addEventListener('hashchange', () => { if ((location.hash || '') !== lastHash) applyRoute(); });
@@ -2808,7 +2808,7 @@ dialog.modal::backdrop { background: rgba(17, 21, 19, .55); backdrop-filter: blu
     if (state.viewMode !== 'roman' && p.persian_ground_truth_text.trim()) parts.push(p.persian_ground_truth_text.trim());
     if (state.viewMode !== 'urdu' && p.roman_persian_transliteration.trim()) parts.push(p.roman_persian_transliteration.trim());
     if (!parts.length) { toast('Nothing to copy on this scan', { type: 'error' }); return; }
-    copyText(parts.join(''), state.viewMode === 'urdu' ? 'Persian text copied' : state.viewMode === 'roman' ? 'Roman transliteration copied' : 'Persian and Roman text copied');
+    copyText(parts.join('\n\n'), state.viewMode === 'urdu' ? 'Persian text copied' : state.viewMode === 'roman' ? 'Roman transliteration copied' : 'Persian and Roman text copied');
   });
   el.lineList.addEventListener('click', e => {
     const sel = e.target.closest('[data-select-line]');
@@ -2830,7 +2830,7 @@ dialog.modal::backdrop { background: rgba(17, 21, 19, .55); backdrop-filter: blu
       const parts = [];
       if (state.viewMode !== 'roman' && p._fa[i] != null) parts.push(p._fa[i]);
       if (state.viewMode !== 'urdu' && p._ro[i] != null) parts.push(p._ro[i]);
-      copyText(parts.join(''), `Line ${i + 1} copied`);
+      copyText(parts.join('\n'), `Line ${i + 1} copied`);
     }
   });
   (mqNarrow.addEventListener ? mqNarrow.addEventListener('change', () => setPane(state.pane)) : mqNarrow.addListener(() => setPane(state.pane)));
