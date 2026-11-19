@@ -83,7 +83,7 @@
       description:   "An 18th-century Indian illuminated Persian manuscript of al-Qazwīnī's cosmographical encyclopedia featuring 152 opaque watercolor miniatures and astronomical diagrams, presented with high-resolution IIIF scans, line-by-line transcription, Roman transliteration, and English summaries.",
       status:        "",
       added:         "",
-      cover:         "/garrett82g/cover.png"
+      cover:         "garrett82g/cover.png"
     },
 
   ];
@@ -963,7 +963,25 @@
     [data-theme="light"] .works.is-single .work { background: var(--bg-panel); }
     [data-theme="light"] .works.is-single .work-foot { background: var(--bg-paper); }
     [data-theme="light"] .notice { background: var(--bg-paper); }
-
+    .works:not(.is-single) .plate { height: 196px; }
+    .works:not(.is-single) .folio.has-cover img { object-fit: contain; }
+    .works:not(.is-single):not(.is-list) .folio.has-cover {
+      width: auto;
+      height: auto;
+      background: transparent;
+      box-shadow: none;
+    }
+    .works:not(.is-single):not(.is-list) .folio.has-cover img {
+      width: auto;
+      height: auto;
+      max-width: 140px;
+      max-height: 170px;
+      object-fit: contain;
+    }
+    .works.is-list .folio.has-cover {
+      background: transparent;
+      box-shadow: none;
+    }
 </style>
 </head>
 <body>
@@ -1319,13 +1337,18 @@
       let folio;
       if (w.cover) {
         const direct = w.cover;
+        const isRemote = /^https?:\/\//i.test(direct);
         const encoded = encodeURIComponent(direct);
-        const proxied = `https://wsrv.nl/?url=${encoded}&w=480&h=680&fit=contain&output=jpg`;
-        const alternateProxy = `https://images.weserv.nl/?url=${encodeURIComponent(direct)}&w=480&h=680&fit=contain&output=jpg`;
-        const fallbacks = [alternateProxy, direct];
+        const primarySrc = isRemote
+          ? `https://wsrv.nl/?url=${encoded}&w=480&h=680&fit=contain&output=jpg`
+          : direct;
+        const fallbacks = isRemote
+          ? [`https://images.weserv.nl/?url=${encoded}&w=480&h=680&fit=contain&output=jpg`, direct]
+          : [];
+        const altText = `Archival cover scan of ${w.title}${w.year ? `, ${w.year}` : ''}`;
         folio = `<div class="folio has-cover">
           <a class="cover-link" href="${esc(direct)}" target="_blank" rel="noopener" aria-label="Open the archival cover image">
-            <img src="${esc(proxied)}" data-fallbacks="${esc(JSON.stringify(fallbacks))}" data-fallback-index="0" alt="Archival cover scan of ${esc(w.title)}, 1873 edition" loading="eager" decoding="async" fetchpriority="high" referrerpolicy="no-referrer" onerror="window.retryCoverImage(this)">
+            <img src="${esc(primarySrc)}" data-fallbacks="${esc(JSON.stringify(fallbacks))}" data-fallback-index="0" alt="${esc(altText)}" loading="eager" decoding="async" fetchpriority="high" referrerpolicy="no-referrer" onerror="window.retryCoverImage(this)">
           </a>
           <span class="cover-fallback"><a href="${esc(direct)}" target="_blank" rel="noopener">Open archival cover image ↗</a></span>
         </div>`;
