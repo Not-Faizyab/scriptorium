@@ -1394,7 +1394,9 @@
       })() : '';
       const titleInner = w.forthcoming ? esc(w.title) : `<a class="work-link" href="${esc(w.href)}">${esc(w.title)}</a>`;
       const meta = w.scans ? `${plural(w.scans, 'scan')}` : '';
-      const sourceLink = w.catalogueUrl ? `<a class="source-link" href="${esc(w.catalogueUrl)}" target="_blank" rel="noopener">Heidelberg University Library record ↗</a>` : '';
+      const sourceLink = w.catalogueUrl
+  ? `<a class="source-link" href="${esc(w.catalogueUrl)}" target="_blank" rel="noopener">${esc(w.holding || 'Library catalogue')} record ↗</a>`
+  : '';
       return `<li class="work ${w.forthcoming ? 'is-forthcoming' : 'is-linked'}" id="w-${esc(w.slug)}" aria-labelledby="${tid}" style="animation-delay:${Math.min(n, 12) * 40}ms">
         ${plateHTML(w)}
         <div class="work-main">
